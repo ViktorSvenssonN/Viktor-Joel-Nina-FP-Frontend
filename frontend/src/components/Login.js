@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector, batch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "utils/utils";
+import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import user from "reducers/user";
+import styled from "styled-components";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -50,8 +52,8 @@ const Login = () => {
 
     return (
         <>
-        <div className="outer-wrapper">
-          <div className="inner-wrapper">
+        <OuterWrapper>
+          <ClonedInnerWrapper>
             <div className="heading">
               <label htmlFor="Sign-Up">Create new account? SIGN UP</label>
               <input
@@ -93,10 +95,19 @@ const Login = () => {
               <button type="submit">SUBMIT</button>
             </div>
           </form>
-          </div>
-        </div>
+          </ClonedInnerWrapper>
+        </OuterWrapper>
       </>
     );
 }
+
+// Styled components // (får kolla om vi ska flytta några till global)
+
+const ClonedInnerWrapper = styled(InnerWrapper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width 70%;
+`;
 
 export default Login;
