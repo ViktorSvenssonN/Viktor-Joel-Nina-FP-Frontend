@@ -1,7 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components/macro';
-
-export const GlobalStyles = createGlobalStyle`
-`;
+import styled from 'styled-components/macro';
 
 export const OuterWrapper = styled.section`
     width: 100%
