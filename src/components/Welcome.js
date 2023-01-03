@@ -126,7 +126,7 @@ const Button = styled.button`
 
     &:hover {
       background-color: var(--clr-pancho);
-      box-shadow: 0px 15px 20px var(--clr-button-background);
+      box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
       color: #fff;
       transform: translateY(-2px);
     }
