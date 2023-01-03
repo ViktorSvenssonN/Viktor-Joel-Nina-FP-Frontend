@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from 'components/Main';
+/* import Main from 'components/Main'; */
+import Welcome from 'components/Welcome';
 import Login from 'components/Login';
 import NotFound from 'components/NotFound';
 import { Provider } from 'react-redux';
@@ -20,7 +21,8 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/login' element={<Login />}></Route>
-          <Route path='/' element={<Main />}></Route>
+          <Route path='/' element={<Welcome />}></Route>
+          {/* <Route path='/' element={<Main />}></Route> */}
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
