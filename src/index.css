@@ -2,23 +2,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
-  --clr-jungle-mist: #B2D7CE;
-  --clr-scarpa-flow: #545767;
-  --clr-cascade: #96ABA9;
-  --clr-pearl-brush: #DFD6D2;
-  --clr-pancho: #F0C8B0;
+  /*** Colors ***/
 
-  /* Backgrounds */
-  --clr-background: #6a6d80;
-  --clr-background-light: #8A9BA7;
+  /*** Backgrounds + MULTI use ***/
+
+  /* Används som main backgrounds färg 
+     -> backgrund till icon list vy
+     -> backgrund icon about us */
+  --clr-background: #6a6d80; 
+
+  /* Används som main LJUS backgrunds färg.  
+    -> backgrund till input fält
+    -> backgrund till knappar 
+    -> Text färg till Header och listvy med MÖRK bakgrund */
+  --clr-background-light: #e8e8e8; 
+
+  /* Background register vy */
+  --clr-background-register: #a5b9b7;
+
+  /* Backgrund Login in + About us kort */
+  --clr-background-login: #a1afba;
+
+  /* Backgrund Ballong i backgrunden för Register + Login in */
+  --clr-background-ballon: #e4bfac;
+
+  /* Backgrund för korten */
+    /* Grön ljus */ 
+  --clr-background-green-card: #c0e1da;
+    /* Orange Ljus */
+  --clir-background-orange-card: #f9d4c1;
+  
+  
 
   /* Text colors */
   --clr-text-dark: #303346; /*Använda denna färgen på alla? lägga som main färg i body = deafult färg? */
 
 
-  /*Button colors */
-  --clr-button-background: #e8e8e8;
-  --clr-button-background-light: #eeeded;
 
   /* **** FONTS ROOT UNDER HÄR ***** */
   --font-main: 'Roboto', sans-serif; 
@@ -41,3 +60,10 @@ body {
   color: var(--clr-text-dark);
 }
 
+/* vet inte om vi behöver dessa ViSv 2023-01-05 
+  --clr-jungle-mist: #B2D7CE;
+  --clr-scarpa-flow: #545767;
+  --clr-cascade: #96ABA9;
+  --clr-pearl-brush: #DFD6D2;
+  --clr-pancho: #F0C8B0;
+ */

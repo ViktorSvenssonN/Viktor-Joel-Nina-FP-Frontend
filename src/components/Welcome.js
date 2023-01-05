@@ -68,7 +68,7 @@ const Button = styled.button`
   height: 100%;
   font-size: 16px;
   letter-spacing: 2.5px;
-  background-color: var(--clr-button-background);
+  background-color: var(--clr-background-light);
   border: none;
   border-radius: 45px;
   box-shadow: 0px 2px 3px var(--clr-pancho);
@@ -89,7 +89,7 @@ const ButtonCleaner = styled.button`
   height: 100%;
   font-size: 16px;
   letter-spacing: 2.5px;
-  background-color: var(--clr-button-background);
+  background-color: var(--clr-background-light);
   border: none;
   border-radius: 45px;
   box-shadow: 5px 6px 4px 2px rgba(62, 66, 66, 0.33);
@@ -98,6 +98,7 @@ const ButtonCleaner = styled.button`
   outline: none;
 
   &:hover {
+    background-color: var(--clr-background-light);
     box-shadow: 0px 10px 15px var(--clr-pancho);
     color: #fff;
     transform: translateY(-2px);
