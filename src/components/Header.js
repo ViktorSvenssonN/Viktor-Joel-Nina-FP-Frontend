@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
-// TODO: vill bara impotera header i app/js inte i alla komponeter den används (renare känsla) men inte PRIO !
-
 const Header = () => {
-  return <h1>Header</h1>;
+  return <StyledHeader>Header</StyledHeader>;
 };
 
 export default Header;
+
+const StyledHeader = styled.header`
+  height: 10%;
+`;
