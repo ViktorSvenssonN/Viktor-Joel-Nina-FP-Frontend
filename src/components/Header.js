@@ -1,16 +1,29 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components/macro";
+import styled, { keyframes } from "styled-components/macro";
 import menuIcon from "../images/icons/menu.svg";
 
 const Header = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  console.log("menuOpen:", menuOpen);
+  console.log("fadeOut:", fadeOut);
 
   return (
     <StyledHeader>
+      <HeaderMenuWrapper>
+        <MenuButton
+          onClick={() => {
+            setFadeOut(menuOpen);
+            setMenuOpen(!menuOpen);
+          }}
+        >
+          <img src={menuIcon} />
+        </MenuButton>
+      </HeaderMenuWrapper>
       {menuOpen && (
-        <MenuDrawer>
+        <Menu fadeOut={fadeOut}>
           <MenuTopSection />
           <MenuNavLinks>
             <Link to="/home">List all birthdays</Link>
@@ -26,13 +39,27 @@ const Header = () => {
               Logout
             </button>
           </MenuNavLinks>
-        </MenuDrawer>
+        </Menu>
       )}
-      <MenuWrapper>
-        <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
-          <img src={menuIcon} />
-        </MenuButton>
-      </MenuWrapper>
+      {!menuOpen && fadeOut && (
+        <FadeMenu>
+          <MenuTopSection />
+          <MenuNavLinks>
+            <Link to="/home">List all birthdays</Link>
+            <Link to="/birthdayedit">Register new birthday</Link>
+            <Link to="/settings">Settings</Link>
+            <button
+              type="button"
+              onClick={() => {
+                dispatch(user.actions.setAccessToken(null));
+                navigate("/login");
+              }}
+            >
+              Logout
+            </button>
+          </MenuNavLinks>
+        </FadeMenu>
+      )}
     </StyledHeader>
   );
 };
@@ -44,7 +71,7 @@ const StyledHeader = styled.header`
   display: flex;
 `;
 
-const MenuWrapper = styled.div`
+const HeaderMenuWrapper = styled.div`
   height: 32px;
   width: 32px;
   margin: auto 0;
@@ -61,15 +88,40 @@ const MenuButton = styled.button`
   border: none;
 `;
 
-const MenuDrawer = styled.div`
+const fadeIn = keyframes`
+0% {
+    transform: translateX(-100%)
+  }
+  100% {
+    transform: translateX(0)
+  }
+`;
+const fadeOut = keyframes`
+0% {
+  transform: translateX(0)
+  }
+  100% {
+    transform: translateX(-100%)
+  }
+`;
+
+const Menu = styled.div`
   position: absolute;
-  height: 100%;
+  bottom: 0;
+  height: 90%;
   width: 50%;
+  transition: width 0.5s;
   background: var(--clr-background);
+  animation: ${fadeIn} 0.5s;
 `;
 
 const MenuTopSection = styled.section`
   height: 10%;
+`;
+
+const FadeMenu = styled(Menu)`
+  animation: ${fadeOut} 0.5s;
+  transform: translateX(-100%);
 `;
 
 const MenuNavLinks = styled.section`
