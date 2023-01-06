@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components/macro";
 
 // TODO: vill bara impotera header i app/js inte i alla komponeter den används (renare känsla) men inte PRIO !
 

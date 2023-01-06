@@ -14,7 +14,6 @@ import birthdays from "reducers/birthdays";
 import "./reset.css";
 import "./index.css";
 import ListView from "components/ListvView";
-import WithHeader from "components/WithHeader";
 
 const reducer = combineReducers({
   user: user.reducer,
