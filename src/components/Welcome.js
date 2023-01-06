@@ -5,8 +5,8 @@ import styled from "styled-components/macro";
 
 const Login = () => {
   return (
-    <ClonedOuterWrapper>
-      <ClonedInnerWrapper>
+    <OuterWrapper>
+      <InnerWrapper>
         <ImgParent>
           {/* logo */}
           <ImgContainer />
@@ -23,16 +23,12 @@ const Login = () => {
             </Link>
           </ParentButton>
         </ButtonWrapper>
-      </ClonedInnerWrapper>
-    </ClonedOuterWrapper>
+      </InnerWrapper>
+    </OuterWrapper>
   );
 };
 
 // Styled components // (får kolla om vi ska flytta några till global)
-
-const ClonedOuterWrapper = styled(OuterWrapper)`
-  height: 90vh;
-`;
 
 const ClonedInnerWrapper = styled(InnerWrapper)`
   width: 70%;
