@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { OuterWrapper, InnerWrapper } from "Globalstyles";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const Login = () => {
   return (
@@ -14,16 +14,13 @@ const Login = () => {
         <ButtonWrapper>
           <ParentButton>
             <Link to="login">
-              <Button type="button">login</Button>
+              <Button type="button">LOGIN</Button>
             </Link>
           </ParentButton>
           <ParentButton>
             <Link to="register">
-              <Button type="button">register</Button>
+              <Button type="button">REGISTER</Button>
             </Link>
-          </ParentButton>
-          <ParentButton>
-            <ButtonCleaner type="button">cleaner</ButtonCleaner>
           </ParentButton>
         </ButtonWrapper>
       </ClonedInnerWrapper>
@@ -48,7 +45,7 @@ const ImgContainer = styled.div`
   width: 100%;
   background-color: coral;
   height: 200px;
-  margin-bottom: 4%;
+  margin-bottom: 10%;
 `;
 
 const ButtonWrapper = styled.div`
@@ -58,27 +55,28 @@ const ButtonWrapper = styled.div`
 `;
 
 const ParentButton = styled.div`
-  height: 10vw;
+  height: 11vw;
   width: 65%;
-  margin-bottom: 4%;
+  margin-bottom: 10%;
 `;
 
 const Button = styled.button`
   width: 100%;
   height: 100%;
   font-size: 16px;
+  font-weight: bold;
   letter-spacing: 2.5px;
   background-color: var(--clr-background-light);
   border: none;
-  border-radius: 45px;
-  box-shadow: 0px 2px 3px var(--clr-pancho);
-  transition: all 0.3s ease 0s;
+  border-radius: 15px;
+  box-shadow: 5px 6px 10px var(--clr-text-dark);
+  transition: all 0.2s ease 0s;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    background-color: var(--clr-pancho);
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--clr-text-dark);
+    box-shadow: 2px 3px 10px var(--clr-text-dark);
     color: #fff;
     transform: translateY(-2px);
   }

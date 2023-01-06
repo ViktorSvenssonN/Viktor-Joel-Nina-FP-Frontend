@@ -5,6 +5,9 @@ import Welcome from "components/Welcome";
 import Login from "components/Login";
 import Register from "components/Register";
 import NotFound from "components/NotFound";
+import BirthdayCreateEdit from "components/BirthdayCreateEdit";
+import BirthdayDetailView from "components/BirthdayDetailView";
+import Settings from "components/Settings";
 import { Provider } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import user from "reducers/user";
@@ -31,6 +34,9 @@ export const App = () => {
           <Route path="/register" element={<Register />}></Route>
           <Route path="*" element={<NotFound />}></Route>
           <Route path="/home" element={<ListView />}></Route>
+          <Route path="/birthdayedit" element={<BirthdayCreateEdit />}></Route>
+          <Route path="/birthdayview" element={<BirthdayDetailView />}></Route>
+          <Route path="/settings" element={<Settings />}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>
