@@ -27,7 +27,7 @@ const Login = () => {
         if (data.success) {
           batch(() => {
             dispatch(user.actions.setUsername(data.response.username));
-            dispatch(user.actions.setUserId(data.response.id));
+            dispatch(user.actions.setId(data.response.id));
             dispatch(user.actions.setAccessToken(data.response.accessToken));
           });
           navigate("/home");

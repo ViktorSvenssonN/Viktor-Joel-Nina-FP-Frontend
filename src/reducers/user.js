@@ -5,7 +5,6 @@ const user = createSlice({
   initialState: {
     id: "",
     username: "",
-    password: "",
     accessToken: "",
   },
   reducers: {
@@ -14,9 +13,6 @@ const user = createSlice({
     },
     setUsername: (store, action) => {
       store.username = action.payload;
-    },
-    setPassword: (store, action) => {
-      store.password = action.payload;
     },
     setAccessToken: (store, action) => {
       store.accessToken = action.payload;
