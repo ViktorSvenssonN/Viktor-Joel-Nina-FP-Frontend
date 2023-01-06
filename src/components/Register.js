@@ -8,6 +8,7 @@ import styled from "styled-components";
 
 // Component check, not worked on.
 const Register = () => {
+  const [registerSuccess, setRegisterSuccess] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,16 +23,14 @@ const Register = () => {
       },
       body: JSON.stringify({ username: username, password: password }),
     };
-    fetch(API_URL("login"), options)
+    fetch(API_URL("register"), options)
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          batch(() => {
-            dispatch(user.actions.setUsername(data.response.username));
-            dispatch(user.actions.setUserId(data.response.id));
-            dispatch(user.actions.setAccessToken(data.response.accessToken));
-          });
-          navigate("/home");
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000);
+          setRegisterSuccess(true);
         } else {
           batch(() => {
             dispatch(user.actions.setUsername(null));
@@ -41,6 +40,14 @@ const Register = () => {
         }
       });
   };
+
+  if (registerSuccess) {
+    return (
+      <div>
+        <p>Registration succesful! Re-directing to login</p>
+      </div>
+    );
+  }
 
   return (
     <OuterWrapper>
@@ -66,14 +73,14 @@ const Register = () => {
           <br />
           <div className="registerLink">
             <p>
-              Not a member?{" "}
+              Already registered?
               <span>
-                <Link to="/register">Register here</Link>
+                <Link to="/login"> Login here</Link>
               </span>{" "}
             </p>
           </div>
           <div className="button">
-            <button type="submit">login</button>
+            <button type="submit">REGISTER</button>
           </div>
         </form>
       </ClonedInnerWrapper>
