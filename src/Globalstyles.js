@@ -6,7 +6,7 @@ export const GlobalOuterWrapper = styled.section`
 `;
 
 export const OuterWrapper = styled.section`
-  height: 100%;
+  height: 90%;
   width: 100%;
   display: flex;
   align-items: center;
