@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "components/Header";
 import Welcome from "components/Welcome";
 import Login from "components/Login";
 import Register from "components/Register";
@@ -15,6 +14,7 @@ import birthdays from "reducers/birthdays";
 import "./reset.css";
 import "./index.css";
 import ListView from "components/ListvView";
+import WithHeader from "components/WithHeader";
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -27,7 +27,6 @@ export const App = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<Welcome />}></Route>
           <Route path="/login" element={<Login />}></Route>
