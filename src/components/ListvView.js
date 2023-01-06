@@ -22,15 +22,6 @@ const ListView = () => {
       <InnerWrapper>
         <h1>Welcome!</h1>
         <h2>Now you are logged in </h2>
-        <button
-          type="button"
-          onClick={() => {
-            dispatch(user.actions.setAccessToken(null));
-            navigate("/login");
-          }}
-        >
-          Log Out
-        </button>
       </InnerWrapper>
     </ListOuterWrapper>
   );
