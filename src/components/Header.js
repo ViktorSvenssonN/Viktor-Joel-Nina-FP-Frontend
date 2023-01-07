@@ -3,10 +3,12 @@ import styled, { keyframes } from "styled-components/macro";
 import menuIcon from "../images/icons/menu.svg";
 import LightLogo from "logo/logo_light.svg";
 import Menu from "./Menu";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
   const [shouldRender, setRender] = useState(show);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (show) setRender(true);
@@ -15,6 +17,8 @@ const Header = () => {
   const onMenuClick = () => setShow(!show);
 
   const onAnimationEnd = () => !show && setRender(false);
+
+  const onLogoClick = () => navigate("/home");
 
   return (
     <StyledHeader>
@@ -29,7 +33,7 @@ const Header = () => {
           <MenuBackground onClick={() => setShow(false)} />
         </MenuWrapper>
       )}
-      <LogoContainer>
+      <LogoContainer onClick={() => onLogoClick()}>
         <img src={LightLogo} />
       </LogoContainer>
     </StyledHeader>
