@@ -15,6 +15,7 @@ import "./reset.css";
 import "./index.css";
 import ListView from "components/ListvView";
 import { GlobalOuterWrapper } from "Globalstyles";
+import AboutUs from "components/AboutUs";
 
 const reducer = combineReducers({
   user: user.reducer,
@@ -43,6 +44,7 @@ export const App = () => {
               element={<BirthdayDetailView />}
             ></Route>
             <Route path="/settings" element={<Settings />}></Route>
+            <Route path="/about-us" element={<AboutUs />}></Route>
           </Routes>
         </BrowserRouter>
       </GlobalOuterWrapper>
