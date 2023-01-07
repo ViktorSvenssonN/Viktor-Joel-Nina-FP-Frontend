@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
 import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import user from "reducers/user";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const Login = () => {
   const [username, setUsername] = useState("");

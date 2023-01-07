@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
 import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import user from "reducers/user";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 // Component check, not worked on.
 const Register = () => {
@@ -172,7 +172,7 @@ const LabelSubHeader = styled.label`
   font-size: 0.9rem;
   letter-spacing: 0.1px;
   padding-left: 4%;
-}
+
 `;
 
 const InputContainer= styled.input`
