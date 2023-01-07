@@ -4,21 +4,23 @@ import menuIcon from "../images/icons/menu.svg";
 import LightLogo from "logo/logo_light.svg";
 import Menu from "./Menu";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import ui from "reducers/ui";
 
 const Header = () => {
-  const [show, setShow] = useState(false);
-  const [shouldRender, setRender] = useState(show);
+  const menuOpen = useSelector((store) => store.ui.menuOpen);
+  const [shouldRender, setRender] = useState(menuOpen);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (show) setRender(true);
-  }, [show]);
-
-  const onMenuClick = () => setShow(!show);
-
-  const onAnimationEnd = () => !show && setRender(false);
+    if (menuOpen) setRender(true);
+  }, [menuOpen]);
 
   const onLogoClick = () => navigate("/home");
+  const onMenuClick = () => dispatch(ui.actions.setMenuOpen(!menuOpen));
+  const onBackgroundClick = () => dispatch(ui.actions.setMenuOpen(false));
+  const onAnimationEnd = () => !menuOpen && setRender(false);
 
   return (
     <StyledHeader>
@@ -28,9 +30,12 @@ const Header = () => {
         </MenuButton>
       </HeaderMenuWrapper>
       {shouldRender && (
-        <MenuWrapper show={show} onAnimationEnd={() => onAnimationEnd()}>
+        <MenuWrapper
+          menuOpen={menuOpen}
+          onAnimationEnd={() => onAnimationEnd()}
+        >
           <Menu onMenuClick={onMenuClick} />
-          <MenuBackground onClick={() => setShow(false)} />
+          <MenuBackground onClick={() => onBackgroundClick()} />
         </MenuWrapper>
       )}
       <LogoContainer onClick={() => onLogoClick()}>
@@ -85,6 +90,7 @@ const fadeOutAnimation = keyframes`
 `;
 
 const MenuWrapper = styled.div`
+  z-index: 10000;
   display: flex;
   grid-template-areas:
     "top top"
@@ -92,17 +98,15 @@ const MenuWrapper = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
-  animation: ${(props) => (props.show ? fadeInAnimation : fadeOutAnimation)}
+  animation: ${(props) => (props.menuOpen ? fadeInAnimation : fadeOutAnimation)}
     0.5s;
-  transform: ${(props) => (props.show ? `translateX(0)` : `translateX(-100%)`)};
+  transform: ${(props) =>
+    props.menuOpen ? `translateX(0)` : `translateX(-100%)`};
 `;
 
 const MenuBackground = styled.section`
   width: 30%;
   height: 100%;
-  filter: blur(10px);
-  opacity: 0.4;
-  background: #10181cd9;
 `;
 
 const LogoContainer = styled.button`

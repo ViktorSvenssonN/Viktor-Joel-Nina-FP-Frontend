@@ -7,26 +7,19 @@ import NotFound from "components/NotFound";
 import BirthdayCreateEdit from "components/BirthdayCreateEdit";
 import BirthdayDetailView from "components/BirthdayDetailView";
 import Settings from "components/Settings";
-import { Provider } from "react-redux";
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import user from "reducers/user";
-import birthdays from "reducers/birthdays";
+import { useSelector } from "react-redux";
 import "./reset.css";
 import "./index.css";
 import ListView from "components/ListvView";
 import { GlobalOuterWrapper } from "Globalstyles";
 import AboutUs from "components/AboutUs";
-
-const reducer = combineReducers({
-  user: user.reducer,
-  birthdays: birthdays.reducer,
-});
-
-const store = configureStore({ reducer });
+import styled from "styled-components";
 
 export const App = () => {
+  const menuOpen = useSelector((store) => store.ui.menuOpen);
+
   return (
-    <Provider store={store}>
+    <>
       <GlobalOuterWrapper>
         <BrowserRouter>
           <Routes>
@@ -48,6 +41,17 @@ export const App = () => {
           </Routes>
         </BrowserRouter>
       </GlobalOuterWrapper>
-    </Provider>
+      <BackdropFilter menuOpen={menuOpen} />
+    </>
   );
 };
+
+const BackdropFilter = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  backdrop-filter: blur(3px);
+  z-index: 5;
+  display: ${(props) => (props.menuOpen ? "block" : "none")};
+`;

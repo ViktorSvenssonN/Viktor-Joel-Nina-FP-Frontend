@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components/macro";
+import styled from "styled-components/macro";
 import { Link, useNavigate } from "react-router-dom";
 import arrowLeft from "../images/icons/arrow-thin-left.svg";
 import user from "reducers/user";
+import ui from "reducers/ui";
 import settingsIcon from "../images/icons/cog.svg";
 import logoutIcon from "../images/icons/logout.svg";
 import listIcon from "../images/icons/list.svg";
@@ -15,31 +16,33 @@ const Menu = ({ onMenuClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const onLinkClick = () => dispatch(ui.actions.setMenuOpen(false));
+
   return (
     <StyledMenu>
       <MenuTopSection>
-        <OpenMenuButton onClick={() => onMenuClick()}>
+        <OpenMenuButton onClick={onMenuClick}>
           <img src={arrowLeft} />
         </OpenMenuButton>
       </MenuTopSection>
       <MenuNavLinks>
-        <MenuItemWrapper>
+        <MenuItemWrapper onClick={onLinkClick}>
           <MenuIcon src={listIcon} />
           <Link to="/home">List all birthdays</Link>
         </MenuItemWrapper>
-        <MenuItemWrapper>
+        <MenuItemWrapper onClick={onLinkClick}>
           <MenuIcon src={addIcon} />
           <Link to="/birthdayedit">Register new birthday</Link>
         </MenuItemWrapper>
-        <MenuItemWrapper>
+        <MenuItemWrapper onClick={onLinkClick}>
           <MenuIcon src={settingsIcon} />
           <Link to="/settings">Settings</Link>
         </MenuItemWrapper>
-        <MenuItemWrapper>
+        <MenuItemWrapper onClick={onLinkClick}>
           <MenuIcon src={aboutIcon} />
           <Link to="/about-us">About</Link>
         </MenuItemWrapper>
-        <MenuItemWrapper>
+        <MenuItemWrapper onClick={onLinkClick}>
           <MenuIcon src={logoutIcon} />
           <button
             type="button"
@@ -93,6 +96,7 @@ const MenuNavLinks = styled.section`
     font-size: 20px;
     color: var(--clr-background-light);
     text-decoration: none;
+    width: 100%;
   }
 
   button {
