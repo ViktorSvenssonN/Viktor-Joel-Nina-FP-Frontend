@@ -1,17 +1,15 @@
-import { InnerWrapper, OuterWrapper } from "Globalstyles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { InnerWrapper, OuterWrapper } from "Globalstyles";
 import user from "reducers/user"; 
 import WithHeader from "./WithHeader";
 import styled from "styled-components/macro";
-import DarkLogo from "logo/logo_dark.svg";
-// import { icon } from "@fortawesome/fontawesome-svg-core";
 
 const ListView = () => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
+  const inLoggedUser = useSelector((store) => store.user.username);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,15 +21,10 @@ const ListView = () => {
   return (
     <ListOuterWrapper>
       <InnerWrapper>
-        <h1>Welcome!</h1>
-        <h2>Now you are logged in </h2>
-        <CrossBtn>✕</CrossBtn>
-        <HeaderLogoDark>
-        <img src={DarkLogo} alt="Dark Logo" />
-        </HeaderLogoDark>
-        <Icon>
-          {/* <FontAwesomeIcon icon="fa-solid fa-check" size="3x"/> */}
-        </Icon>
+        <WelcomeMsg>
+        <h1>Welcome {inLoggedUser}!</h1>
+        <h2>add your first Birthday by clicking the -add Birthday- button </h2>
+        </WelcomeMsg>
       </InnerWrapper>
     </ListOuterWrapper>
   );
@@ -39,53 +32,49 @@ const ListView = () => {
 
 export default WithHeader(ListView);
 
+// ------------- Styled Components -------------------
+
 const ListOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-background-light);
 `;
 
-// ------------- Styled Components -------------------
+const WelcomeMsg = styled.div`
+width: 200px;
+font-style: var(--font-main);
+background: var(--clr-background-ballon);
+border-radius: 15px;
+border: none;
+padding: 4%;
 
-export const CrossBtn = styled.button`
-  height: 40px;
-  width: 40px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 25px;
-  border: none;
-  color: var(-clr-text-dark);
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    cursor: pointer;
-    background: var(-clr-text-dark);
-    color: var(-clr-text-light);
-  }
-
-  @media (min-width: 667px) {
-  }
-  @media (min-width: 1024px) {
-  }
-`;
-
-export const Icon = styled.div`
-  border: 1px solid pink;
-  width: 50px;
-  height: 50px;
-`;
-
-const HeaderLogoDark = styled.div`
-  width : 100%;   
-  height: 30%;
-  display: flex;
-  justify-content: center;
-  border: 1px solid green;
-
-  img {
-    width: 200px;
-    
-  }
+h1 {
+  padding-bottom: 5px;
+}
 
 `;
+
+// export const CrossBtn = styled.button`
+//   height: 40px;
+//   width: 40px;
+//   font-size: 1.5rem;
+//   font-weight: bold;
+//   border-radius: 25px;
+//   border: none;
+//   color: var(-clr-text-dark);
+//   background-color: transparent;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   &:hover {
+//     cursor: pointer;
+//     background: var(-clr-text-dark);
+//     color: var(-clr-text-light);
+//   }
+
+//   @media (min-width: 667px) {
+//   }
+//   @media (min-width: 1024px) {
+//   }
+// `;
+
+

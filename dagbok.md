@@ -20,8 +20,9 @@ Nina
 försökt få in fontawesom som iconer men fattar inte steget med babel set up config.
 https://fontawesome.com/v6/docs/web/use-with/react/add-icons
 "Add the following to your babel.config.js file:" hittar inte denna filen, måste jag skapa den själv?
+- skapat iconer till  Listkorten
 
-### 6/2 lördag
+### 7/1 lördag
 
 Joel
 
@@ -38,3 +39,14 @@ Viktor
 -att göra, flytta ut componeterna från register till global, använd dem i login
 -imorgon söndag
 -styla klart WElcome + login
+
+Nina
+
+- tagit bort Fontawesome npm packages
+- fixat svg-filer, kollat så att logo funkar
+- lagt in och fixat med iconer .svg
+- mapp iconsR de som ska renderas.
+- startat på Listview
+- added component listcard
+
+### 8/1 Söndag

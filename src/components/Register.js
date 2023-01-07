@@ -8,6 +8,7 @@ import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
 import logolight from "../logo/logo_light.svg";
 
+
 // Component check, not worked on.
 const Register = () => {
   const [registerSuccess, setRegisterSuccess] = useState(false);
