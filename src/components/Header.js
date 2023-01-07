@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components/macro";
 import menuIcon from "../images/icons/menu.svg";
+import LightLogo from "logo/logo_light.svg";
 import Menu from "./Menu";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [show, setShow] = useState(false);
   const [shouldRender, setRender] = useState(show);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (show) setRender(true);
@@ -14,6 +17,8 @@ const Header = () => {
   const onMenuClick = () => setShow(!show);
 
   const onAnimationEnd = () => !show && setRender(false);
+
+  const onLogoClick = () => navigate("/home");
 
   return (
     <StyledHeader>
@@ -28,6 +33,9 @@ const Header = () => {
           <MenuBackground onClick={() => setShow(false)} />
         </MenuWrapper>
       )}
+      <LogoContainer onClick={() => onLogoClick()}>
+        <img src={LightLogo} />
+      </LogoContainer>
     </StyledHeader>
   );
 };
@@ -35,18 +43,18 @@ const Header = () => {
 export default Header;
 
 const StyledHeader = styled.header`
+  width: 100%;
   height: 10%;
   display: flex;
 `;
 
 const HeaderMenuWrapper = styled.div`
+  width: 25%;
   margin: auto 0;
 `;
 
 const MenuButton = styled.button`
   cursor: pointer;
-  height: 100%;
-  width: 100%;
   background: none;
   border: none;
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(223deg)
@@ -92,4 +100,21 @@ const MenuWrapper = styled.div`
 const MenuBackground = styled.section`
   width: 30%;
   height: 100%;
+  filter: blur(10px);
+  opacity: 0.4;
+  background: #10181cd9;
+`;
+
+const LogoContainer = styled.button`
+  cursor: pointer;
+  width: 50%;
+  background: none;
+  border: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  img {
+    height: 100%;
+  }
 `;
