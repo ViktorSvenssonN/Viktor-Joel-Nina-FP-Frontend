@@ -63,6 +63,13 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
+          <ForgottPasswordContainer>
+            <Link to="/forgot"> 
+              <p> 
+                Forgot password? 
+              </p>
+            </Link>
+          </ForgottPasswordContainer>
           <div className="registerLink">
             <p>
               Not a member?{" "}
@@ -87,6 +94,13 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   flex-direction: column;
   align-items: center;
   width: 70%;
+`;
+
+const ForgottPasswordContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2%;
+  padding-right: 2%;
 `;
 
 export default Login;

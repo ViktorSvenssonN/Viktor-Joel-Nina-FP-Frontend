@@ -1,12 +1,12 @@
 import { InnerWrapper, OuterWrapper } from "Globalstyles";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import user from "reducers/user";
+import user from "reducers/user"; 
 import WithHeader from "./WithHeader";
 import styled from "styled-components/macro";
-import { icon } from "@fortawesome/fontawesome-svg-core";
+/* import { icon } from "@fortawesome/fontawesome-svg-core"; */
 
 const ListView = () => {
   const dispatch = useDispatch();
