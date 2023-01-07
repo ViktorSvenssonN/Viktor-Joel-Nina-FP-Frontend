@@ -100,9 +100,9 @@ const Register = () => {
                     </span>{" "}
                   </p>
                 </LoginInLinkContainer>
-                <div className="button">
-                  <button type="submit">REGISTER</button>
-                </div>
+                <ParentButton>
+                  <Button type="submit">SIGN UP</Button>
+                </ParentButton>
               </Form>
             </FormInnerContainer>
           </FormOuterContainer>
@@ -134,6 +134,7 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 const LogoButtonContainer = styled.div`
   width: 100%;
   height: 10%;
+  margin
   border: 1px solid blue;
   display: flex;
   justify-content: center;
@@ -161,6 +162,7 @@ const FormHeaderContainer = styled.div`
   align-content: center;
   justify-content: center;
   align-items: center;
+  margin-top: 3%;
 `;
 
 const FormHeader = styled.h1`
@@ -207,6 +209,36 @@ const LoginInLinkContainer = styled.div`
   justify-content: flex-end;
   margin-bottom: 6%;
   padding-right: 2%;
+`;
+
+const ParentButton = styled.div`
+  height: 11vw;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Button = styled.button`
+  width: 60%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  background-color: var(--clr-background-light);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 5px 6px 10px var(--clr-text-dark);
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: var(--clr-text-dark);
+    box-shadow: 2px 3px 10px var(--clr-text-dark);
+    color: #fff;
+    transform: translateY(-2px);
+  }
 `;
 
 export default Register;
