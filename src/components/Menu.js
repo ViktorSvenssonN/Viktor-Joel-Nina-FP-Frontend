@@ -3,6 +3,11 @@ import styled, { keyframes } from "styled-components/macro";
 import { Link, useNavigate } from "react-router-dom";
 import arrowLeft from "../images/icons/arrow-thin-left.svg";
 import user from "reducers/user";
+import settingsIcon from "../images/icons/cog.svg";
+import logoutIcon from "../images/icons/logout.svg";
+import listIcon from "../images/icons/list.svg";
+import addIcon from "../images/icons/list-add.svg";
+
 import { useDispatch } from "react-redux";
 
 const Menu = ({ onMenuClick }) => {
@@ -17,18 +22,30 @@ const Menu = ({ onMenuClick }) => {
         </OpenMenuButton>
       </MenuTopSection>
       <MenuNavLinks>
-        <Link to="/home">List all birthdays</Link>
-        <Link to="/birthdayedit">Register new birthday</Link>
-        <Link to="/settings">Settings</Link>
-        <button
-          type="button"
-          onClick={() => {
-            dispatch(user.actions.setAccessToken(null));
-            navigate("/login");
-          }}
-        >
-          Logout
-        </button>
+        <MenuItemWrapper>
+          <MenuIcon src={listIcon} />
+          <Link to="/home">List all birthdays</Link>
+        </MenuItemWrapper>
+        <MenuItemWrapper>
+          <MenuIcon src={addIcon} />
+          <Link to="/birthdayedit">Register new birthday</Link>
+        </MenuItemWrapper>
+        <MenuItemWrapper>
+          <MenuIcon src={settingsIcon} />
+          <Link to="/settings">Settings</Link>
+        </MenuItemWrapper>
+        <MenuItemWrapper>
+          <MenuIcon src={logoutIcon} />
+          <button
+            type="button"
+            onClick={() => {
+              dispatch(user.actions.setAccessToken(null));
+              navigate("/login");
+            }}
+          >
+            Logout
+          </button>
+        </MenuItemWrapper>
       </MenuNavLinks>
     </StyledMenu>
   );
@@ -65,13 +82,34 @@ const OpenMenuButton = styled.button`
 const MenuNavLinks = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 20px;
   height: 90%;
   background: var(--clr-background);
-  padding: 40px 0 0 30px;
   a {
     color: var(--clr-background-light);
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
   }
+
+  button {
+    color: var(--clr-background-light);
+    text-decoration: none;
+    font-size: 20px;
+    background: none;
+    border: none;
+    text-align: unset;
+  }
+`;
+
+const MenuItemWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 50px 0 0 20px;
+`;
+
+const MenuIcon = styled.img`
+  width: 32px;
+  height: 32px;
+  filter: invert(72%) sepia(24%) saturate(323%) hue-rotate(339deg)
+    brightness(109%) contrast(95%);
 `;
