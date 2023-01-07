@@ -5,6 +5,8 @@ import { API_URL } from "utils/utils";
 import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
+import ballons from "../images/ballons_120x250.png"
+import logolight from "../logo/logo_light.svg"
 
 // Component check, not worked on.
 const Register = () => {
@@ -55,12 +57,12 @@ const Register = () => {
     <>
     <LogoButtonContainer>
       <LogoButton>
-        <LogoImg>
-        </LogoImg>
+      <Link to="/"><LogoImg src={logolight} /> </Link>
       </LogoButton>
     </LogoButtonContainer><ClonedOuterWrapper>
         <ClonedInnerWrapper>
           <FormOuterContainer>
+            <BallonBackgroundImg src={ballons} />
             <FormHeaderContainer>
               <FormHeader>REGISTER</FormHeader>
             </FormHeaderContainer>
@@ -70,7 +72,7 @@ const Register = () => {
                   <InputContainer
                     type="text"
                     id="username"
-                    placeholder="John doe"
+                    placeholder="John Doe"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)} />
                 <LabelSubHeader htmlFor="email">Email: </LabelSubHeader>
@@ -127,6 +129,8 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   width: 100%;
   height: 95%;
   justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 `;
 
 // Button 
@@ -142,16 +146,25 @@ const LogoButtonContainer = styled.div`
 `;
 
 const LogoButton = styled.div`
-  width: 55px;
-  height: 55px;  
-  border: 1px solid red;
+  width: 50%;
+  height: 100%;
 `;
 
 // blir senare styled.img
-const LogoImg = styled.div`
-  width: 25px;
-  height: 25px;  
-  border: 1px solid yellow;
+const LogoImg = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+// ballon img 
+
+const BallonBackgroundImg = styled.img`
+  position: absolute;
+  z-index: 2;
+  height: 65%;
+  width: 65%;
+  left: 51%;
+  top: 35%;
 `;
 
 // register form
@@ -163,6 +176,8 @@ const FormHeaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 3%;
+  position: relative;
+  z-index: 3;
 `;
 
 const FormHeader = styled.h1`
@@ -174,7 +189,7 @@ const LabelSubHeader = styled.label`
   font-size: 0.9rem;
   letter-spacing: 0.1px;
   padding-left: 4%;
-
+  margin-bottom: 0.8%;
 `;
 
 const InputContainer= styled.input`
@@ -190,11 +205,14 @@ const FormOuterContainer = styled.div`
   height: 90%;
   background: var(--clr-background-register);
   border-radius: 45px 45px 0 0;
+  position: relative;
 `;
 
 const FormInnerContainer = styled.div`
   display: flex;
   justify-content: center;
+  position: relative;
+  z-index: 3;
 `;
 
 const Form = styled.form`

@@ -29,3 +29,11 @@ Joel
 - refactor Menu till egen komponent
 - lagt till styling och ikoner i menyn
 - skapade tom AboutUs komponent och länk+ikon i menyn
+
+
+Viktor
+
+  -styling stort sett klar för register,
+   -att göra, flytta ut componeterna från register till global, använd dem i login
+  -imorgon söndag
+   -styla klart WElcome + login
