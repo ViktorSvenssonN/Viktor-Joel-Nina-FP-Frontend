@@ -7,6 +7,7 @@ import settingsIcon from "../images/icons/cog.svg";
 import logoutIcon from "../images/icons/logout.svg";
 import listIcon from "../images/icons/list.svg";
 import addIcon from "../images/icons/list-add.svg";
+import aboutIcon from "../images/icons/information-outline.svg";
 
 import { useDispatch } from "react-redux";
 
@@ -33,6 +34,10 @@ const Menu = ({ onMenuClick }) => {
         <MenuItemWrapper>
           <MenuIcon src={settingsIcon} />
           <Link to="/settings">Settings</Link>
+        </MenuItemWrapper>
+        <MenuItemWrapper>
+          <MenuIcon src={aboutIcon} />
+          <Link to="/about-us">About</Link>
         </MenuItemWrapper>
         <MenuItemWrapper>
           <MenuIcon src={logoutIcon} />
@@ -85,9 +90,9 @@ const MenuNavLinks = styled.section`
   height: 90%;
   background: var(--clr-background);
   a {
+    font-size: 20px;
     color: var(--clr-background-light);
     text-decoration: none;
-    font-size: 20px;
   }
 
   button {
