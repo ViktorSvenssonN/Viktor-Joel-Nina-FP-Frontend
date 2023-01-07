@@ -99,14 +99,11 @@ const fadeOutAnimation = keyframes`
 `;
 
 const MenuWrapper = styled.div`
-  /* z-index: 2; */
-  /* flex-wrap: wrap; */
   display: flex;
   grid-template-areas:
     "top top"
     "menu right";
   position: absolute;
-  /* bottom: 0; */
   height: 100%;
   width: 100%;
   animation: ${(props) => (props.show ? fadeInAnimation : fadeOutAnimation)}
@@ -121,10 +118,7 @@ const Menu = styled.section`
 
 const MenuTopSection = styled.section`
   background: var(--clr-background);
-  /* width: 70%; */
-  /* display: flex; */
   height: 10%;
-  /* margin: auto; */
   height: 10%;
 `;
 
@@ -136,7 +130,6 @@ const MenuNavLinks = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* width: 70%; */
   height: 90%;
   background: var(--clr-background);
   padding: 40px 0 0 30px;
