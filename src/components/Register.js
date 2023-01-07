@@ -5,8 +5,8 @@ import { API_URL } from "utils/utils";
 import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
-import ballons from "../images/ballons_120x250.png"
-import logolight from "../logo/logo_light.svg"
+import ballons from "../images/ballons_120x250.png";
+import logolight from "../logo/logo_light.svg";
 
 // Component check, not worked on.
 const Register = () => {
@@ -55,11 +55,14 @@ const Register = () => {
 
   return (
     <>
-    <LogoButtonContainer>
-      <LogoButton>
-      <Link to="/"><LogoImg src={logolight} /> </Link>
-      </LogoButton>
-    </LogoButtonContainer><ClonedOuterWrapper>
+      <LogoButtonContainer>
+        <LogoButton>
+          <Link to="/">
+            <LogoImg src={logolight} />{" "}
+          </Link>
+        </LogoButton>
+      </LogoButtonContainer>
+      <ClonedOuterWrapper>
         <ClonedInnerWrapper>
           <FormOuterContainer>
             <BallonBackgroundImg src={ballons} />
@@ -69,31 +72,37 @@ const Register = () => {
             <FormInnerContainer>
               <Form onSubmit={onFormSubmit}>
                 <LabelSubHeader htmlFor="username">Name: </LabelSubHeader>
-                  <InputContainer
-                    type="text"
-                    id="username"
-                    placeholder="John Doe"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)} />
+                <InputContainer
+                  type="text"
+                  id="username"
+                  placeholder="John Doe"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
                 <LabelSubHeader htmlFor="email">Email: </LabelSubHeader>
-                  <InputContainer
-                    type="email"
-                    id="email"
-                    placeholder="example@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)} />
+                <InputContainer
+                  type="email"
+                  id="email"
+                  placeholder="example@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
-                  <InputContainer
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)} />
-                <LabelSubHeader htmlFor="password">Confirm password: </LabelSubHeader>
-                  <InputContainer
-                    type="password"
-                    id="confirmPassword"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)} />
+                <InputContainer
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <LabelSubHeader htmlFor="password">
+                  Confirm password:{" "}
+                </LabelSubHeader>
+                <InputContainer
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
                 <LoginInLinkContainer>
                   <p>
                     Already registered?
@@ -110,7 +119,7 @@ const Register = () => {
           </FormOuterContainer>
         </ClonedInnerWrapper>
       </ClonedOuterWrapper>
-      </>
+    </>
   );
 };
 
@@ -120,6 +129,7 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
   background: var(--clr-background);
   justify-content: flex-end;
+  overflow: hidden;
 `;
 
 const ClonedInnerWrapper = styled(InnerWrapper)`
@@ -133,13 +143,11 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   z-index: 1;
 `;
 
-// Button 
+// Button
 
 const LogoButtonContainer = styled.div`
   width: 100%;
   height: 10%;
-  margin
-  border: 1px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,7 +164,7 @@ const LogoImg = styled.img`
   height: 100%;
 `;
 
-// ballon img 
+// ballon img
 
 const BallonBackgroundImg = styled.img`
   position: absolute;
@@ -192,7 +200,7 @@ const LabelSubHeader = styled.label`
   margin-bottom: 0.8%;
 `;
 
-const InputContainer= styled.input`
+const InputContainer = styled.input`
   margin-bottom: 5%;
   border-radius: 15px;
   border: none;
@@ -219,8 +227,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 70%;
-`; 
-
+`;
 
 const LoginInLinkContainer = styled.div`
   display: flex;
