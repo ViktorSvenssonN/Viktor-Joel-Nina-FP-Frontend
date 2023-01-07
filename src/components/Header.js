@@ -25,20 +25,17 @@ const Header = () => {
   return (
     <StyledHeader>
       <HeaderMenuWrapper>
-        <MenuButton onClick={() => onMenuClick()}>
+        <MenuButton onClick={onMenuClick}>
           <img src={menuIcon} />
         </MenuButton>
       </HeaderMenuWrapper>
       {shouldRender && (
-        <MenuWrapper
-          menuOpen={menuOpen}
-          onAnimationEnd={() => onAnimationEnd()}
-        >
+        <MenuWrapper menuOpen={menuOpen} onAnimationEnd={onAnimationEnd}>
           <Menu onMenuClick={onMenuClick} />
-          <MenuBackground onClick={() => onBackgroundClick()} />
+          <MenuBackground onClick={onBackgroundClick} />
         </MenuWrapper>
       )}
-      <LogoContainer onClick={() => onLogoClick()}>
+      <LogoContainer onClick={onLogoClick}>
         <img src={LightLogo} />
       </LogoContainer>
     </StyledHeader>

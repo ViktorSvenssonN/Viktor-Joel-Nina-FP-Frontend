@@ -26,14 +26,15 @@ https://fontawesome.com/v6/docs/web/use-with/react/add-icons
 Joel
 
 - fipplat med funktionalitet för slide in/out för menyn
-- refactor Menu till egen komponent
+- refactor Menu till egen komponent, refactor MenuNavLinks till egen komponent
 - lagt till styling och ikoner i menyn
 - skapade tom AboutUs komponent och länk+ikon i menyn
-
+- flyttade Provider (redux) till Index.js
+- lade till blur effect på hela appen om meny är öppen
 
 Viktor
 
-  -styling stort sett klar för register,
-   -att göra, flytta ut componeterna från register till global, använd dem i login
-  -imorgon söndag
-   -styla klart WElcome + login
+-styling stort sett klar för register,
+-att göra, flytta ut componeterna från register till global, använd dem i login
+-imorgon söndag
+-styla klart WElcome + login
