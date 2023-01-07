@@ -174,7 +174,7 @@ const LabelSubHeader = styled.label`
   font-size: 0.9rem;
   letter-spacing: 0.1px;
   padding-left: 4%;
-}
+
 `;
 
 const InputContainer= styled.input`

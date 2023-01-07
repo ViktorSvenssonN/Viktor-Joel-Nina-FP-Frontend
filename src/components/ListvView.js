@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import user from "reducers/user"; 
 import WithHeader from "./WithHeader";
 import styled from "styled-components/macro";
+import DarkLogo from "logo/logo_dark.svg";
 // import { icon } from "@fortawesome/fontawesome-svg-core";
 
 const ListView = () => {
@@ -25,6 +26,9 @@ const ListView = () => {
         <h1>Welcome!</h1>
         <h2>Now you are logged in </h2>
         <CrossBtn>✕</CrossBtn>
+        <HeaderLogoDark>
+        <img src={DarkLogo} alt="Dark Logo" />
+        </HeaderLogoDark>
         <Icon>
           {/* <FontAwesomeIcon icon="fa-solid fa-check" size="3x"/> */}
         </Icon>
@@ -70,4 +74,18 @@ export const Icon = styled.div`
   border: 1px solid pink;
   width: 50px;
   height: 50px;
+`;
+
+const HeaderLogoDark = styled.div`
+  width : 100%;   
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  border: 1px solid green;
+
+  img {
+    width: 200px;
+    
+  }
+
 `;
