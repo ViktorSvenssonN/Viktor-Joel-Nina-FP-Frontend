@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
-import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg } from "Globalstyles";
+import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg, Form, FormOuterContainer, FormInnerContainer, LoginInLinkContainer,
+  FormHeaderContainer, FormHeader, InputContainer, LabelSubHeader, BallonBackgroundImg, ContainerButtonLoginSignUp, ButtonLoginSignUp } from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
@@ -53,24 +54,27 @@ const Login = () => {
       </LogoButton>
     </LogoButtonContainer>
     <ClonedOuterWrapper>
-        <ClonedInnerWrapper>
-          <form onSubmit={onFormSubmit}>
-            <label htmlFor="username">Email: </label>
-
-            <input
+      <ClonedInnerWrapper>
+      <ClonedFormOuterContainer>
+        <BallonBackgroundImg src={ballons} />
+        <FormHeaderContainer>
+          <FormHeader>LOG IN</FormHeader>
+        </FormHeaderContainer>
+        <FormInnerContainer>
+          <Form onSubmit={onFormSubmit}>
+            <LabelSubHeader htmlFor="username">Email: </LabelSubHeader>
+            <InputContainer
               type="email"
               id="username"
               placeholder="example@example.com"
               value={username}
               onChange={(e) => setUsername(e.target.value)} />
-            <br />
-            <label htmlFor="password">Password: </label>
-            <input
+            <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
+            <InputContainer
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)} />
-            <br />
             <ForgottPasswordContainer>
               <Link to="/forgot">
                 <p>
@@ -78,20 +82,22 @@ const Login = () => {
                 </p>
               </Link>
             </ForgottPasswordContainer>
-            <div className="registerLink">
+            <LoginInLinkContainer>
               <p>
                 Not a member?{" "}
                 <span>
                   <Link to="/register">Register here</Link>
                 </span>{" "}
               </p>
-            </div>
-            <div className="button">
-              <button type="submit">login</button>
-            </div>
-          </form>
-        </ClonedInnerWrapper>
-      </ClonedOuterWrapper>
+            </LoginInLinkContainer>
+            <ContainerButtonLoginSignUp>
+              <ButtonLoginSignUp type="submit">LOGIN IN</ButtonLoginSignUp>
+            </ContainerButtonLoginSignUp>
+          </Form>
+        </FormInnerContainer>
+        </ClonedFormOuterContainer>
+      </ClonedInnerWrapper>
+    </ClonedOuterWrapper>
       </>
   );
 };
@@ -114,6 +120,11 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   justify-content: flex-end;
   position: relative;
   z-index: 1;
+`;
+
+const ClonedFormOuterContainer = styled(FormOuterContainer)`
+  background: var(--clr-background-login); 
+  height: 80%;
 `;
 
 const ForgottPasswordContainer = styled.div`
