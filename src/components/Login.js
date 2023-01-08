@@ -45,7 +45,7 @@ const Login = () => {
     <OuterWrapper>
       <ClonedInnerWrapper>
         <form onSubmit={onFormSubmit}>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username">Email: </label>
 
           <input
             type="email"

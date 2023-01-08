@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import styled from "styled-components/macro";
+import logowelcome from "../logo/logo_welcome.svg"
 
 const Login = () => {
   return (
@@ -9,7 +10,7 @@ const Login = () => {
       <InnerWrapper>
         <ImgParent>
           {/* logo */}
-          <ImgContainer />
+          <ImgContainer src={logowelcome}/>
         </ImgParent>
         <ButtonWrapper>
           <ParentButton>
@@ -35,12 +36,12 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   margin: 0 auto;
 `;
 
-const ImgParent = styled.div``;
+const ImgParent = styled.div`
+`;
 
-const ImgContainer = styled.div`
+const ImgContainer = styled.img`
   width: 100%;
-  background-color: coral;
-  height: 200px;
+  height: 50%;
   margin-bottom: 10%;
 `;
 

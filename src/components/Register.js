@@ -12,7 +12,7 @@ import logolight from "../logo/logo_light.svg";
 // Component check, not worked on.
 const Register = () => {
   const [registerSuccess, setRegisterSuccess] = useState(false);
-  const [username, setUsername] = useState("");
+/*   const [username, setUsername] = useState(""); */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -72,20 +72,21 @@ const Register = () => {
             </FormHeaderContainer>
             <FormInnerContainer>
               <Form onSubmit={onFormSubmit}>
-                <LabelSubHeader htmlFor="username">Name: </LabelSubHeader>
+{/*                 <LabelSubHeader htmlFor="username">Name: </LabelSubHeader>
                 <InputContainer
                   type="text"
                   id="username"
                   placeholder="John Doe"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                />
+                /> */}
                 <LabelSubHeader htmlFor="email">Email: </LabelSubHeader>
                 <InputContainer
                   type="email"
                   id="email"
                   placeholder="example@example.com"
                   value={email}
+                  required
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
@@ -93,15 +94,18 @@ const Register = () => {
                   type="password"
                   id="password"
                   value={password}
+                  required
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <LabelSubHeader htmlFor="password">
                   Confirm password:{" "}
                 </LabelSubHeader>
-                <InputContainer
+                <ConfirmPasswordContainer
+                  isSame={confirmPassword === password}
                   type="password"
                   id="confirmPassword"
                   value={confirmPassword}
+                  required
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
                 <LoginInLinkContainer>
@@ -208,6 +212,11 @@ const InputContainer = styled.input`
   height: 3rem;
   padding-left: 4%;
 `;
+
+const ConfirmPasswordContainer = styled(InputContainer)`
+  border: ${(props) => props?.isSame ? "none" : "1px red solid"};
+
+`
 
 const FormOuterContainer = styled.div`
   width: 100%;
