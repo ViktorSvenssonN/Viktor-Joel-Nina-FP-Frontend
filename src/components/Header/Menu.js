@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import arrowLeft from "../images/icons/arrow-thin-left.svg";
+import arrowLeft from "images/icons/arrow-thin-left.svg";
 import MenuNavLinks from "./MenuNavLinks";
 
 const Menu = ({ onMenuClick }) => {
