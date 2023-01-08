@@ -10,6 +10,7 @@ import closeIcon from "../images/icons/close.svg";
 import checkmarkIcon from "../images/icons/checkmark.svg";
 import { formatDate, randomInt } from "./util";
 import DatePicker from "react-date-picker";
+import ReminderSettingsContainer from "./ReminderSettingsContainer";
 
 const BirthdayCreateEdit = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const BirthdayCreateEdit = () => {
 
   const [dateValue, setDateValue] = useState(null);
   const [notes, setNotes] = useState("");
+  const [reminderSettings, setReminderSettings] = useState([]);
 
   // use the id to look up birthday from API/Redux
   const { id } = params;
@@ -54,7 +56,9 @@ const BirthdayCreateEdit = () => {
   }, []);
 
   const onFormCancel = () => {
-    const cancel = window.confirm("Are you sure you want to cancel?");
+    const cancel = window.confirm(
+      "Are you sure you want to discard this birthday reminder?"
+    );
     if (cancel) navigate("/home");
   };
 
@@ -65,8 +69,18 @@ const BirthdayCreateEdit = () => {
     // push new birthday to API
   };
 
-  console.log(formatDate(dateValue));
-  console.log("notes:", notes);
+  const handleSettingsChange = (e) => {
+    const setting = Number(e.target.name);
+    if (e.target.checked) {
+      setReminderSettings((prev) => [...prev, Number(e.target.name)]);
+    } else {
+      setReminderSettings((prev) => prev.filter((x) => x !== setting));
+    }
+  };
+  console.log("reminderSettings:", reminderSettings);
+
+  // console.log(formatDate(dateValue));
+  // console.log("notes:", notes);
 
   return (
     <ClonedOuterWrapper>
@@ -114,18 +128,13 @@ const BirthdayCreateEdit = () => {
           <NotesInput
             onChange={(event) => setNotes(event.target.value)}
             type="text"
-            placeholder="write down ideas for present or activity for birthday......"
+            placeholder="Write down ideas for present or activity for birthday...."
             value={notes}
           />
-          <br />
-          <br />
-          <p>E-mail notification settings</p>
-          <ReminderSettingsContainer>
-            <button>Same day</button>
-            <button>2 days</button>
-            <button>1 week</button>
-            <button>1 month</button>
-          </ReminderSettingsContainer>
+          <ReminderSettingsContainer
+            reminderSettings={reminderSettings}
+            handleSettingsChange={handleSettingsChange}
+          />
         </ContentWrapper>
       </FormWrapper>
     </ClonedOuterWrapper>
@@ -231,6 +240,7 @@ const BirthDateContainer = styled.section`
 `;
 
 const NotesInput = styled.textarea`
+  font-size: 16px;
   font-style: italic;
   margin-top: 30px;
   padding: 15px;
@@ -242,11 +252,3 @@ const NotesInput = styled.textarea`
   box-shadow: 3px 8px 1px var(--clr-cascade);
   color: var(--clr-text-dark);
 `;
-
-const ReminderSettingsContainer = styled.section`
-  margin-top: 5px;
-  display: flex;
-  gap: 10px;
-`;
-
-const ReminderSettingsButton = styled.button``;
