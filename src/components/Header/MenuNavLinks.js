@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import ui from "reducers/ui";
 import user from "reducers/user";
 import styled from "styled-components";
-import settingsIcon from "../images/icons/cog.svg";
-import logoutIcon from "../images/icons/logout.svg";
-import listIcon from "../images/icons/list.svg";
-import addIcon from "../images/icons/list-add.svg";
-import aboutIcon from "../images/icons/information-outline.svg";
+import settingsIcon from "images/icons/cog.svg";
+import logoutIcon from "images/icons/logout.svg";
+import listIcon from "images/icons/list.svg";
+import addIcon from "images/icons/list-add.svg";
+import aboutIcon from "images/icons/information-outline.svg";
 
 const MenuNavLinks = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components/macro";
-import menuIcon from "../images/icons/menu.svg";
+import menuIcon from "images/icons/menu.svg";
 import LightLogo from "logo/logo_light.svg";
 import Menu from "./Menu";
 import { useNavigate } from "react-router-dom";
