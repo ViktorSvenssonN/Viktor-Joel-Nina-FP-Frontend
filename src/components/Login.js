@@ -57,9 +57,9 @@ const Login = () => {
       <ClonedInnerWrapper>
       <ClonedFormOuterContainer>
         <BallonBackgroundImg src={ballons} />
-        <FormHeaderContainer>
+        <ClonedFormHeaderContainer>
           <FormHeader>LOG IN</FormHeader>
-        </FormHeaderContainer>
+        </ClonedFormHeaderContainer>
         <FormInnerContainer>
           <Form onSubmit={onFormSubmit}>
             <LabelSubHeader htmlFor="username">Email: </LabelSubHeader>
@@ -125,6 +125,10 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
   background: var(--clr-background-login); 
   height: 80%;
+`;
+
+const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
+  margin-bottom: 5%;
 `;
 
 const ForgottPasswordContainer = styled.div`

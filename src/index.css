@@ -9,12 +9,8 @@
   /* Används som main backgrounds färg 
      -> backgrund till icon list vy
      -> backgrund icon about us */
-<<<<<<< HEAD
   --clr-background: #6a6d80; 
   --clr-background-dark: #303346; 
-=======
-  --clr-background: #6a6d80;
->>>>>>> c10f324497c1c18d616b74b5d9dc4c555392ebec
 
   /* Används som main LJUS backgrunds färg.  
     -> backgrund till input fält

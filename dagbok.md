@@ -55,3 +55,8 @@ Nina
 - strulat med iconer,
 - startat i ListView 
 - 
+
+Viktor
+
+- flytta ut componeterna från register till global, använd dem i login
+- stylat klart WElcome + login
