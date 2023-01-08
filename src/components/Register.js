@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
-import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg, ButtonLoginSignUp, ContainerButtonLoginSignUp } from "Globalstyles";
+import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg, ButtonLoginSignUp, ContainerButtonLoginSignUp,
+Form, FormOuterContainer, FormInnerContainer, FormHeaderContainer, FormHeader, LabelSubHeader, InputContainer } from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
 import logolight from "../logo/logo_light.svg";
-
 
 // Component check, not worked on.
 const Register = () => {
@@ -128,7 +128,7 @@ const Register = () => {
   );
 };
 
-// Styled components // (får kolla om vi ska flytta några till global)
+// Styled components 
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
@@ -159,65 +159,10 @@ const BallonBackgroundImg = styled.img`
   top: 35%;
 `;
 
-// register form
-
-const FormHeaderContainer = styled.div`
-  height: 10%;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3%;
-  position: relative;
-  z-index: 3;
-`;
-
-const FormHeader = styled.h1`
-  font-size: 1.5rem;
-  letter-spacing: 0.2px;
-`;
-
-const LabelSubHeader = styled.label`
-  font-size: 0.9rem;
-  letter-spacing: 0.1px;
-  padding-left: 4%;
-  margin-bottom: 0.8%;
-`;
-
-const InputContainer = styled.input`
-  margin-bottom: 5%;
-  border-radius: 15px;
-  border: none;
-  height: 3rem;
-  padding-left: 4%;
-`;
-
 const ConfirmPasswordContainer = styled(InputContainer)`
   border: ${(props) => props?.isSame ? "none" : "1px red solid"};
 
 `
-
-const FormOuterContainer = styled.div`
-  width: 100%;
-  height: 90%;
-  background: var(--clr-background-register);
-  border-radius: 45px 45px 0 0;
-  position: relative;
-`;
-
-const FormInnerContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 3;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-`;
-
 const LoginInLinkContainer = styled.div`
   display: flex;
   justify-content: flex-end;
