@@ -10,6 +10,7 @@
      -> backgrund till icon list vy
      -> backgrund icon about us */
   --clr-background: #6a6d80; 
+  --clr-background-dark: #303346; 
 
   /* Används som main LJUS backgrunds färg.  
     -> backgrund till input fält

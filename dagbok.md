@@ -50,3 +50,8 @@ Nina
 - added component listcard
 
 ### 8/1 Söndag
+
+Nina
+- strulat med iconer,
+- startat i ListView 
+- 

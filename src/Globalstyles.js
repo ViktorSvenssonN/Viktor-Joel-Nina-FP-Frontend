@@ -15,6 +15,7 @@ export const OuterWrapper = styled.section`
 
 export const InnerWrapper = styled.div`
   width: 80%;
+  border: 1px solid yellowgreen;
 `;
 
 
