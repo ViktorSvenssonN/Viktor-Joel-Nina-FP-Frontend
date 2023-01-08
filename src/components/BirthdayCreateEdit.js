@@ -34,13 +34,16 @@ const BirthdayCreateEdit = () => {
 
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
+  const icons = useSelector((store) => store.ui.icons);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate("/login");
-  //   }
-  // }, []);
+  console.log(icons);
+
+  useEffect(() => {
+    if (!accessToken) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <ClonedOuterWrapper>
@@ -51,6 +54,7 @@ const BirthdayCreateEdit = () => {
           <img src={checkmarkIcon} alt="OK" />
         </BirthdayHeader>
         <TheRest>
+          <img src={icons[3]} />
           <p>birthdayedit and shit yo!</p>
         </TheRest>
       </ClonedInnerWrapper>
