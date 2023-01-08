@@ -28,14 +28,9 @@ export const App = () => {
             <Route path="/register" element={<Register />}></Route>
             <Route path="*" element={<NotFound />}></Route>
             <Route path="/home" element={<ListView />}></Route>
-            <Route
-              path="/birthdayedit"
-              element={<BirthdayCreateEdit />}
-            ></Route>
-            <Route
-              path="/birthdayview"
-              element={<BirthdayDetailView />}
-            ></Route>
+            <Route path="/create" element={<BirthdayCreateEdit />}></Route>
+            <Route path="/edit/:id" element={<BirthdayCreateEdit />}></Route>
+            <Route path="/view/:id" element={<BirthdayDetailView />}></Route>
             <Route path="/settings" element={<Settings />}></Route>
             <Route path="/about-us" element={<AboutUs />}></Route>
           </Routes>
