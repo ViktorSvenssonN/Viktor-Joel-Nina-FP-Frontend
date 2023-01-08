@@ -8,7 +8,8 @@ import styled from "styled-components/macro";
 import WithHeader from "./WithHeader";
 import closeIcon from "../images/icons/close.svg";
 import checkmarkIcon from "../images/icons/checkmark.svg";
-import { randomInt } from "./util";
+import { formatDate, randomInt } from "./util";
+import DatePicker from "react-date-picker";
 
 const BirthdayCreateEdit = () => {
   const navigate = useNavigate();
@@ -23,6 +24,9 @@ const BirthdayCreateEdit = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [icon, setIcon] = useState(null);
+
+  const [dateValue, setDateValue] = useState(null);
+  const [notes, setNotes] = useState("");
 
   // use the id to look up birthday from API/Redux
   const { id } = params;
@@ -61,6 +65,9 @@ const BirthdayCreateEdit = () => {
     // push new birthday to API
   };
 
+  console.log(formatDate(dateValue));
+  console.log("notes:", notes);
+
   return (
     <ClonedOuterWrapper>
       <FormWrapper onSubmit={onFormSubmit}>
@@ -68,7 +75,7 @@ const BirthdayCreateEdit = () => {
           <HeaderButton type="button" onClick={onFormCancel}>
             <img src={closeIcon} alt="cancel" />
           </HeaderButton>
-          <p>add birthday</p>
+          <p>add birthday reminder</p>
           <HeaderButton type="submit">
             <img src={checkmarkIcon} alt="OK" />
           </HeaderButton>
@@ -91,7 +98,34 @@ const BirthdayCreateEdit = () => {
           />
           <BirthDateContainer>
             <p>Birthdate</p>
+            <DatePicker
+              required
+              yearPlaceholder="year"
+              monthPlaceholder="month"
+              dayPlaceholder="day"
+              format="y-MM-dd"
+              maxDate={
+                new Date(new Date().setFullYear(new Date().getFullYear() + 5))
+              }
+              onChange={setDateValue}
+              value={dateValue}
+            />
           </BirthDateContainer>
+          <NotesInput
+            onChange={(event) => setNotes(event.target.value)}
+            type="text"
+            placeholder="write down ideas for present or activity for birthday......"
+            value={notes}
+          />
+          <br />
+          <br />
+          <p>E-mail notification settings</p>
+          <ReminderSettingsContainer>
+            <button>Same day</button>
+            <button>2 days</button>
+            <button>1 week</button>
+            <button>1 month</button>
+          </ReminderSettingsContainer>
         </ContentWrapper>
       </FormWrapper>
     </ClonedOuterWrapper>
@@ -122,10 +156,17 @@ const BirthdayHeader = styled.header`
   color: var(--clr-text-dark);
 
   img {
+    cursor: pointer;
     height: 32px;
     width: 32px;
+    transition: 0.2s;
     filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
       brightness(94%) contrast(92%);
+  }
+
+  img:hover {
+    transform: scale(1.1) translateX(2px);
+    transition: 0.2s;
   }
 `;
 const HeaderButton = styled.button`
@@ -149,14 +190,14 @@ const ContentWrapper = styled.section`
 `;
 
 const TextInput = styled.input`
-  margin-top: 32px;
+  margin-top: 25px;
   width: 75%;
   font-family: inherit;
   color: var(--clr-text-dark);
-  padding: 0px 0px 8px;
+  padding: 0px 0px 4px;
   border: none;
   outline: none;
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: rgb(48 51 70 / 30%) 0px 1px;
   background-color: transparent;
 
@@ -166,11 +207,42 @@ const TextInput = styled.input`
 
   &::placeholder {
     opacity: 0.3;
+    font-family: var(--font-second);
   }
 `;
 
 const BirthDateContainer = styled.section`
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
+
+  .react-date-picker {
+    margin-top: 10px;
+    width: 75%;
+  }
+
+  .react-date-picker__inputGroup__input:invalid {
+    background: none;
+  }
 `;
+
+const NotesInput = styled.textarea`
+  font-style: italic;
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 15px;
+  height: 20%;
+  border: none;
+  outline: none;
+  background-color: var(--clr-background-green-card);
+  box-shadow: 3px 8px 1px var(--clr-cascade);
+  color: var(--clr-text-dark);
+`;
+
+const ReminderSettingsContainer = styled.section`
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+`;
+
+const ReminderSettingsButton = styled.button``;
