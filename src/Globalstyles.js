@@ -126,3 +126,24 @@ export const InputContainer = styled.input`
   height: 3rem;
   padding-left: 4%;
 `;
+
+/// Login/Register Link div 
+
+export const LoginInLinkContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6%;
+  padding-right: 2%;
+`;
+
+
+/// Ballong img in background ///
+
+export const BallonBackgroundImg = styled.img`
+  position: absolute;
+  z-index: 2;
+  height: 65%;
+  width: 65%;
+  left: 51%;
+  top: 35%;
+`;
