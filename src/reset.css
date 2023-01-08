@@ -83,6 +83,10 @@ summary,
 time,
 mark,
 audio,
+button {
+  border: none;
+  outline: none;
+}
 video {
   margin: 0;
   padding: 0;

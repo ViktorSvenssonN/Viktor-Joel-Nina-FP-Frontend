@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 :root {
   /*** Colors ***/
@@ -9,14 +9,18 @@
   /* Används som main backgrounds färg 
      -> backgrund till icon list vy
      -> backgrund icon about us */
+<<<<<<< HEAD
   --clr-background: #6a6d80; 
   --clr-background-dark: #303346; 
+=======
+  --clr-background: #6a6d80;
+>>>>>>> c10f324497c1c18d616b74b5d9dc4c555392ebec
 
   /* Används som main LJUS backgrunds färg.  
     -> backgrund till input fält
     -> backgrund till knappar 
     -> Text färg till Header och listvy med MÖRK bakgrund */
-  --clr-background-light: #e8e8e8; 
+  --clr-background-light: #e8e8e8;
 
   /* Background register vy */
   --clr-background-register: #a5b9b7;
@@ -28,30 +32,32 @@
   --clr-background-ballon: #e4bfac;
 
   /* Backgrund för korten */
-    /* Grön ljus */ 
+  /* Grön ljus */
   --clr-background-green-card: #c0e1da;
-    /* Orange Ljus */
+  /* Orange Ljus */
   --clir-background-orange-card: #f9d4c1;
-  
-  
 
   /* Text colors */
   --clr-text-dark: #303346; /*Använda denna färgen på alla? lägga som main färg i body = deafult färg? */
 
-
+  /* vet inte om vi behöver dessa ViSv 2023-01-05  */
+  --clr-jungle-mist: #b2d7ce;
+  --clr-scarpa-flow: #545767;
+  --clr-cascade: #96aba9;
+  --clr-pearl-brush: #dfd6d2;
+  --clr-pancho: #f0c8b0;
 
   /* **** FONTS ROOT UNDER HÄR ***** */
-  --font-main: 'Roboto', sans-serif; 
-  --font-second: "Montserrat"; 
-
+  --font-main: "Roboto", sans-serif;
+  --font-second: "Montserrat";
 }
 
 *,
-html{
+html {
   margin: 0;
   padding: 0;
-  font-family: var(--font-main), -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    sans-serif;
+  font-family: var(--font-main), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -60,11 +66,3 @@ body {
   background-color: var(--clr-background);
   color: var(--clr-text-dark);
 }
-
-/* vet inte om vi behöver dessa ViSv 2023-01-05 
-  --clr-jungle-mist: #B2D7CE;
-  --clr-scarpa-flow: #545767;
-  --clr-cascade: #96ABA9;
-  --clr-pearl-brush: #DFD6D2;
-  --clr-pancho: #F0C8B0;
- */
