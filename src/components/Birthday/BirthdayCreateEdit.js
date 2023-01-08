@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 // import user from "reducers/user";
 import styled from "styled-components/macro";
-import WithHeader from "./WithHeader";
-import closeIcon from "../images/icons/close.svg";
-import checkmarkIcon from "../images/icons/checkmark.svg";
-import { formatDate, randomInt } from "./util";
+import WithHeader from "../WithHeader";
+import closeIcon from "images/icons/close.svg";
+import checkmarkIcon from "images/icons/checkmark.svg";
+import { formatDate, randomInt } from "../util";
 import DatePicker from "react-date-picker";
 import ReminderSettingsContainer from "./ReminderSettingsContainer";
 

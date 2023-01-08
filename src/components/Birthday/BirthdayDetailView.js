@@ -1,5 +1,5 @@
 import React from "react";
-import WithHeader from "./WithHeader";
+import WithHeader from "../WithHeader";
 
 const BirthdayDetailView = () => {
   return (
