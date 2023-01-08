@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <OuterWrapper>
+    <ClonedOuterWrapper>
       <ClonedInnerWrapper>
         <form onSubmit={onFormSubmit}>
           <label htmlFor="username">Email: </label>
@@ -83,17 +83,28 @@ const Login = () => {
           </div>
         </form>
       </ClonedInnerWrapper>
-    </OuterWrapper>
+    </ClonedOuterWrapper>
   );
 };
 
 // Styled components // (får kolla om vi ska flytta några till global)
 
+const ClonedOuterWrapper = styled(OuterWrapper)`
+  flex-direction: column;
+  background: var(--clr-background);
+  justify-content: flex-end;
+  overflow: hidden;
+`;
+
 const ClonedInnerWrapper = styled(InnerWrapper)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 100%;
+  height: 95%;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 `;
 
 const ForgottPasswordContainer = styled.div`

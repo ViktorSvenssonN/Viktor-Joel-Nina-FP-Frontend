@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
-import { OuterWrapper, InnerWrapper } from "Globalstyles";
+import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg, ButtonLoginSignUp, ContainerButtonLoginSignUp } from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
@@ -116,9 +116,9 @@ const Register = () => {
                     </span>{" "}
                   </p>
                 </LoginInLinkContainer>
-                <ParentButton>
-                  <Button type="submit">SIGN UP</Button>
-                </ParentButton>
+                <ContainerButtonLoginSignUp>
+                  <ButtonLoginSignUp type="submit">SIGN UP</ButtonLoginSignUp>
+                </ContainerButtonLoginSignUp>
               </Form>
             </FormInnerContainer>
           </FormOuterContainer>
@@ -146,27 +146,6 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   justify-content: flex-end;
   position: relative;
   z-index: 1;
-`;
-
-// Button
-
-const LogoButtonContainer = styled.div`
-  width: 100%;
-  height: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const LogoButton = styled.div`
-  width: 50%;
-  height: 100%;
-`;
-
-// blir senare styled.img
-const LogoImg = styled.img`
-  width: 100%;
-  height: 100%;
 `;
 
 // ballon img
@@ -244,36 +223,6 @@ const LoginInLinkContainer = styled.div`
   justify-content: flex-end;
   margin-bottom: 6%;
   padding-right: 2%;
-`;
-
-const ParentButton = styled.div`
-  height: 11vw;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Button = styled.button`
-  width: 60%;
-  height: 100%;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 2.5px;
-  background-color: var(--clr-background-light);
-  border: none;
-  border-radius: 15px;
-  box-shadow: 5px 6px 10px var(--clr-text-dark);
-  transition: all 0.2s ease 0s;
-  cursor: pointer;
-  outline: none;
-
-  &:hover {
-    background-color: var(--clr-text-dark);
-    box-shadow: 2px 3px 10px var(--clr-text-dark);
-    color: #fff;
-    transform: translateY(-2px);
-  }
 `;
 
 export default Register;
