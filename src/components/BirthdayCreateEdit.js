@@ -50,7 +50,7 @@ const BirthdayCreateEdit = () => {
   }, []);
 
   useEffect(() => {
-    setIcon(icons[randomInt(icons.length - 1)]);
+    setIcon(icons[randomInt(icons.length)]);
   }, []);
 
   const onFormCancel = () => {
@@ -75,7 +75,7 @@ const BirthdayCreateEdit = () => {
           <HeaderButton type="button" onClick={onFormCancel}>
             <img src={closeIcon} alt="cancel" />
           </HeaderButton>
-          <p>add birthday reminder</p>
+          <HeaderText>Add birthday reminder</HeaderText>
           <HeaderButton type="submit">
             <img src={checkmarkIcon} alt="OK" />
           </HeaderButton>
@@ -162,13 +162,17 @@ const BirthdayHeader = styled.header`
     transition: 0.2s;
     filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
       brightness(94%) contrast(92%);
-  }
-
-  img:hover {
-    transform: scale(1.1) translateX(2px);
-    transition: 0.2s;
+    &:hover {
+      transform: scale(1.1) translateX(2px);
+      transition: 0.2s;
+    }
   }
 `;
+
+const HeaderText = styled.p`
+  font-family: var(--font-second);
+`;
+
 const HeaderButton = styled.button`
   background: none;
   border: none;

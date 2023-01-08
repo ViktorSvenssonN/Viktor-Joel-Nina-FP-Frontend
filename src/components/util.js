@@ -1,4 +1,4 @@
-export const randomInt = (length) => Math.floor(Math.random() * (length + 1));
+export const randomInt = (length) => Math.floor(Math.random() * length);
 
 export const formatDate = (birthDate) => {
   if (!birthDate) return;
