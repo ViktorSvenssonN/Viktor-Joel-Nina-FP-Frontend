@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
-import { OuterWrapper, InnerWrapper } from "Globalstyles";
+import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg } from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
+import ballons from "../images/ballons_120x250.png";
+import logolight from "../logo/logo_light.svg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -42,48 +44,55 @@ const Login = () => {
   };
 
   return (
+    <>
+    <LogoButtonContainer>
+      <LogoButton>
+        <Link to="/">
+          <LogoImg src={logolight} />{" "}
+        </Link>
+      </LogoButton>
+    </LogoButtonContainer>
     <ClonedOuterWrapper>
-      <ClonedInnerWrapper>
-        <form onSubmit={onFormSubmit}>
-          <label htmlFor="username">Email: </label>
+        <ClonedInnerWrapper>
+          <form onSubmit={onFormSubmit}>
+            <label htmlFor="username">Email: </label>
 
-          <input
-            type="email"
-            id="username"
-            placeholder="example@example.com"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br />
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <ForgottPasswordContainer>
-            <Link to="/forgot"> 
-              <p> 
-                Forgot password? 
+            <input
+              type="email"
+              id="username"
+              placeholder="example@example.com"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)} />
+            <br />
+            <label htmlFor="password">Password: </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+            <br />
+            <ForgottPasswordContainer>
+              <Link to="/forgot">
+                <p>
+                  Forgot password?
+                </p>
+              </Link>
+            </ForgottPasswordContainer>
+            <div className="registerLink">
+              <p>
+                Not a member?{" "}
+                <span>
+                  <Link to="/register">Register here</Link>
+                </span>{" "}
               </p>
-            </Link>
-          </ForgottPasswordContainer>
-          <div className="registerLink">
-            <p>
-              Not a member?{" "}
-              <span>
-                <Link to="/register">Register here</Link>
-              </span>{" "}
-            </p>
-          </div>
-          <div className="button">
-            <button type="submit">login</button>
-          </div>
-        </form>
-      </ClonedInnerWrapper>
-    </ClonedOuterWrapper>
+            </div>
+            <div className="button">
+              <button type="submit">login</button>
+            </div>
+          </form>
+        </ClonedInnerWrapper>
+      </ClonedOuterWrapper>
+      </>
   );
 };
 

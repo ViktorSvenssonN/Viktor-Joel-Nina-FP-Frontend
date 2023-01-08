@@ -75,3 +75,54 @@ export const ButtonLoginSignUp = styled.button`
 
 /// Form styling for Login/Register ///
 
+export const FormOuterContainer = styled.div`
+  width: 100%;
+  height: 90%;
+  background: var(--clr-background-register);
+  border-radius: 45px 45px 0 0;
+  position: relative;
+`;
+
+export const FormInnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+`;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+`;
+
+export const FormHeaderContainer = styled.div`
+  height: 10%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  position: relative;
+  z-index: 3;
+`;
+
+export const FormHeader = styled.h1`
+  font-size: 1.5rem;
+  letter-spacing: 0.2px;
+`;
+
+ export const LabelSubHeader = styled.label`
+  font-size: 0.9rem;
+  letter-spacing: 0.1px;
+  padding-left: 4%;
+  margin-bottom: 0.8%;
+`;
+
+export const InputContainer = styled.input`
+  margin-bottom: 5%;
+  border-radius: 15px;
+  border: none;
+  height: 3rem;
+  padding-left: 4%;
+`;
