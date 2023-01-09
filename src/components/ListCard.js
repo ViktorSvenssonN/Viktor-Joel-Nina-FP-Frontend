@@ -7,12 +7,12 @@ export const Listcard = () => {
 
   return (
     <ListCardWrapper>
-   
+      
     </ListCardWrapper>
   );
 }
 
-// /* ------- THOUGHT LIST --------- */
+// ------------- Styled Components -------------------
 
 // section ListCardWrapper {
 //   display: flex;

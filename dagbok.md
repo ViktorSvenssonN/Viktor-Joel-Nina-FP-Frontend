@@ -55,8 +55,16 @@ Nina
 Nina
 
 - strulat med iconer,
-- startat i ListView
--
+- startat i ListView (ändrat felstavning ListvView)
+
+- Skapat start utifrån om det finns listCards eller inte.
+  /home => SelectStart, finns ListCards => ListView om inte StartState (welcome msg)
+  funkar inte än, behöver hjälp med state/store
+
+Finns useEffect accessToken både i SelectStart och ListView tror den kan plockas bort i ListView.
+
+- skapat em map med små componenter typ bth eller liknande
+- skapat AddBtn som används både i ListView och StartState
 
 Viktor
 
