@@ -5,6 +5,7 @@ import { InnerWrapper, OuterWrapper } from "Globalstyles";
 import styled from "styled-components/macro";
 import user from "reducers/user"; 
 import WithHeader from "./WithHeader";
+import { ListCard } from "./ListCard";
 import { AddBtn } from "./smallComponents/AddBtn";
 
 const ListView = () => {
@@ -25,6 +26,7 @@ const ListView = () => {
   return (
     <ListOuterWrapper>
       <ListInnerWrapper>
+        <ListCard />
         <AddBtn />
       </ListInnerWrapper>
     </ListOuterWrapper>

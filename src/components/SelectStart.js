@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-
-
 // Components
 import ListView from './ListView'
 import StartState from './StartState'
