@@ -26,6 +26,11 @@ const ListView = () => {
   return (
     <ListOuterWrapper>
       <ListInnerWrapper>
+        {/* {items.map((item) => (
+          <ListCardContainer key={item.id}>
+            <ListCard />
+          </ListCardContainer>
+        ))} */}
         <ListCard />
         <AddBtn />
       </ListInnerWrapper>

@@ -25,6 +25,7 @@ const BtnContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  z-index: 1000;
 `;
 
 const Btn = styled.button`
@@ -32,21 +33,21 @@ const Btn = styled.button`
   height: 50px;
   border-radius: 50% ;
   margin-right: 1rem;
-  transition: all 0.3s ease-in-out;
   background-color: #6a6d80; 
 
   svg {
     width: 25px;
     height: 25px;
     transform: rotate(45deg);
-    filter: invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg) brightness(112%) contrast(82%);
-    
-    &:hover {
-    cursor: pointer;
-    filter: invert(45%) sepia(10%) saturate(686%) hue-rotate(194deg) brightness(91%) contrast(87%);
-    background-color: #303346;
-          
+    filter: invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg) brightness(112%) contrast(82%);            
   }
+
+  &:hover {
+    cursor: pointer;
+    /* filter: invert(45%) sepia(10%) saturate(686%) hue-rotate(194deg) brightness(91%) contrast(87%);
+    background-color: #303346; */
+    transform: scale(1.1);
+    transition: all 0.4s ease-out;
   }
 
   @media (min-width: 667px) {
