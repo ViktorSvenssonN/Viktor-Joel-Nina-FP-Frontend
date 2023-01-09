@@ -234,6 +234,10 @@ const BirthDateContainer = styled.section`
     width: 75%;
   }
 
+  .react-date-picker__inputGroup {
+    padding-left: 5px;
+  }
+
   .react-date-picker__inputGroup__input:invalid {
     background: none;
   }
