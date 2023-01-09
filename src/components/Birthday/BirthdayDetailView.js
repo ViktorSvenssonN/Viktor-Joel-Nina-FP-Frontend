@@ -9,12 +9,13 @@ import closeIcon from "images/icons/close.svg";
 import checkmarkIcon from "images/icons/checkmark.svg";
 import { formatDate, randomInt } from "../util";
 import DatePicker from "react-date-picker";
+import { API_URL } from "utils/utils";
 /* import ReminderSettingsContainer from "./ReminderSettingsContainer"; */
 
 const BirthdayDetailView = () => {
   const icons = useSelector((store) => store.ui.icons);
   const [icon, setIcon] = useState(null);
-
+  const [birthdays, setBirthdays] = useState([]);
   useEffect(() => {
     setIcon(icons[randomInt(icons.length)]);
   }, []);
@@ -27,6 +28,20 @@ const BirthdayDetailView = () => {
       navigate("/login");
     }
   }, []); */
+
+  useEffect(() => {
+    fetchBirthdays(); 
+  }, []);
+
+  const fetchBirthdays = () => {
+ /*    setLoading(true); */
+    fetch(API_URL(id), options)
+      .then((res) => res.json())
+      .then((data) => setBirthdays(data))
+      .catch((error) => console.error(error))
+/*       .finally(() => setLoading(false)); */
+  }
+
 
   const onFormCancel = () => {
     const cancel = window.confirm(
@@ -57,8 +72,7 @@ const BirthdayDetailView = () => {
         <ContentWrapper>
           <img src={icon} />
           <TextInput
-            type="text"
-            placeholder="First name"
+          birthdays={birthdays}
           />
           <TextInput
 
@@ -151,7 +165,7 @@ const ContentWrapper = styled.section`
   }
 `;
 
-const TextInput = styled.input`
+const TextInput = styled.p`
   margin-top: 25px;
   width: 75%;
   font-family: inherit;
