@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import WithHeader from "../WithHeader";
 import { OuterWrapper } from "Globalstyles";
-import { useDispatch, useSelector } from "react-redux";
- import { useLocation, useNavigate, useParams } from "react-router-dom"; 
+import { useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
 // import user from "reducers/user";
 import styled from "styled-components/macro";
 import closeIcon from "images/icons/close.svg";
@@ -24,11 +24,9 @@ const BirthdayDetailView = () => {
   const navigate = useNavigate();
 
   // use the id to look up birthday from API/Redux
-   const { id } = params;
+  const { id } = params;
 
-   console.log("id in BirthdayDetailView:", id)
-
-   useEffect(() => {
+  useEffect(() => {
     if (!accessToken) {
       navigate("/login");
     }
@@ -38,26 +36,22 @@ const BirthdayDetailView = () => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `${accessToken}`
+      Authorization: `${accessToken}`,
     },
   };
 
   const fetchBirthday = () => {
- /*    setLoading(true); */
+    /*    setLoading(true); */
     fetch(API_URL(`birthday/${id}`), options)
       .then((res) => res.json())
       .then((data) => setBirthday(data))
-      .catch((error) => console.error(error))
-/*       .finally(() => setLoading(false)); */
-  }
+      .catch((error) => console.error(error));
+    /*       .finally(() => setLoading(false)); */
+  };
 
   useEffect(() => {
-    fetchBirthday(); 
+    fetchBirthday();
   }, []);
-
-console.log("birthday in DetailView:", birthday)
-console.log("formatDate in DetailView:", formatDate(new Date(birthday.birthDate)))
-
 
   const onFormCancel = () => {
     const cancel = window.confirm(
@@ -68,7 +62,6 @@ console.log("formatDate in DetailView:", formatDate(new Date(birthday.birthDate)
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log("yay!");
     // TODO
     // push new birthday to API
   };
@@ -87,14 +80,8 @@ console.log("formatDate in DetailView:", formatDate(new Date(birthday.birthDate)
         </BirthdayHeader>
         <ContentWrapper>
           <img src={icon} />
-          <TextInput
-          birthday={birthday}
-          />
-          <TextInput
-
-            type="text"
-            placeholder="Last name"
-          />
+          <TextInput birthday={birthday} />
+          <TextInput type="text" placeholder="Last name" />
           <BirthDateContainer>
             <p>Birthdate</p>
             <DateShower>{formatDate(new Date(birthday.birthDate))}</DateShower>
@@ -103,7 +90,7 @@ console.log("formatDate in DetailView:", formatDate(new Date(birthday.birthDate)
             type="text"
             placeholder="Write down ideas for present or activity for birthday...."
           />
-{/*           <ReminderSettingsContainer
+          {/*           <ReminderSettingsContainer
             reminderSettings={reminderSettings}
             handleSettingsChange={handleSettingsChange} 
           /> */}
@@ -229,6 +216,4 @@ const NotesInput = styled.textarea`
   color: var(--clr-text-dark);
 `;
 
-const DateShower = styled.div`
-
-`;
+const DateShower = styled.div``;

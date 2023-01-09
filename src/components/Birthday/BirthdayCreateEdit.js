@@ -21,10 +21,12 @@ const BirthdayCreateEdit = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const userId = useSelector((store) => store.user.id);
   const icons = useSelector((store) => store.ui.icons);
-  const mode = location.pathname.includes("create") ? "create" : "edit";
+  const editMode = location.pathname.includes("edit");
 
   const [icon, setIcon] = useState(null);
-  const [birthdayInfo, setBirthdayInfo] = useState({});
+  const [birthdayInfo, setBirthdayInfo] = useState({
+    birthdayReminderSettings: [],
+  });
   const {
     firstName,
     lastName,
@@ -33,7 +35,6 @@ const BirthdayCreateEdit = () => {
     birthdayReminderSettings,
   } = birthdayInfo;
 
-  // use the id to look up birthday from API/Redux
   const { id } = params;
 
   useEffect(() => {
@@ -42,16 +43,27 @@ const BirthdayCreateEdit = () => {
     }
   }, []);
 
+  const optionsGet = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${accessToken}`,
+    },
+  };
+
+  const fetchBirthday = () => {
+    /*    setLoading(true); */
+    fetch(API_URL(`birthday/${id}`), optionsGet)
+      .then((res) => res.json())
+      .then((data) => setBirthdayInfo(data))
+      .catch((error) => console.error(error));
+    /*       .finally(() => setLoading(false)); */
+  };
+
   useEffect(() => {
-    if (mode === "create") {
-      console.log("create");
+    if (editMode) {
+      fetchBirthday();
     }
-    if (mode === "edit") {
-      // TODO
-      // If in Edit mode, get the birthday info with matching Id from params from API or redux
-      console.log("edit");
-    }
-    console.log(location);
   }, []);
 
   useEffect(() => {
@@ -65,8 +77,8 @@ const BirthdayCreateEdit = () => {
     if (cancel) navigate("/home");
   };
 
-  const options = {
-    method: "POST",
+  const optionsPost = {
+    method: editMode ? "PATCH" : "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: accessToken,
@@ -77,29 +89,26 @@ const BirthdayCreateEdit = () => {
       birthDate,
       otherInfo,
       birthdayReminderSettings,
-      userId,
+      ...(editMode ? { id } : { userId }),
     }),
   };
 
   const postBirthday = () => {
-    fetch(API_URL("birthday"), options)
+    fetch(API_URL("birthday"), optionsPost)
       .then((res) => res.json())
-      .then((data) => console.log("success"))
+      .then(() =>
+        alert(
+          `Successfully ${editMode ? "updated" : "created"} birthday reminder!`
+        )
+      )
+      .then(() => navigate(`${editMode ? `/view/${id}` : "/home"}`))
       .catch((error) => console.error(error));
   };
-  console.log("birthdayInfo:", birthdayInfo);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log("userId:", userId);
-    console.log("birthdayInfo:", birthdayInfo);
-
-    console.log("yay!");
     postBirthday();
-    // TODO
-    // push new birthday to API
   };
-
   return (
     <ClonedOuterWrapper>
       <FormWrapper onSubmit={onFormSubmit}>
@@ -115,6 +124,8 @@ const BirthdayCreateEdit = () => {
         <CreateEditContentWrapper
           icon={icon}
           setBirthdayInfo={setBirthdayInfo}
+          birthdayInfo={birthdayInfo}
+          editMode={editMode}
         />
       </FormWrapper>
     </ClonedOuterWrapper>

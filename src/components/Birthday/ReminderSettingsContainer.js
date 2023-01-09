@@ -10,20 +10,40 @@ const ReminderSettingsContainer = ({
       <p>E-mail notification settings</p>
       <StyledSettingsContainer>
         <StyledLabel isChecked={birthdayReminderSettings.includes(0)}>
-          <input type="checkbox" name={"0"} onChange={handleSettingsChange} />
+          <input
+            checked={birthdayReminderSettings.includes(0)}
+            type="checkbox"
+            name={"0"}
+            onChange={handleSettingsChange}
+          />
           Same day
         </StyledLabel>
         <StyledLabel isChecked={birthdayReminderSettings.includes(2)}>
-          <input type="checkbox" name={"2"} onChange={handleSettingsChange} />2
-          days
+          <input
+            checked={birthdayReminderSettings.includes(2)}
+            type="checkbox"
+            name={"2"}
+            onChange={handleSettingsChange}
+          />
+          2 days
         </StyledLabel>
         <StyledLabel isChecked={birthdayReminderSettings.includes(7)}>
-          <input type="checkbox" name={"7"} onChange={handleSettingsChange} />1
-          week
+          <input
+            checked={birthdayReminderSettings.includes(7)}
+            type="checkbox"
+            name={"7"}
+            onChange={handleSettingsChange}
+          />
+          1 week
         </StyledLabel>
         <StyledLabel isChecked={birthdayReminderSettings.includes(30)}>
-          <input type="checkbox" name={"30"} onChange={handleSettingsChange} />1
-          month
+          <input
+            checked={birthdayReminderSettings.includes(30)}
+            type="checkbox"
+            name={"30"}
+            onChange={handleSettingsChange}
+          />
+          1 month
         </StyledLabel>
       </StyledSettingsContainer>
     </Wrapper>

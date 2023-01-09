@@ -4,48 +4,53 @@ import ReminderSettingsContainer from "./ReminderSettingsContainer";
 import { formatDate } from "../util";
 import DatePicker from "react-date-picker";
 
-const CreateEditContentWrapper = ({ icon, setBirthdayInfo }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [birthDate, setBirthDate] = useState(null);
-  const [otherInfo, setOtherInfo] = useState("");
-  const [birthdayReminderSettings, setBirthdayReminderSettings] = useState([]);
-
+const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
   const handleSettingsChange = (e) => {
     const setting = Number(e.target.name);
     if (e.target.checked) {
-      setBirthdayReminderSettings((prev) => [...prev, Number(e.target.name)]);
+      setBirthdayInfo((prev) => ({
+        ...prev,
+        birthdayReminderSettings: [
+          ...prev.birthdayReminderSettings,
+          Number(e.target.name),
+        ],
+      }));
     } else {
-      setBirthdayReminderSettings((prev) => prev.filter((x) => x !== setting));
+      setBirthdayInfo((prev) => ({
+        ...prev,
+        birthdayReminderSettings: prev.birthdayReminderSettings.filter(
+          (x) => x !== setting
+        ),
+      }));
     }
   };
-
-  useEffect(() => {
-    setBirthdayInfo({
-      firstName,
-      lastName,
-      birthDate,
-      otherInfo,
-      birthdayReminderSettings,
-    });
-  }, [firstName, lastName, birthDate, otherInfo, birthdayReminderSettings]);
 
   return (
     <ContentWrapper>
       <img src={icon} />
       <TextInput
         required
-        onChange={(event) => setFirstName(event.target.value)}
+        onChange={(event) =>
+          setBirthdayInfo((prev) => ({
+            ...prev,
+            firstName: event.target.value,
+          }))
+        }
         type="text"
         placeholder="First name"
-        value={firstName}
+        value={birthdayInfo.firstName}
       />
       <TextInput
         required
-        onChange={(event) => setLastName(event.target.value)}
+        onChange={(event) =>
+          setBirthdayInfo((prev) => ({
+            ...prev,
+            lastName: event.target.value,
+          }))
+        }
         type="text"
         placeholder="Last name"
-        value={lastName}
+        value={birthdayInfo.lastName}
       />
       <BirthDateContainer>
         <p>Birthdate</p>
@@ -58,18 +63,30 @@ const CreateEditContentWrapper = ({ icon, setBirthdayInfo }) => {
           maxDate={
             new Date(new Date().setFullYear(new Date().getFullYear() + 5))
           }
-          onChange={(date) => setBirthDate(formatDate(date))}
-          value={birthDate ? new Date(birthDate) : null}
+          onChange={(date) =>
+            setBirthdayInfo((prev) => ({
+              ...prev,
+              birthDate: formatDate(date),
+            }))
+          }
+          value={
+            birthdayInfo.birthDate ? new Date(birthdayInfo.birthDate) : null
+          }
         />
       </BirthDateContainer>
       <NotesInput
-        onChange={(event) => setOtherInfo(event.target.value)}
+        onChange={(event) =>
+          setBirthdayInfo((prev) => ({
+            ...prev,
+            otherInfo: event.target.value,
+          }))
+        }
         type="text"
         placeholder="Write down ideas for present or activity for birthday...."
-        value={otherInfo}
+        value={birthdayInfo.otherInfo}
       />
       <ReminderSettingsContainer
-        birthdayReminderSettings={birthdayReminderSettings}
+        birthdayReminderSettings={birthdayInfo.birthdayReminderSettings}
         handleSettingsChange={handleSettingsChange}
       />
     </ContentWrapper>
