@@ -77,8 +77,8 @@ const BirthdayCreateEdit = () => {
       setReminderSettings((prev) => prev.filter((x) => x !== setting));
     }
   };
-  console.log("reminderSettings:", reminderSettings);
 
+  // console.log("reminderSettings:", reminderSettings);
   // console.log(formatDate(dateValue));
   // console.log("notes:", notes);
 
