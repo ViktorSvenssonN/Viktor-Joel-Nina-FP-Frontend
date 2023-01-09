@@ -7,16 +7,16 @@ import DatePicker from "react-date-picker";
 const CreateEditContentWrapper = ({ icon, setBirthdayInfo }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [dateValue, setDateValue] = useState(null);
-  const [notes, setNotes] = useState("");
-  const [reminderSettings, setReminderSettings] = useState([]);
+  const [birthDate, setBirthDate] = useState(null);
+  const [otherInfo, setOtherInfo] = useState("");
+  const [birthdayReminderSettings, setBirthdayReminderSettings] = useState([]);
 
   const handleSettingsChange = (e) => {
     const setting = Number(e.target.name);
     if (e.target.checked) {
-      setReminderSettings((prev) => [...prev, Number(e.target.name)]);
+      setBirthdayReminderSettings((prev) => [...prev, Number(e.target.name)]);
     } else {
-      setReminderSettings((prev) => prev.filter((x) => x !== setting));
+      setBirthdayReminderSettings((prev) => prev.filter((x) => x !== setting));
     }
   };
 
@@ -24,11 +24,11 @@ const CreateEditContentWrapper = ({ icon, setBirthdayInfo }) => {
     setBirthdayInfo({
       firstName,
       lastName,
-      dateValue,
-      notes,
-      reminderSettings,
+      birthDate,
+      otherInfo,
+      birthdayReminderSettings,
     });
-  }, [firstName, lastName, dateValue, notes, reminderSettings]);
+  }, [firstName, lastName, birthDate, otherInfo, birthdayReminderSettings]);
 
   return (
     <ContentWrapper>
@@ -58,18 +58,18 @@ const CreateEditContentWrapper = ({ icon, setBirthdayInfo }) => {
           maxDate={
             new Date(new Date().setFullYear(new Date().getFullYear() + 5))
           }
-          onChange={(date) => setDateValue(formatDate(date))}
-          value={dateValue ? new Date(dateValue) : null}
+          onChange={(date) => setBirthDate(formatDate(date))}
+          value={birthDate ? new Date(birthDate) : null}
         />
       </BirthDateContainer>
       <NotesInput
-        onChange={(event) => setNotes(event.target.value)}
+        onChange={(event) => setOtherInfo(event.target.value)}
         type="text"
         placeholder="Write down ideas for present or activity for birthday...."
-        value={notes}
+        value={otherInfo}
       />
       <ReminderSettingsContainer
-        reminderSettings={reminderSettings}
+        birthdayReminderSettings={birthdayReminderSettings}
         handleSettingsChange={handleSettingsChange}
       />
     </ContentWrapper>

@@ -77,3 +77,10 @@ Joel
 - flyttade komponenter till egna mappar
 
 ### 9/1 Måndag
+
+Joel
+
+- Refaktorerat BirthdayCreateEdit, ny komponent CreateEditContentWrapper
+- styling till kalender
+- hämta in data i BirthdayCreateEdit och anpassa för Edit
+- POST /birthday fungerar för skapa ny födelsedag

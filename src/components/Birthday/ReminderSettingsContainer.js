@@ -2,26 +2,26 @@ import React from "react";
 import styled from "styled-components/macro";
 
 const ReminderSettingsContainer = ({
-  reminderSettings,
+  birthdayReminderSettings,
   handleSettingsChange,
 }) => {
   return (
     <Wrapper>
       <p>E-mail notification settings</p>
       <StyledSettingsContainer>
-        <StyledLabel isChecked={reminderSettings.includes(0)}>
+        <StyledLabel isChecked={birthdayReminderSettings.includes(0)}>
           <input type="checkbox" name={"0"} onChange={handleSettingsChange} />
           Same day
         </StyledLabel>
-        <StyledLabel isChecked={reminderSettings.includes(2)}>
+        <StyledLabel isChecked={birthdayReminderSettings.includes(2)}>
           <input type="checkbox" name={"2"} onChange={handleSettingsChange} />2
           days
         </StyledLabel>
-        <StyledLabel isChecked={reminderSettings.includes(7)}>
+        <StyledLabel isChecked={birthdayReminderSettings.includes(7)}>
           <input type="checkbox" name={"7"} onChange={handleSettingsChange} />1
           week
         </StyledLabel>
-        <StyledLabel isChecked={reminderSettings.includes(30)}>
+        <StyledLabel isChecked={birthdayReminderSettings.includes(30)}>
           <input type="checkbox" name={"30"} onChange={handleSettingsChange} />1
           month
         </StyledLabel>

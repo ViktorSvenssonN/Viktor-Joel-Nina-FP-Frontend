@@ -10,6 +10,7 @@ import closeIcon from "images/icons/close.svg";
 import checkmarkIcon from "images/icons/checkmark.svg";
 import { randomInt } from "../util";
 import CreateEditContentWrapper from "./CreateEditContentWrapper";
+import { API_URL } from "utils/utils";
 
 const BirthdayCreateEdit = () => {
   const navigate = useNavigate();
@@ -18,13 +19,19 @@ const BirthdayCreateEdit = () => {
   const params = useParams();
 
   const accessToken = useSelector((store) => store.user.accessToken);
+  const userId = useSelector((store) => store.user.id);
   const icons = useSelector((store) => store.ui.icons);
   const mode = location.pathname.includes("create") ? "create" : "edit";
 
   const [icon, setIcon] = useState(null);
   const [birthdayInfo, setBirthdayInfo] = useState({});
-
-  console.log("birthdayInfo:", birthdayInfo);
+  const {
+    firstName,
+    lastName,
+    birthDate,
+    otherInfo,
+    birthdayReminderSettings,
+  } = birthdayInfo;
 
   // use the id to look up birthday from API/Redux
   const { id } = params;
@@ -58,9 +65,37 @@ const BirthdayCreateEdit = () => {
     if (cancel) navigate("/home");
   };
 
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: accessToken,
+    },
+    body: JSON.stringify({
+      firstName,
+      lastName,
+      birthDate,
+      otherInfo,
+      birthdayReminderSettings,
+      userId,
+    }),
+  };
+
+  const postBirthday = () => {
+    fetch(API_URL("birthday"), options)
+      .then((res) => res.json())
+      .then((data) => console.log("success"))
+      .catch((error) => console.error(error));
+  };
+  console.log("birthdayInfo:", birthdayInfo);
+
   const onFormSubmit = (e) => {
     e.preventDefault();
+    console.log("userId:", userId);
+    console.log("birthdayInfo:", birthdayInfo);
+
     console.log("yay!");
+    postBirthday();
     // TODO
     // push new birthday to API
   };
