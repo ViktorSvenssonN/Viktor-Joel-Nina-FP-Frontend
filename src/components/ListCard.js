@@ -6,7 +6,7 @@ import styled from "styled-components/macro";
 
 export const ListCard = () => {
   //props för ändring av färg på varannat kort
-
+  const dispatch = useDispatch();
 
   return (
     
@@ -67,11 +67,14 @@ const GridWrapper = styled.div`
 const IconImg = styled.div`
   grid-area: 1 / 1 / 3 / 2; 
   background-color: gray;
+  border-radius: 13px 0 0 0;
+  
 `;
 
 const DaysToBday = styled.div`
   grid-area: 3 / 1 / 5 / 2; 
   background-color: yellowgreen;
+  border-radius:  0 0 0 13px;
 `;
 
 const InfoBday = styled.div`
