@@ -21,11 +21,12 @@ export const AddBtn = () => {
 // ------------- Styled Components -------------------
 
 const BtnContainer = styled.div`
-  grid-area: 5 / 3 / 6 / 4;
   display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
-  z-index: 1000;
+  z-index: 2;
+  position: absolute;
+  height: 80%;
+  left: 70%;
 `;
 
 const Btn = styled.button`
@@ -34,6 +35,7 @@ const Btn = styled.button`
   border-radius: 50% ;
   margin-right: 1rem;
   background-color: #6a6d80; 
+  
 
   svg {
     width: 25px;

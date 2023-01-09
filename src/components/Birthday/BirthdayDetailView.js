@@ -15,32 +15,48 @@ import { API_URL } from "utils/utils";
 const BirthdayDetailView = () => {
   const icons = useSelector((store) => store.ui.icons);
   const [icon, setIcon] = useState(null);
-  const [birthdays, setBirthdays] = useState([]);
+  const [birthday, setBirthday] = useState([]);
   useEffect(() => {
     setIcon(icons[randomInt(icons.length)]);
   }, []);
+  const params = useParams();
+  const accessToken = useSelector((store) => store.user.accessToken);
+  const navigate = useNavigate();
 
   // use the id to look up birthday from API/Redux
-  /* const { id } = params; */
+   const { id } = params;
 
-/*   useEffect(() => {
+   console.log("id in BirthdayDetailView:", id)
+
+   useEffect(() => {
     if (!accessToken) {
       navigate("/login");
     }
-  }, []); */
-
-  useEffect(() => {
-    fetchBirthdays(); 
   }, []);
 
-  const fetchBirthdays = () => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `${accessToken}`
+    },
+  };
+
+  const fetchBirthday = () => {
  /*    setLoading(true); */
-    fetch(API_URL(id), options)
+    fetch(API_URL(`birthday/${id}`), options)
       .then((res) => res.json())
-      .then((data) => setBirthdays(data))
+      .then((data) => setBirthday(data))
       .catch((error) => console.error(error))
 /*       .finally(() => setLoading(false)); */
   }
+
+  useEffect(() => {
+    fetchBirthday(); 
+  }, []);
+
+console.log("birthday in DetailView:", birthday)
+console.log("formatDate in DetailView:", formatDate(new Date(birthday.birthDate)))
 
 
   const onFormCancel = () => {
@@ -72,7 +88,7 @@ const BirthdayDetailView = () => {
         <ContentWrapper>
           <img src={icon} />
           <TextInput
-          birthdays={birthdays}
+          birthday={birthday}
           />
           <TextInput
 
@@ -81,14 +97,7 @@ const BirthdayDetailView = () => {
           />
           <BirthDateContainer>
             <p>Birthdate</p>
-            <DatePicker
-              yearPlaceholder="year"
-              monthPlaceholder="month"
-              dayPlaceholder="day"
-              format="y-MM-dd"
-             /*  onChange={setDateValue}
-              value={dateValue} */
-            />
+            <DateShower>{formatDate(new Date(birthday.birthDate))}</DateShower>
           </BirthDateContainer>
           <NotesInput
             type="text"
@@ -218,4 +227,8 @@ const NotesInput = styled.textarea`
   background-color: var(--clr-background-green-card);
   box-shadow: 3px 8px 1px var(--clr-cascade);
   color: var(--clr-text-dark);
+`;
+
+const DateShower = styled.div`
+
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 
-import { OuterWrapper, InnerWrapper } from 'GlobalStyle'
+import { OuterWrapper, InnerWrapper } from 'Globalstyles'
 
 import { ReactComponent as AddIcon } from "../images/icons/close.svg";
 

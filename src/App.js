@@ -10,7 +10,7 @@ import Settings from "components/Settings";
 import { useSelector } from "react-redux";
 import "./reset.css";
 import "./index.css";
-import SelectStart from "components/ListView";
+import Start from "components/Start";
 import { GlobalOuterWrapper } from "Globalstyles";
 import AboutUs from "components/AboutUs";
 import styled from "styled-components";
@@ -26,8 +26,8 @@ export const App = () => {
             <Route path="/" element={<Welcome />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
-            <Route path="*" element={<NotFound />}></Route>
-            <Route path="/home" element={<SelectStart />}></Route>
+            {/* <Route path="*" element={<NotFound />}></Route> */}
+            <Route path="/home" element={<Start />}></Route>
             <Route path="/create" element={<BirthdayCreateEdit />}></Route>
             <Route path="/edit/:id" element={<BirthdayCreateEdit />}></Route>
             <Route path="/view/:id" element={<BirthdayDetailView />}></Route>

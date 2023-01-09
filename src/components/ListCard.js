@@ -4,45 +4,42 @@ import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components/macro";
 // import { InnerWrapper } from "Globalstyles";
 
-export const ListCard = () => {
+export const ListCard = ( {birthday} ) => {
   //props för ändring av färg på varannat kort
   const dispatch = useDispatch();
 
+  const name = `${birthday.firstName} ${birthday.lastName}`
+
   return (
     
-      <ListCardWrapper>
-        <GridWrapper>
-          <IconImg> random icon img </IconImg>
-          <DaysToBday> X days (component) </DaysToBday>
-          <InfoBday> 
-            <BdayName>
-              Test McTestersson's , birthday
-              {/* h4 {firtname} 
-              {lastname}'s, birthday */}
-            </BdayName>
-            <BdayAge>
-              h5 Turns 25 years, (in xx d)
-            </BdayAge>
-            <BdayDate>
-              2022-01-26
-            </BdayDate>
-            <BdayReminders>
-              //flex row, map reminders
-            </BdayReminders>
-          </InfoBday>
-        </GridWrapper>
-      </ListCardWrapper>
+    <GridWrapper>
+      <IconImg> random icon img </IconImg>
+      <DaysToBday> X days (component) </DaysToBday>
+      <InfoBday> 
+        <BdayName>
+          {name}'s birthday
+          {/* h4 {firtname} 
+          {lastname}'s, birthday */}
+        </BdayName>
+        <BdayAge>
+          h5 Turns 25 years, (in xx d)
+        </BdayAge>
+        <BdayDate>
+          2022-01-26
+        </BdayDate>
+        <BdayReminders>
+          //flex row, map reminders
+        </BdayReminders>
+      </InfoBday>
+    </GridWrapper>
+      
     
   );
 }
 
 // ------------- Styled Components -------------------
 
-const ListCardWrapper = styled.div`
-  grid-area: 1 / 1 / 1 / 4; 
-  
-`;
-  
+
 const GridWrapper = styled.div`
   display: grid;
   width: 100%;
