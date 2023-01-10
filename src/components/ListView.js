@@ -3,18 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { InnerWrapper, OuterWrapper } from "Globalstyles";
 import styled from "styled-components/macro";
-// import user from "reducers/user"; 
+// import user from "reducers/user";
 import WithHeader from "./WithHeader";
 import { ListCard } from "./ListCard";
 import { AddBtn } from "./smallComponents/AddBtn";
 
-const ListView = ( {birthdays} ) => {
+const ListView = ({ birthdays }) => {
   const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate();
 
-
-  console.log("testing birthdays in ListView:", birthdays)
+  console.log("testing birthdays in ListView:", birthdays);
 
   // useEffect(() => {
   //   if (!accessToken) {
@@ -22,11 +21,15 @@ const ListView = ( {birthdays} ) => {
   //   }
   // }, []);
 
-
   // Behövs UseEffect här med selectStart?
   // Mapp alla ListCard's som kommer från Created birthdays
 
-  
+  const bdDeleted = localStorage.getItem("deletedBirthday");
+
+  if (bdDeleted) {
+    window.alert("Birthday deleted!");
+    localStorage.removeItem("deletedBirthday");
+  }
 
   return (
     <ListOuterWrapper>
@@ -37,8 +40,12 @@ const ListView = ( {birthdays} ) => {
           </ListCardContainer>
         ))} */}
         {birthdays.map((birthday) => {
-
-          return <Link to={`/view/${birthday._id}`} > <ListCard key={birthday.id} birthday={birthday} /></Link>
+          return (
+            <Link to={`/view/${birthday._id}`}>
+              {" "}
+              <ListCard key={birthday.id} birthday={birthday} />
+            </Link>
+          );
         })}
         <AddBtn />
       </ListInnerWrapper>
@@ -64,8 +71,4 @@ const ListInnerWrapper = styled(InnerWrapper)`
   height: 100%; */
   display: flex;
   flex-direction: column;
-
 `;
-
-
-

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import styled from 'styled-components/macro'
+import styled from "styled-components/macro";
 import { ReactComponent as AddIcon } from "../../images/icons/close.svg";
 
 export const AddBtn = () => {
@@ -14,9 +14,8 @@ export const AddBtn = () => {
         <AddIcon />
       </Btn>
     </BtnContainer>
-  )
-
-}
+  );
+};
 
 // ------------- Styled Components -------------------
 
@@ -32,16 +31,16 @@ const BtnContainer = styled.div`
 const Btn = styled.button`
   width: 50px;
   height: 50px;
-  border-radius: 50% ;
+  border-radius: 50%;
   margin-right: 1rem;
-  background-color: #6a6d80; 
-  
+  background-color: #6a6d80;
 
   svg {
     width: 25px;
     height: 25px;
     transform: rotate(45deg);
-    filter: invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg) brightness(112%) contrast(82%);            
+    filter: invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg)
+      brightness(112%) contrast(82%);
   }
 
   &:hover {
@@ -55,5 +54,5 @@ const Btn = styled.button`
   @media (min-width: 667px) {
   }
   @media (min-width: 1024px) {
-    } 
+  }
 `;

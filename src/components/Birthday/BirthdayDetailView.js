@@ -51,6 +51,7 @@ const BirthdayDetailView = () => {
     )
       .then((res) => res.json())
       .then(() => console.log("birthday deleted"))
+      .then(() => localStorage.setItem("deletedBirthday", "true"))
       .then(() => navigate("/home"))
       .catch((error) => console.error(error));
   };
