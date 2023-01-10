@@ -18,8 +18,26 @@ export const ListCard = ( {birthday} ) => {
 
   const difference = differenceInDays(convertedBirthday, today)
   
-  console.log("testing days until b-day in ListCard:", difference)
+  // console.log("testing days until b-day in ListCard:", difference)
+  // console.log("testing in ListCard:", birthday.birthdayReminderSettings)
+
+  var dd = String(today.getDate()).padStart(2, 0);
+  var mm = String(today.getMonth() + 1).padStart(2, 0); //January is 0!
+  var yyyy = today.getFullYear();
+
+  const getDate = `${yyyy}${mm}${dd}`;
+  const birthDay = "19870903";
+  // const birthDay =
+  // prompt('Write your date of birth in one string, e.g. "19870903"') ?? 19870903
+  const formattedBirthday = formatDate(new Date(birthday.birthDate)).split('-').join('');
+
+  console.log(typeof formattedBirthday)
+  console.log("formatted birthday:", formattedBirthday)
   
+  console.log("birthday.birthDate:", birthday.birthDate);
+  console.log("birthDay:", birthDay);
+  const age = (getDate - formattedBirthday + "").slice(0, 2);
+  console.log("age:", age);
 
   return (
     
@@ -38,6 +56,24 @@ export const ListCard = ( {birthday} ) => {
         {formatDate(new Date(birthday.birthDate))}
         </BdayDate>
         <BdayReminders>
+        {birthday.birthdayReminderSettings.sort((a, b) => Number(a) - Number(b)).map(setting => {
+          if (setting === 0) {
+            return <span>Same day</span>
+          }
+          if (setting === 2) {
+
+            return <span>2 days</span>
+          }
+          if (setting === 7) {
+
+            return <span>1 week</span>
+          }
+          if (setting === 30) {
+
+            return <span>1 month</span>
+          }
+
+        })}
         
         </BdayReminders>
       </InfoBday>
@@ -66,7 +102,7 @@ const GridWrapper = styled.div`
   box-shadow: 3px 8px 1px var(--clr-cascade);
   color: var(--clr-text-dark);
   border: 2px solid hotpink;
-  
+
   
 `;
 
@@ -107,6 +143,8 @@ const BdayDate = styled.p`
 `;
 
 const BdayReminders = styled.div`
+font-size: 14px;
 display: flex; 
+gap: 10px;
   /* grid-area: 4 / 2 / 5 / 3;  */
 `

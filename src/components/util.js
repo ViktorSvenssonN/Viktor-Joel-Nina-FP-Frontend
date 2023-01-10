@@ -28,7 +28,7 @@ export const fetchOptions = (method, accessToken, body) => {
 //   const today = new Date();
 //   const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 
-//   const distance = bDay.getTime() - tday.getTime();
+//   const distance = bDay.getTime() - today.getTime();
 //   const daysOld = Math.floor(distance / (1000 * 60 * 60 * 24));
 //   const yearsOld = Number((daysOld / 365).toFixed());
 
