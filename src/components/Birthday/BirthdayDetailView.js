@@ -107,12 +107,10 @@ const BirthdayDetailView = () => {
             Gift ideas:
             <br />- {otherInfo}
           </NotesInput>
-          {birthday.birthdayReminderSettings.length > 0 && (
-            <ReminderSettingsContainer
-              birthdayReminderSettings={birthday.birthdayReminderSettings}
-              handleSettingsChange={() => null}
-            />
-          )}
+          <ReminderSettingsContainer
+            birthdayReminderSettings={birthday.birthdayReminderSettings}
+            handleSettingsChange={() => null}
+          />
         </ContentWrapper>
       </Wrapper>
     </ClonedOuterWrapper>
