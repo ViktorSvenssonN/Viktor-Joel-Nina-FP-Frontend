@@ -2,8 +2,24 @@ import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
-import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg, ButtonLoginSignUp, ContainerButtonLoginSignUp, LoginInLinkContainer,
-Form, FormOuterContainer, FormInnerContainer, FormHeaderContainer, FormHeader, LabelSubHeader, InputContainer, BallonBackgroundImg } from "Globalstyles";
+import {
+  OuterWrapper,
+  InnerWrapper,
+  LogoButtonContainer,
+  LogoButton,
+  LogoImg,
+  ButtonLoginSignUp,
+  ContainerButtonLoginSignUp,
+  LoginInLinkContainer,
+  Form,
+  FormOuterContainer,
+  FormInnerContainer,
+  FormHeaderContainer,
+  FormHeader,
+  LabelSubHeader,
+  InputContainer,
+  BallonBackgroundImg,
+} from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
@@ -12,7 +28,7 @@ import logolight from "../logo/logo_light.svg";
 // Component check, not worked on.
 const Register = () => {
   const [registerSuccess, setRegisterSuccess] = useState(false);
-const [username, setUsername] = useState(""); 
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -21,14 +37,14 @@ const [username, setUsername] = useState("");
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username: username, password: password }),
-    };
-    fetch(API_URL("register"), options)
+    fetch(
+      API_URL("register"),
+      fetchOptions(
+        "POST",
+        "",
+        JSON.stringify({ username: username, password: password })
+      )
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
@@ -72,7 +88,7 @@ const [username, setUsername] = useState("");
             </FormHeaderContainer>
             <FormInnerContainer>
               <Form onSubmit={onFormSubmit}>
-{/*                 <LabelSubHeader htmlFor="username">Name: </LabelSubHeader>
+                {/*                 <LabelSubHeader htmlFor="username">Name: </LabelSubHeader>
                 <InputContainer
                   type="text"
                   id="username"
@@ -128,7 +144,7 @@ const [username, setUsername] = useState("");
   );
 };
 
-// Styled components 
+// Styled components
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
@@ -148,10 +164,8 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   z-index: 1;
 `;
 
-
 const ConfirmPasswordContainer = styled(InputContainer)`
-  border: ${(props) => props?.isSame ? "none" : "1px red solid"};
-
-`
+  border: ${(props) => (props?.isSame ? "none" : "1px red solid")};
+`;
 
 export default Register;

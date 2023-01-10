@@ -8,7 +8,7 @@ import styled from "styled-components/macro";
 import WithHeader from "../WithHeader";
 import closeIcon from "images/icons/close.svg";
 import checkmarkIcon from "images/icons/checkmark.svg";
-import { randomInt } from "../util";
+import { fetchOptions, randomInt } from "../util";
 import CreateEditContentWrapper from "./CreateEditContentWrapper";
 import { API_URL } from "utils/utils";
 
@@ -43,17 +43,9 @@ const BirthdayCreateEdit = () => {
     }
   }, []);
 
-  const optionsGet = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `${accessToken}`,
-    },
-  };
-
   const fetchBirthday = () => {
     /*    setLoading(true); */
-    fetch(API_URL(`birthday/${id}`), optionsGet)
+    fetch(API_URL(`birthday/${id}`), fetchOptions("GET", accessToken))
       .then((res) => res.json())
       .then((data) => setBirthdayInfo(data))
       .catch((error) => console.error(error));
@@ -79,24 +71,22 @@ const BirthdayCreateEdit = () => {
     if (cancel) navigate(`${editMode ? `/view/${id}` : "/home"}`);
   };
 
-  const optionsPost = {
-    method: editMode ? "PATCH" : "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: accessToken,
-    },
-    body: JSON.stringify({
-      firstName,
-      lastName,
-      birthDate,
-      otherInfo,
-      birthdayReminderSettings,
-      ...(editMode ? { id } : { userId }),
-    }),
-  };
-
   const postBirthday = () => {
-    fetch(API_URL("birthday"), optionsPost)
+    fetch(
+      API_URL("birthday"),
+      fetchOptions(
+        editMode ? "PATCH" : "POST",
+        accessToken,
+        JSON.stringify({
+          firstName,
+          lastName,
+          birthDate,
+          otherInfo,
+          birthdayReminderSettings,
+          ...(editMode ? { id } : { userId }),
+        })
+      )
+    )
       .then((res) => res.json())
       .then(() =>
         alert(

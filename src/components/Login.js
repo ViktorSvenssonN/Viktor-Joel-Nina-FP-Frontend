@@ -24,6 +24,7 @@ import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
 import logolight from "../logo/logo_light.svg";
+import { fetchOptions } from "./util";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -33,14 +34,14 @@ const Login = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username: username, password: password }),
-    };
-    fetch(API_URL("login"), options)
+    fetch(
+      API_URL("login"),
+      fetchOptions(
+        "POST",
+        "",
+        JSON.stringify({ username: username, password: password })
+      )
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
