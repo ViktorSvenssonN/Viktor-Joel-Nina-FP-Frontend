@@ -2,8 +2,24 @@ import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "utils/utils";
-import { OuterWrapper, InnerWrapper, LogoButtonContainer, LogoButton, LogoImg, Form, FormOuterContainer, FormInnerContainer, LoginInLinkContainer,
-  FormHeaderContainer, FormHeader, InputContainer, LabelSubHeader, BallonBackgroundImg, ContainerButtonLoginSignUp, ButtonLoginSignUp } from "Globalstyles";
+import {
+  OuterWrapper,
+  InnerWrapper,
+  LogoButtonContainer,
+  LogoButton,
+  LogoImg,
+  Form,
+  FormOuterContainer,
+  FormInnerContainer,
+  LoginInLinkContainer,
+  FormHeaderContainer,
+  FormHeader,
+  InputContainer,
+  LabelSubHeader,
+  BallonBackgroundImg,
+  ContainerButtonLoginSignUp,
+  ButtonLoginSignUp,
+} from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
@@ -46,59 +62,59 @@ const Login = () => {
 
   return (
     <>
-    <LogoButtonContainer>
-      <LogoButton>
-        <Link to="/">
-          <LogoImg src={logolight} />{" "}
-        </Link>
-      </LogoButton>
-    </LogoButtonContainer>
-    <ClonedOuterWrapper>
-      <ClonedInnerWrapper>
-      <ClonedFormOuterContainer>
-        <BallonBackgroundImg src={ballons} />
-        <ClonedFormHeaderContainer>
-          <FormHeader>LOG IN</FormHeader>
-        </ClonedFormHeaderContainer>
-        <FormInnerContainer>
-          <Form onSubmit={onFormSubmit}>
-            <LabelSubHeader htmlFor="username">Email: </LabelSubHeader>
-            <InputContainer
-              type="email"
-              id="username"
-              placeholder="example@example.com"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)} />
-            <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
-            <InputContainer
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)} />
-            <ForgottPasswordContainer>
-              <Link to="/forgot">
-                <p>
-                  Forgot password?
-                </p>
-              </Link>
-            </ForgottPasswordContainer>
-            <LoginInLinkContainer>
-              <p>
-                Not a member?{" "}
-                <span>
-                  <Link to="/register">Register here</Link>
-                </span>{" "}
-              </p>
-            </LoginInLinkContainer>
-            <ContainerButtonLoginSignUp>
-              <ButtonLoginSignUp type="submit">LOGIN IN</ButtonLoginSignUp>
-            </ContainerButtonLoginSignUp>
-          </Form>
-        </FormInnerContainer>
-        </ClonedFormOuterContainer>
-      </ClonedInnerWrapper>
-    </ClonedOuterWrapper>
-      </>
+      <LogoButtonContainer>
+        <LogoButton>
+          <Link to="/">
+            <LogoImg src={logolight} />{" "}
+          </Link>
+        </LogoButton>
+      </LogoButtonContainer>
+      <ClonedOuterWrapper>
+        <ClonedInnerWrapper>
+          <ClonedFormOuterContainer>
+            <BallonBackgroundImg src={ballons} />
+            <ClonedFormHeaderContainer>
+              <FormHeader>LOG IN</FormHeader>
+            </ClonedFormHeaderContainer>
+            <FormInnerContainer>
+              <Form onSubmit={onFormSubmit}>
+                <LabelSubHeader htmlFor="username">Email: </LabelSubHeader>
+                <InputContainer
+                  type="email"
+                  id="username"
+                  placeholder="example@example.com"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
+                <InputContainer
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <ForgottPasswordContainer>
+                  <Link to="/forgot">
+                    <p>Forgot password?</p>
+                  </Link>
+                </ForgottPasswordContainer>
+                <LoginInLinkContainer>
+                  <p>
+                    Not a member?{" "}
+                    <span>
+                      <Link to="/register">Register here</Link>
+                    </span>{" "}
+                  </p>
+                </LoginInLinkContainer>
+                <ContainerButtonLoginSignUp>
+                  <ButtonLoginSignUp type="submit">LOGIN</ButtonLoginSignUp>
+                </ContainerButtonLoginSignUp>
+              </Form>
+            </FormInnerContainer>
+          </ClonedFormOuterContainer>
+        </ClonedInnerWrapper>
+      </ClonedOuterWrapper>
+    </>
   );
 };
 
@@ -123,7 +139,7 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 `;
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
-  background: var(--clr-background-login); 
+  background: var(--clr-background-login);
   height: 80%;
 `;
 
@@ -139,4 +155,3 @@ const ForgottPasswordContainer = styled.div`
 `;
 
 export default Login;
-
