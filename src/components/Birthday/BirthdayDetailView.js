@@ -7,7 +7,7 @@ import styled from "styled-components/macro";
 import backarrow from "images/icons/arrow-thin-left.svg";
 import trash from "images/icons/trash.svg";
 import editPencil from "images/icons/edit-pencil.svg";
-import { formatDate, randomInt } from "../util";
+import { fetchOptions, formatDate, randomInt } from "../util";
 import { API_URL } from "utils/utils";
 import ReminderSettingsContainer from "./ReminderSettingsContainer";
 
@@ -36,51 +36,42 @@ const BirthdayDetailView = () => {
     setIcon(icons[randomInt(icons.length)]);
   }, []);
 
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `${accessToken}`,
-    },
-  };
-
   const fetchBirthday = () => {
-    /*    setLoading(true); */
-    fetch(API_URL(`birthday/${id}`), options)
+    fetch(API_URL(`birthday/${id}`), fetchOptions("GET", accessToken))
       .then((res) => res.json())
       .then((data) => setBirthday(data))
-      .then(() => setLoading(false))
-      .then(() => console.log("soo.... what's up guys"))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  };
 
+  const deleteBirthday = () => {
+    fetch(
+      API_URL(`birthday`),
+      fetchOptions("DELETE", accessToken, JSON.stringify({ id }))
+    )
+      .then((res) => res.json())
+      .then(() => console.log("birthday deleted"))
+      .then(() => navigate("/home"))
       .catch((error) => console.error(error));
-    /*       .finally(() => setLoading(false)); */
   };
 
   useEffect(() => {
     fetchBirthday();
   }, []);
 
-  console.log("birthday", birthday);
-
-  const onFormBack = () => {
+  const onBackClick = () => {
     navigate("/home");
   };
 
-  const onFromDelete = () => {
+  const onDeleteClick = () => {
     const cancel = window.confirm(
       "Are you sure you want to delete this birthday reminder?"
     );
-    if (cancel) navigate("/home");
+    if (cancel) deleteBirthday();
   };
 
-  const onFormEdit = () => {
+  const onEditClick = () => {
     navigate(`/edit/${birthday._id}`);
-  };
-
-  const onFormSubmit = (e) => {
-    e.preventDefault();
-    // TODO
-    // push new birthday to API
   };
 
   if (loading) {
@@ -89,17 +80,17 @@ const BirthdayDetailView = () => {
 
   return (
     <ClonedOuterWrapper>
-      <FormWrapper onSubmit={onFormSubmit}>
+      <Wrapper>
         <BirthdayHeader>
-          <HeaderButton type="button" onClick={onFormBack}>
+          <HeaderButton type="button" onClick={onBackClick}>
             <img src={backarrow} alt="back" />
           </HeaderButton>
           <HeaderText>birthday</HeaderText>
           <BirthdayRightsideicons>
-            <HeaderButton type="submit">
+            <HeaderButton type="button" onClick={onDeleteClick}>
               <img src={trash} alt="OK" />
             </HeaderButton>
-            <HeaderButton type="button" onClick={onFormEdit}>
+            <HeaderButton type="button" onClick={onEditClick}>
               <img src={editPencil} alt="edit" />
             </HeaderButton>
           </BirthdayRightsideicons>
@@ -123,7 +114,7 @@ const BirthdayDetailView = () => {
             />
           )}
         </ContentWrapper>
-      </FormWrapper>
+      </Wrapper>
     </ClonedOuterWrapper>
   );
 };
@@ -134,7 +125,7 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
   align-items: flex-end;
 `;
 
-const FormWrapper = styled.form`
+const Wrapper = styled.section`
   width: 100%;
   height: 95%;
   display: flex;

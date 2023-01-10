@@ -9,3 +9,14 @@ export const formatDate = (birthDate) => {
 
   return `${year}-${month}-${day}`;
 };
+
+export const fetchOptions = (method, accessToken, body) => {
+  return {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `${accessToken}`,
+    },
+    ...(body ? { body } : {}),
+  };
+};
