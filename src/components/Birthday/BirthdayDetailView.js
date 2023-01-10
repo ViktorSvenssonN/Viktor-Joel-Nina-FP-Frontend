@@ -5,8 +5,9 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 // import user from "reducers/user";
 import styled from "styled-components/macro";
-import closeIcon from "images/icons/close.svg";
-import checkmarkIcon from "images/icons/checkmark.svg";
+import backarrow from "images/icons/arrow-thin-left.svg";
+import trash from "images/icons/trash.svg";
+import editPencil from "images/icons/edit-pencil.svg";
 import { formatDate, randomInt } from "../util";
 import DatePicker from "react-date-picker";
 import { API_URL } from "utils/utils";
@@ -53,11 +54,14 @@ const BirthdayDetailView = () => {
     fetchBirthday();
   }, []);
 
-  const onFormCancel = () => {
-    const cancel = window.confirm(
-      "Are you sure you want to discard this birthday reminder?"
-    );
-    if (cancel) navigate("/home");
+  
+
+  const onFormBack = () => {
+    navigate("/home");
+  };
+
+  const onFormEdit = () => {
+    navigate(`/edit/${birthday._id}`);
   };
 
   const onFormSubmit = (e) => {
@@ -70,12 +74,15 @@ const BirthdayDetailView = () => {
     <ClonedOuterWrapper>
       <FormWrapper onSubmit={onFormSubmit}>
         <BirthdayHeader>
-          <HeaderButton type="button" onClick={onFormCancel}>
-            <img src={closeIcon} alt="cancel" />
+          <HeaderButton type="button" onClick={onFormBack}>
+            <img src={backarrow} alt="back" />
           </HeaderButton>
-          <HeaderText>Add birthday reminder</HeaderText>
+          <HeaderText>birthday</HeaderText>
           <HeaderButton type="submit">
-            <img src={checkmarkIcon} alt="OK" />
+            <img src={trash} alt="OK" />
+          </HeaderButton>
+          <HeaderButton type="button" onClick={onFormEdit}>
+            <img src={editPencil} alt="edit" />
           </HeaderButton>
         </BirthdayHeader>
         <ContentWrapper>
@@ -125,7 +132,7 @@ const BirthdayHeader = styled.header`
 
   img {
     cursor: pointer;
-    height: 32px;
+    height: 28px;
     width: 32px;
     transition: 0.2s;
     filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
@@ -135,6 +142,11 @@ const BirthdayHeader = styled.header`
       transition: 0.2s;
     }
   }
+`;
+
+const BirthdayRightsideicons = styled.div`
+
+
 `;
 
 const HeaderText = styled.p`
