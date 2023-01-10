@@ -21,9 +21,8 @@ const BirthdayDetailView = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate();
 
-  const firstName = `${birthday.firstName}`;
-  const lastName = `${birthday.lastName}`;
-  const otherInfo = `${birthday.otherInfo}`;
+  const { firstName, lastName, otherInfo } = birthday;
+
   const { id } = params;
 
   useEffect(() => {
