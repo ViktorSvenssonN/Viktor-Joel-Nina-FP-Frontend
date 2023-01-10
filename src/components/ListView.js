@@ -34,16 +34,11 @@ const ListView = ({ birthdays }) => {
   return (
     <ListOuterWrapper>
       <ListInnerWrapper>
-        {/* {items.map((item) => (
-          <ListCardContainer key={item.id}>
-            <ListCard />
-          </ListCardContainer>
-        ))} */}
         {birthdays.map((birthday) => {
           return (
-            <Link to={`/view/${birthday._id}`}>
+            <Link to={`/view/${birthday._id}`} key={birthday._id}>
               {" "}
-              <ListCard key={birthday.id} birthday={birthday} />
+              <ListCard birthday={birthday} />
             </Link>
           );
         })}
