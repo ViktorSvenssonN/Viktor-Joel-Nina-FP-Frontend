@@ -11,7 +11,7 @@ import editPencil from "images/icons/edit-pencil.svg";
 import { formatDate, randomInt } from "../util";
 import DatePicker from "react-date-picker";
 import { API_URL } from "utils/utils";
-/* import ReminderSettingsContainer from "./ReminderSettingsContainer"; */
+ import ReminderSettingsContainer from "./ReminderSettingsContainer"; 
 
 const BirthdayDetailView = () => {
   const icons = useSelector((store) => store.ui.icons);
@@ -24,6 +24,10 @@ const BirthdayDetailView = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate();
 
+  const firstName = `${birthday.firstName}`
+  const lastName = `${birthday.lastName}`
+  const otherInfo = `${birthday.otherInfo}`
+  const ChoosenBirthdayRemainders = `${birthday.birthdayReminderSettings}`
   // use the id to look up birthday from API/Redux
   const { id } = params;
 
@@ -54,11 +58,18 @@ const BirthdayDetailView = () => {
     fetchBirthday();
   }, []);
 
-  
+  console.log("birthday", birthday)
 
   const onFormBack = () => {
     navigate("/home");
   };
+
+  const onFromDelete = () => {
+  const cancel = window.confirm(
+    "Are you sure you want to delete this birthday reminder?"
+  );
+  if (cancel) navigate("/home");
+};
 
   const onFormEdit = () => {
     navigate(`/edit/${birthday._id}`);
@@ -78,34 +89,43 @@ const BirthdayDetailView = () => {
             <img src={backarrow} alt="back" />
           </HeaderButton>
           <HeaderText>birthday</HeaderText>
+          <BirthdayRightsideicons>
           <HeaderButton type="submit">
             <img src={trash} alt="OK" />
           </HeaderButton>
           <HeaderButton type="button" onClick={onFormEdit}>
             <img src={editPencil} alt="edit" />
           </HeaderButton>
+          </BirthdayRightsideicons>
         </BirthdayHeader>
         <ContentWrapper>
           <img src={icon} />
-          <TextInput birthday={birthday} />
-          <TextInput type="text" placeholder="Last name" />
+          <TextInput> {firstName} </TextInput>
+          <TextInput> {lastName}</TextInput>
           <BirthDateContainer>
             <p>Birthdate</p>
             <DateShower>{formatDate(new Date(birthday.birthDate))}</DateShower>
           </BirthDateContainer>
-          <NotesInput
-            type="text"
-            placeholder="Write down ideas for present or activity for birthday...."
-          />
-          {/*           <ReminderSettingsContainer
-            reminderSettings={reminderSettings}
-            handleSettingsChange={handleSettingsChange} 
-          /> */}
+          <NotesInput>
+           Gift ideas:
+           <br />
+            - {otherInfo} 
+            </NotesInput>
+            <Wrapper>
+              <p>E-mail notification settings</p>
+               <StyledSettingsContainer>
+                <StyledLabel>  
+                  {ChoosenBirthdayRemainders}
+                </StyledLabel>
+              </StyledSettingsContainer> 
+            </Wrapper>
         </ContentWrapper>
       </FormWrapper>
     </ClonedOuterWrapper>
   );
 };
+
+
 
 export default WithHeader(BirthdayDetailView);
 
@@ -145,8 +165,9 @@ const BirthdayHeader = styled.header`
 `;
 
 const BirthdayRightsideicons = styled.div`
-
-
+  width: 19%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const HeaderText = styled.p`
@@ -214,7 +235,7 @@ const BirthDateContainer = styled.section`
   }
 `;
 
-const NotesInput = styled.textarea`
+const NotesInput = styled.div`
   font-size: 16px;
   font-style: italic;
   margin-top: 30px;
@@ -228,4 +249,28 @@ const NotesInput = styled.textarea`
   color: var(--clr-text-dark);
 `;
 
-const DateShower = styled.div``;
+const DateShower = styled.div`
+`;
+
+/// Remainder setting components
+
+const Wrapper = styled.section`
+  margin-top: 40px;
+`;
+
+const StyledSettingsContainer = styled.section`
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+`;
+
+const StyledLabel = styled.label`
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+  background-color: var(--clr-background);
+  box-shadow: 2px 2px 4px grey;
+  border-radius: 5rem;
+  color: var(--clr-text-dark);
+  border: none;
+`;
