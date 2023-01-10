@@ -3,38 +3,37 @@ import WithHeader from "../WithHeader";
 import { OuterWrapper } from "Globalstyles";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-// import user from "reducers/user";
 import styled from "styled-components/macro";
 import backarrow from "images/icons/arrow-thin-left.svg";
 import trash from "images/icons/trash.svg";
 import editPencil from "images/icons/edit-pencil.svg";
 import { formatDate, randomInt } from "../util";
-import DatePicker from "react-date-picker";
 import { API_URL } from "utils/utils";
- import ReminderSettingsContainer from "./ReminderSettingsContainer"; 
+import ReminderSettingsContainer from "./ReminderSettingsContainer";
 
 const BirthdayDetailView = () => {
   const icons = useSelector((store) => store.ui.icons);
   const [icon, setIcon] = useState(null);
   const [birthday, setBirthday] = useState([]);
-  useEffect(() => {
-    setIcon(icons[randomInt(icons.length)]);
-  }, []);
+  const [loading, setLoading] = useState(true);
+
   const params = useParams();
   const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate();
 
-  const firstName = `${birthday.firstName}`
-  const lastName = `${birthday.lastName}`
-  const otherInfo = `${birthday.otherInfo}`
-  const ChoosenBirthdayRemainders = `${birthday.birthdayReminderSettings}`
-  // use the id to look up birthday from API/Redux
+  const firstName = `${birthday.firstName}`;
+  const lastName = `${birthday.lastName}`;
+  const otherInfo = `${birthday.otherInfo}`;
   const { id } = params;
 
   useEffect(() => {
     if (!accessToken) {
       navigate("/login");
     }
+  }, []);
+
+  useEffect(() => {
+    setIcon(icons[randomInt(icons.length)]);
   }, []);
 
   const options = {
@@ -50,6 +49,9 @@ const BirthdayDetailView = () => {
     fetch(API_URL(`birthday/${id}`), options)
       .then((res) => res.json())
       .then((data) => setBirthday(data))
+      .then(() => setLoading(false))
+      .then(() => console.log("soo.... what's up guys"))
+
       .catch((error) => console.error(error));
     /*       .finally(() => setLoading(false)); */
   };
@@ -58,18 +60,18 @@ const BirthdayDetailView = () => {
     fetchBirthday();
   }, []);
 
-  console.log("birthday", birthday)
+  console.log("birthday", birthday);
 
   const onFormBack = () => {
     navigate("/home");
   };
 
   const onFromDelete = () => {
-  const cancel = window.confirm(
-    "Are you sure you want to delete this birthday reminder?"
-  );
-  if (cancel) navigate("/home");
-};
+    const cancel = window.confirm(
+      "Are you sure you want to delete this birthday reminder?"
+    );
+    if (cancel) navigate("/home");
+  };
 
   const onFormEdit = () => {
     navigate(`/edit/${birthday._id}`);
@@ -81,6 +83,10 @@ const BirthdayDetailView = () => {
     // push new birthday to API
   };
 
+  if (loading) {
+    return <div>Currently working on that for you dear sir/madam</div>;
+  }
+
   return (
     <ClonedOuterWrapper>
       <FormWrapper onSubmit={onFormSubmit}>
@@ -90,42 +96,37 @@ const BirthdayDetailView = () => {
           </HeaderButton>
           <HeaderText>birthday</HeaderText>
           <BirthdayRightsideicons>
-          <HeaderButton type="submit">
-            <img src={trash} alt="OK" />
-          </HeaderButton>
-          <HeaderButton type="button" onClick={onFormEdit}>
-            <img src={editPencil} alt="edit" />
-          </HeaderButton>
+            <HeaderButton type="submit">
+              <img src={trash} alt="OK" />
+            </HeaderButton>
+            <HeaderButton type="button" onClick={onFormEdit}>
+              <img src={editPencil} alt="edit" />
+            </HeaderButton>
           </BirthdayRightsideicons>
         </BirthdayHeader>
         <ContentWrapper>
           <img src={icon} />
-          <TextInput> {firstName} </TextInput>
-          <TextInput> {lastName}</TextInput>
+          <TextParagraph> {firstName} </TextParagraph>
+          <TextParagraph> {lastName}</TextParagraph>
           <BirthDateContainer>
             <p>Birthdate</p>
             <DateShower>{formatDate(new Date(birthday.birthDate))}</DateShower>
           </BirthDateContainer>
           <NotesInput>
-           Gift ideas:
-           <br />
-            - {otherInfo} 
-            </NotesInput>
-            <Wrapper>
-              <p>E-mail notification settings</p>
-               <StyledSettingsContainer>
-                <StyledLabel>  
-                  {ChoosenBirthdayRemainders}
-                </StyledLabel>
-              </StyledSettingsContainer> 
-            </Wrapper>
+            Gift ideas:
+            <br />- {otherInfo}
+          </NotesInput>
+          {birthday.birthdayReminderSettings.length > 0 && (
+            <ReminderSettingsContainer
+              birthdayReminderSettings={birthday.birthdayReminderSettings}
+              handleSettingsChange={() => null}
+            />
+          )}
         </ContentWrapper>
       </FormWrapper>
     </ClonedOuterWrapper>
   );
 };
-
-
 
 export default WithHeader(BirthdayDetailView);
 
@@ -194,7 +195,8 @@ const ContentWrapper = styled.section`
   }
 `;
 
-const TextInput = styled.p`
+const TextParagraph = styled.p`
+  line-height: normal;
   margin-top: 25px;
   width: 75%;
   font-family: inherit;
@@ -250,27 +252,11 @@ const NotesInput = styled.div`
 `;
 
 const DateShower = styled.div`
-`;
-
-/// Remainder setting components
-
-const Wrapper = styled.section`
-  margin-top: 40px;
-`;
-
-const StyledSettingsContainer = styled.section`
-  margin-top: 15px;
+  width: 75%;
   display: flex;
-  gap: 10px;
-`;
-
-const StyledLabel = styled.label`
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px;
-  background-color: var(--clr-background);
-  box-shadow: 2px 2px 4px grey;
-  border-radius: 5rem;
-  color: var(--clr-text-dark);
-  border: none;
+  padding-left: 5px;
+  height: 29px;
+  margin-top: 10px;
+  align-items: center;
+  border: thin solid grey;
 `;

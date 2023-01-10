@@ -72,9 +72,11 @@ const BirthdayCreateEdit = () => {
 
   const onFormCancel = () => {
     const cancel = window.confirm(
-      "Are you sure you want to discard this birthday reminder?"
+      `Are you sure you want to discard ${
+        editMode ? "the changes to" : ""
+      } this birthday reminder?`
     );
-    if (cancel) navigate("/home");
+    if (cancel) navigate(`${editMode ? `/view/${id}` : "/home"}`);
   };
 
   const optionsPost = {
