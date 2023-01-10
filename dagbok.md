@@ -84,3 +84,4 @@ Joel
 - styling till kalender
 - hämta in data i BirthdayCreateEdit och anpassa för Edit
 - POST /birthday fungerar för skapa ny födelsedag
+- BirthdayCreateEdit fungerar nu även för edit, och även PATCH /birthday

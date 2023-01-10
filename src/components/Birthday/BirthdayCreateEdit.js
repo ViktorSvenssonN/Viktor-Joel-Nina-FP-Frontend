@@ -116,7 +116,7 @@ const BirthdayCreateEdit = () => {
           <HeaderButton type="button" onClick={onFormCancel}>
             <img src={closeIcon} alt="cancel" />
           </HeaderButton>
-          <HeaderText>Add birthday reminder</HeaderText>
+          <HeaderText>{editMode ? "Edit" : "Add"} birthday reminder</HeaderText>
           <HeaderButton type="submit">
             <img src={checkmarkIcon} alt="OK" />
           </HeaderButton>
