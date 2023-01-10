@@ -77,6 +77,8 @@ Joel
 - flyttade komponenter till egna mappar
 
 ### 9/1 Måndag
+update möte fm efter team session och  17.30
+mob programming  "lägga ut kablar"
 
 Joel
 
@@ -85,3 +87,16 @@ Joel
 - hämta in data i BirthdayCreateEdit och anpassa för Edit
 - POST /birthday fungerar för skapa ny födelsedag
 - BirthdayCreateEdit fungerar nu även för edit, och även PATCH /birthday
+
+### 10/1 Tisdag
+update möte efter team session
+och 19-ish
+
+Nina
+
+- ListView, ListCard
+- Tunnare Iconer , färglägga?
+- beräknat år, countdown days, och Age.
+https://www.npmjs.com/package/calculate-age
+https://birthday-wisher.netlify.app/?ref=morioh.com&utm_source=morioh.com
+- Age.js

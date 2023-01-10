@@ -1,31 +1,36 @@
 import React, { useState } from "react";
-import { useDispatch, batch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+// import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components/macro";
 // import { InnerWrapper } from "Globalstyles";
+import { formatDate } from "./util";
 
 export const ListCard = ( {birthday} ) => {
+
   //props för ändring av färg på varannat kort
   const dispatch = useDispatch();
 
   const name = `${birthday.firstName} ${birthday.lastName}`
+  // const bDayCountdown = `${formatDate(new Date(birthday.birthDate))}`
+  // const iconRandom = `${icon}`
+  
+  
 
   return (
     
     <GridWrapper>
       <IconImg> random icon img </IconImg>
-      <DaysToBday> X days (component) </DaysToBday>
+      <DaysToBday> Days left </DaysToBday>
       <InfoBday> 
         <BdayName>
           {name}'s birthday
-          {/* h4 {firtname} 
-          {lastname}'s, birthday */}
+          
         </BdayName>
         <BdayAge>
-          h5 Turns 25 years, (in xx d)
+          Turns xx years old
         </BdayAge>
         <BdayDate>
-          2022-01-26
+        {formatDate(new Date(birthday.birthDate))}
         </BdayDate>
         <BdayReminders>
           //flex row, map reminders
