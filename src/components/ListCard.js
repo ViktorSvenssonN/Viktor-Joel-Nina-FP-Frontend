@@ -3,17 +3,22 @@ import { useDispatch } from "react-redux";
 // import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components/macro";
 // import { InnerWrapper } from "Globalstyles";
-import { formatDate } from "./util";
+import { formatDate, convertDate } from "./util";
+import { differenceInDays, format } from "date-fns";
 
 export const ListCard = ( {birthday} ) => {
 
   //props för ändring av färg på varannat kort
   const dispatch = useDispatch();
 
+  const today = new Date();
+
+  const convertedBirthday = convertDate(new Date(birthday.birthDate))
   const name = `${birthday.firstName} ${birthday.lastName}`
-  // const bDayCountdown = `${formatDate(new Date(birthday.birthDate))}`
-  // const iconRandom = `${icon}`
+
+  const difference = differenceInDays(convertedBirthday, today)
   
+  console.log("testing days until b-day in ListCard:", difference)
   
 
   return (
@@ -33,7 +38,7 @@ export const ListCard = ( {birthday} ) => {
         {formatDate(new Date(birthday.birthDate))}
         </BdayDate>
         <BdayReminders>
-          //flex row, map reminders
+        
         </BdayReminders>
       </InfoBday>
     </GridWrapper>
