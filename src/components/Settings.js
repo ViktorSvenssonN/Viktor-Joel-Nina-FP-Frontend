@@ -2,72 +2,88 @@ import React from "react";
 import WithHeader from "./WithHeader";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components/macro";
-import { OuterWrapper, InnerWrapper,ButtonLoginSignUp, ContainerButtonLoginSignUp, LoginInLinkContainer,
-  Form, FormOuterContainer, FormInnerContainer, FormHeaderContainer, FormHeader, LabelSubHeader, InputContainer } from "Globalstyles";
-import trash from "../images/icons/trash.svg"
+import {
+  OuterWrapper,
+  InnerWrapper,
+  ButtonLoginSignUp,
+  ContainerButtonLoginSignUp,
+  LoginInLinkContainer,
+  Form,
+  FormOuterContainer,
+  FormInnerContainer,
+  FormHeaderContainer,
+  FormHeader,
+  LabelSubHeader,
+  InputContainer,
+} from "Globalstyles";
+import trash from "../images/icons/trash.svg";
 
 const Settings = () => {
   return (
     <ClonedOuterWrapper>
-    <ClonedInnerWrapper>
-      <ClonedFormOuterContainer>
-        <FormHeaderContainer>
-          <FormHeader>CHANGE PASSWORD</FormHeader>
-        </FormHeaderContainer>
-        <FormInnerContainer>
-          <Form>
-            <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
-            <InputContainer
-              type="password"
-              id="password"
-    /*           value={password}
+      <ClonedInnerWrapper>
+        <ClonedFormOuterContainer>
+          <FormHeaderContainer>
+            <FormHeader>CHANGE PASSWORD</FormHeader>
+          </FormHeaderContainer>
+          <FormInnerContainer>
+            <Form>
+              <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
+              <InputContainer
+                type="password"
+                id="password"
+                /*           value={password}
               required
               onChange={(e) => setPassword(e.target.value)} */
-            />
-            <LabelSubHeader htmlFor="password">
-              Confirm password:{" "}
-            </LabelSubHeader>
-            <InputContainer
-              type="password"
-              id="confirmPassword"
-/*               value={confirmPassword}
+              />
+              <LabelSubHeader htmlFor="password">
+                Confirm password:{" "}
+              </LabelSubHeader>
+              <InputContainer
+                type="password"
+                id="confirmPassword"
+                /*               value={confirmPassword}
               required
               onChange={(e) => setConfirmPassword(e.target.value)} */
-            />
-            <ContainerButtonLoginSignUp>
-              <ButtonLoginSignUp type="submit">CONFIRM</ButtonLoginSignUp>
-            </ContainerButtonLoginSignUp>
-          </Form>
-        </FormInnerContainer>
-      </ClonedFormOuterContainer>
-    </ClonedInnerWrapper>
-    <ClonedInnerWrapper>
-      <ClonedFormDeleteOuterContainer>
-        <FormHeaderContainer>
-          <FormHeader>DANGEROUS AREA</FormHeader>
-        </FormHeaderContainer>
-        <FormInnerContainer>
-          <Form>
-            <DeleteAccountContainer>
-              <ClonedInputContainer
-                type="checkbox"
-                id="deleteuser"
-                placeholder="Delete account"
-                required
-      /*           value={password}
+              />
+              <ContainerButtonLoginSignUp>
+                <ButtonLoginSignUp type="submit">CONFIRM</ButtonLoginSignUp>
+              </ContainerButtonLoginSignUp>
+            </Form>
+          </FormInnerContainer>
+        </ClonedFormOuterContainer>
+      </ClonedInnerWrapper>
+      <ClonedInnerWrapper>
+        <ClonedFormDeleteOuterContainer>
+          <FormHeaderContainer>
+            <FormHeader>DANGEROUS AREA</FormHeader>
+          </FormHeaderContainer>
+          <FormInnerContainer>
+            <Form>
+              <DeleteAccountContainer>
+                <ClonedInputContainer
+                  type="checkbox"
+                  id="deleteuser"
+                  placeholder="Delete account"
+                  required
+                  /*           value={password}
                 required
                 onChange={(e) => setPassword(e.target.value)} */
-              />
-              <ClonedLabelSubHeader htmlFor="password">Delete Account</ClonedLabelSubHeader>
-            </DeleteAccountContainer>
-            <ContainerButtonLoginSignUp>
-              <ButtonLoginSignUp type="submit"><StyledIcon src={trash} /></ButtonLoginSignUp>
-            </ContainerButtonLoginSignUp>
-          </Form>
-        </FormInnerContainer>
-      </ClonedFormDeleteOuterContainer>
-    </ClonedInnerWrapper>
-  </ClonedOuterWrapper>
+                />
+                <ClonedLabelSubHeader htmlFor="password">
+                  Delete Account
+                </ClonedLabelSubHeader>
+              </DeleteAccountContainer>
+              <ContainerButtonLoginSignUp>
+                <ButtonLoginSignUp type="submit">
+                  <StyledIcon src={trash} />
+                </ButtonLoginSignUp>
+              </ContainerButtonLoginSignUp>
+            </Form>
+          </FormInnerContainer>
+        </ClonedFormDeleteOuterContainer>
+      </ClonedInnerWrapper>
+    </ClonedOuterWrapper>
   );
 };
 
@@ -93,12 +109,12 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px;
-`
+`;
 
 const ClonedFormDeleteOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px;
-  background: var(--clr-background-login);
-`
+  background: #e3c0ab;
+`;
 
 const ClonedLabelSubHeader = styled(LabelSubHeader)`
   font-size: 1.2rem;
@@ -132,4 +148,3 @@ const StyledIcon = styled.img`
     transition: 0.2s;
   }
 `;
-
