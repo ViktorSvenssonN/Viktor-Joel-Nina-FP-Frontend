@@ -26,7 +26,6 @@ import ballons from "../images/ballons_120x250.png";
 import logolight from "../logo/logo_light.svg";
 import { fetchOptions } from "./util";
 
-// Component check, not worked on.
 const Register = () => {
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [username, setUsername] = useState("");
@@ -37,29 +36,31 @@ const Register = () => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    fetch(
-      API_URL("register"),
-      fetchOptions(
-        "POST",
-        "",
-        JSON.stringify({ username: username, password: password })
+    if (password === confirmPassword) {
+      fetch(
+        API_URL("register"),
+        fetchOptions(
+          "POST",
+          "",
+          JSON.stringify({ username: username, password: password })
+        )
       )
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          setTimeout(() => {
-            navigate("/login");
-          }, 2000);
-          setRegisterSuccess(true);
-        } else {
-          batch(() => {
-            dispatch(user.actions.setUsername(null));
-            dispatch(user.actions.setId(null));
-            dispatch(user.actions.setAccessToken(null));
-          });
-        }
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            setTimeout(() => {
+              navigate("/login");
+            }, 2000);
+            setRegisterSuccess(true);
+          } else {
+            batch(() => {
+              dispatch(user.actions.setUsername(null));
+              dispatch(user.actions.setId(null));
+              dispatch(user.actions.setAccessToken(null));
+            });
+          }
+        });
+    }
   };
 
   if (registerSuccess) {

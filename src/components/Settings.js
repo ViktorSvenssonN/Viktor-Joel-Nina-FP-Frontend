@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import WithHeader from "./WithHeader";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components/macro";
@@ -19,40 +19,43 @@ import {
 import trash from "../images/icons/trash.svg";
 import { fetchOptions } from "./util";
 import { API_URL } from "./util";
+import { useSelector } from "react-redux";
 
 const Settings = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+  const accessToken = useSelector((store) => store.user.accessToken);
+  const userId = useSelector((store) => store.user.id);
+
+  useEffect(() => {
+    if (!accessToken) {
+      navigate("/login");
+    }
+  }, []);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    fetch(
-      API_URL("register"),
-      fetchOptions(
-        "POST",
-        "",
-        JSON.stringify({ username: username, password: password })
+    if (password === confirmPassword) {
+      fetch(
+        API_URL("change-password"),
+        fetchOptions(
+          "PATCH",
+          accessToken,
+          JSON.stringify({ id: userId, password })
+        )
       )
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          setTimeout(() => {
-            navigate("/login");
-          }, 2000);
-          setRegisterSuccess(true);
-        } else {
-          batch(() => {
-            dispatch(user.actions.setUsername(null));
-            dispatch(user.actions.setId(null));
-            dispatch(user.actions.setAccessToken(null));
-          });
-        }
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            window.alert("Password successfully changed!");
+            navigate("/home");
+          }
+        });
+    } else {
+      window.alert("Please ensure that your password confirmation matches");
+    }
   };
-
-  console.log(confirmPassword);
-  console.log(password);
 
   return (
     <ClonedOuterWrapper>
@@ -62,7 +65,7 @@ const Settings = () => {
             <FormHeader>CHANGE PASSWORD</FormHeader>
           </FormHeaderContainer>
           <FormInnerContainer>
-            <Form>
+            <Form onSubmit={onFormSubmit}>
               <LabelSubHeader htmlFor="password">New password: </LabelSubHeader>
               <InputContainer
                 type="password"
@@ -74,7 +77,7 @@ const Settings = () => {
               <LabelSubHeader htmlFor="confirmPassword">
                 Confirm new password:{" "}
               </LabelSubHeader>
-              <InputContainer
+              <ConfirmPasswordContainer
                 isSame={confirmPassword === password}
                 type="password"
                 id="confirmPassword"
@@ -183,4 +186,8 @@ const StyledIcon = styled.img`
     transform: scale(1.1) translateX(2px);
     transition: 0.2s;
   }
+`;
+
+const ConfirmPasswordContainer = styled(InputContainer)`
+  border: ${(props) => (props?.isSame ? "none" : "1px red solid")};
 `;
