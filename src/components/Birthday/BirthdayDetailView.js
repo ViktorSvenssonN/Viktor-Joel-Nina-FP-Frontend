@@ -145,7 +145,7 @@ const BirthdayHeader = styled.header`
   align-items: center;
   height: 10%;
   border-radius: 50px 50px 0 0;
-  background: var(--clr-background-register);
+  background: var(--clr-bg-register);
   color: var(--clr-text-dark);
 
   img {
@@ -182,7 +182,7 @@ const ContentWrapper = styled.section`
   flex-direction: column;
   height: 90%;
   padding: 30px;
-  background: var(--clr-background-light);
+  background: var(--clr-bg-light);
 
   img {
     height: 100px;
@@ -252,7 +252,7 @@ const NotesInput = styled.div`
   height: 20%;
   border: none;
   outline: none;
-  background-color: var(--clr-background-green-card);
+  background-color: var(--clr-bg-green-card);
   box-shadow: 3px 8px 1px var(--clr-cascade);
   color: var(--clr-text-dark);
 

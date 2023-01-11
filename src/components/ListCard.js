@@ -1,21 +1,28 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
 // import { useNavigate, Link } from "react-router-dom";
+
 import styled from "styled-components/macro";
 // import { InnerWrapper } from "Globalstyles";
-import { formatDate, convertDate } from "./util";
+import { formatDate, convertDate, randomInt } from "./util";
 import { differenceInDays, format } from "date-fns";
 
 export const ListCard = ({ birthday, odd }) => {
-  //props för ändring av färg på varannat kort
-  const dispatch = useDispatch();
+  const icons = useSelector((store) => store.ui.icons);
+  const [icon, setIcon] = useState(null);
+
+  // const dispatch = useDispatch();
+  useEffect(() => {
+    setIcon(icons[randomInt(icons.length)]);
+  }, []);
 
   const today = new Date();
 
   const convertedBirthday = convertDate(new Date(birthday.birthDate));
   const name = `${birthday.firstName} ${birthday.lastName}`;
 
-  const difference = differenceInDays(convertedBirthday, today);
+  // const difference = differenceInDays(convertedBirthday, today);
 
   // console.log("testing days until b-day in ListCard:", difference)
   // console.log("testing in ListCard:", birthday.birthdayReminderSettings)
@@ -42,7 +49,9 @@ export const ListCard = ({ birthday, odd }) => {
 
   return (
     <GridWrapper odd={odd}>
-      <IconImg> random icon img </IconImg>
+      <IconImg> 
+        <img src={icon} />
+      </IconImg>
       <DaysToBday> Days left </DaysToBday>
       <InfoBday>
         <BdayName>{name}'s birthday</BdayName>
@@ -86,8 +95,8 @@ const GridWrapper = styled.div`
   outline: none;
   background-color: ${(props) =>
     props.odd
-      ? "var(--clr-background-orange-card)"
-      : "var(--clr-background-green-card)"};
+      ? "var(--clr-bg-orange-card)"
+      : "var(--clr-bg-green-card)"};
   box-shadow: ${(props) =>
     props.odd ? "3px 7px 1px #b19f95" : "3px 7px 1px var(--clr-cascade)"};
   color: var(--clr-text-dark);
@@ -98,6 +107,19 @@ const IconImg = styled.div`
   grid-area: 1 / 1 / 3 / 2;
   background-color: gray;
   border-radius: 13px 0 0 0;
+
+  img {
+    cursor: pointer;
+    height: 28px;
+    width: 32px;
+    transition: 0.2s;
+    filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
+      brightness(94%) contrast(92%);
+    &:hover {
+      transform: scale(1.1) translateX(2px);
+      transition: 0.2s;
+    }
+  }
 `;
 
 const DaysToBday = styled.div`

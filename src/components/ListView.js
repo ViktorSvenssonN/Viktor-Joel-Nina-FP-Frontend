@@ -55,7 +55,7 @@ export default WithHeader(ListView);
 // ------------- Styled Components -------------------
 
 export const ListOuterWrapper = styled(OuterWrapper)`
-  background: var(--clr-background-light);
+  background: var(--clr-bg-light);
   align-items: unset;
   overflow: scroll;
   height: 100%;

@@ -1,53 +1,82 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap');
-:root {
-  /*** Colors ***/
 
+
+:root {
+
+  /*** Colors ***/
+  /* #696D7E dark gray
+  
+  storm #A0AFBB
+  pancho #F7D5BF
+  dark #E3C0AB
+  djunglemist #BEE0D9
+  cascade #A5BAB7
+  #88ABA9 */
+ 
+  /* kollade färger */
+
+    /* Text colors */
+    --clr-text-dark: #303346;
+
+  /* --------------- */
+  
+ 
+  --clr-jungle-mist: #b2d7ce;
+  --clr-cascade: #96aba9;
+  --clr-lightgray: #6a6d80;
+  /* andvänds denna? */
+  --clr-scarpa-flow: #545767;
+  
+  --clr-darkgray: #303346;
+
+  --clr-pearl-brush: #dfd6d2;
+  --clr-pancho: #f0c8b0;
+  --clr-powderblue-light: #b5c4cf;
+
+  --clr-off-white: #E8E8E8;
   /*** Backgrounds + MULTI use ***/
 
   /* Används som main backgrounds färg 
      -> backgrund till icon list vy
      -> backgrund icon about us */
-  --clr-background: #6a6d80;
-  --clr-background-dark: #303346;
+  --clr-bg: #6a6d80;
+  --clr-bg-dark: #303346;
 
   /* Används som main LJUS backgrunds färg.  
     -> backgrund till input fält
     -> backgrund till knappar 
     -> Text färg till Header och listvy med MÖRK bakgrund */
-  --clr-background-light: #e8e8e8;
+  --clr-bg-light: #e8e8e8;
 
   /* Header light for tablet and desktop */
   --clr-header-light: #b5c4cf;
 
   /* Background register vy */
-  --clr-background-register: #a5b9b7;
+  --clr-bg-register: #a5b9b7;
 
   /* Backgrund Login in + About us kort */
-  --clr-background-login: #a1afba;
+  --clr-bg-login: #a1afba;
 
   /* Backgrund Ballong i backgrunden för Register + Login in */
-  --clr-background-ballon: #e4bfac;
+  --clr-bg-ballon: #e4bfac;
 
   /* Create birthday header color */
   --clr-header-create-birthday: #e3c0ab;
 
   /* Backgrund för korten */
   /* Grön ljus */
-  --clr-background-green-card: #c0e1da;
+  --clr-bg-green-card: #c0e1da;
   /* Orange Ljus */
-  --clr-background-orange-card: #f9d4c1;
+  --clr-bg-orange-card: #f9d4c1;
 
-  /* Text colors */
-  --clr-text-dark: #303346; /*Använda denna färgen på alla? lägga som main färg i body = deafult färg? */
+
+  
+   /*   Använda denna färgen på alla? lägga som main färg i body = deafult färg? */
 
   /* vet inte om vi behöver dessa ViSv 2023-01-05  */
-  --clr-jungle-mist: #b2d7ce;
-  --clr-scarpa-flow: #545767;
-  --clr-cascade: #96aba9;
-  --clr-pearl-brush: #dfd6d2;
-  --clr-pancho: #f0c8b0;
+  
 
   /* **** FONTS ROOT UNDER HÄR ***** */
   --font-main: "Roboto", sans-serif;
@@ -67,6 +96,6 @@ html {
 }
 
 body {
-  background-color: var(--clr-background);
+  background-color: var(--clr-bg);
   color: var(--clr-text-dark);
 }

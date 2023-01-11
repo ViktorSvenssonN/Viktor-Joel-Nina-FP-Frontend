@@ -24,7 +24,7 @@ const StyledMenu = styled.section`
 `;
 
 const MenuTopSection = styled.section`
-  background: var(--clr-background);
+  background: var(--clr-bg);
   height: 10%;
   height: 10%;
 `;

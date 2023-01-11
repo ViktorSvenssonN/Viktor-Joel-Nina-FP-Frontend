@@ -54,13 +54,13 @@ const StyledMenuNavLinks = styled.section`
   display: flex;
   flex-direction: column;
   height: 90%;
-  background: var(--clr-background);
+  background: var(--clr-bg);
   a {
     height: 100%;
     line-height: 2;
     width: 100%;
     font-size: 20px;
-    color: var(--clr-background-light);
+    color: var(--clr-bg-light);
     text-decoration: none;
   }
 
@@ -68,7 +68,7 @@ const StyledMenuNavLinks = styled.section`
     line-height: 2;
     cursor: pointer;
     width: 100%;
-    color: var(--clr-background-light);
+    color: var(--clr-bg-light);
     text-decoration: none;
     font-size: 20px;
     background: none;

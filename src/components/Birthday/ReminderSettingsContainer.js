@@ -67,11 +67,11 @@ const StyledLabel = styled.label`
   font-weight: ${(props) => (props.isChecked ? "700" : "500")};
   padding: 10px;
   background-color: ${(props) =>
-    props.isChecked ? "var(--clr-background)" : "transparent"};
+    props.isChecked ? "var(--clr-bg)" : "transparent"};
   box-shadow: 2px 2px 4px grey;
   border-radius: 5rem;
   color: ${(props) =>
-    props.isChecked ? "var(--clr-background-light)" : "var(--clr-text-dark)"};
+    props.isChecked ? "var(--clr-bg-light)" : "var(--clr-text-dark)"};
   border: none;
 
   &:hover {

@@ -123,7 +123,7 @@ const Login = () => {
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
-  background: var(--clr-background);
+  background: var(--clr-bg);
   justify-content: flex-end;
   overflow: hidden;
 `;
@@ -140,7 +140,7 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 `;
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
-  background: var(--clr-background-login);
+  background: var(--clr-bg-login);
   height: 80%;
 `;
 

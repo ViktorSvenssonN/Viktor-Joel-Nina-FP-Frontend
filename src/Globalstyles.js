@@ -62,7 +62,7 @@ export const ButtonLoginSignUp = styled.button`
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 2.5px;
-  background-color: var(--clr-background-light);
+  background-color: var(--clr-bg-light);
   border: none;
   border-radius: 15px;
   box-shadow: 5px 6px 10px var(--clr-text-dark);
@@ -83,7 +83,7 @@ export const ButtonLoginSignUp = styled.button`
 export const FormOuterContainer = styled.div`
   width: 100%;
   height: 90%;
-  background: var(--clr-background-register);
+  background: var(--clr-bg-register);
   border-radius: 45px 45px 0 0;
   position: relative;
 `;

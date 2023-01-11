@@ -63,7 +63,7 @@ const WelcomeMsg = styled.div`
   grid-row-gap: 10px;
   width: 85%;
   font-style: var(--font-main);
-  background: var(--clr-background-ballon);
+  background: var(--clr-bg-ballon);
   border-radius: 15px;
   border: none;
   padding: 4%;

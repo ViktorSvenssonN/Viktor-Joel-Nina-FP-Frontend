@@ -100,7 +100,7 @@ const ContentWrapper = styled.section`
   flex-direction: column;
   height: 90%;
   padding: 30px;
-  background: var(--clr-background-light);
+  background: var(--clr-bg-light);
 
   img {
     height: 100px;
@@ -156,12 +156,12 @@ const BirthDateContainer = styled.section`
   }
 
   .react-calendar__tile--now {
-    background-color: var(--clr-background-green-card);
+    background-color: var(--clr-bg-green-card);
     background-color: #e8e8e8;
   }
 
   .react-calendar__tile--active {
-    background-color: var(--clr-background-green-card);
+    background-color: var(--clr-bg-green-card);
     color: #000;
   }
 
