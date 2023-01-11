@@ -54,7 +54,7 @@ export default WithHeader(ListView);
 
 // ------------- Styled Components -------------------
 
-const ListOuterWrapper = styled(OuterWrapper)`
+export const ListOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-background-light);
   align-items: unset;
   overflow: scroll;
@@ -68,9 +68,11 @@ const ListOuterWrapper = styled(OuterWrapper)`
   }
 `;
 
-const ListInnerWrapper = styled(InnerWrapper)`
+export const ListInnerWrapper = styled(InnerWrapper)`
   display: flex;
   flex-direction: column;
+  align-items: center;
+
   a {
     text-decoration: none;
   }
