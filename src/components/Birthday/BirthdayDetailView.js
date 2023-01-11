@@ -121,6 +121,10 @@ export default WithHeader(BirthdayDetailView);
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   align-items: flex-end;
+
+  @media (min-width: 668px) {
+    align-items: center;
+  }
 `;
 
 const Wrapper = styled.section`
@@ -128,6 +132,10 @@ const Wrapper = styled.section`
   height: 95%;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 668px) {
+    height: 75%;
+  }
 `;
 
 const BirthdayHeader = styled.header`
@@ -182,6 +190,11 @@ const ContentWrapper = styled.section`
     filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
       brightness(94%) contrast(92%);
   }
+
+  @media (min-width: 668px) {
+    border-radius: 0 0 50px 50px;
+    align-items: center;
+  }
 `;
 
 const TextParagraph = styled.p`
@@ -212,7 +225,7 @@ const BirthDateContainer = styled.section`
   display: flex;
   flex-direction: column;
 
-  .react-date-picker {
+  /* .react-date-picker {
     margin-top: 10px;
     width: 75%;
   }
@@ -223,6 +236,10 @@ const BirthDateContainer = styled.section`
 
   .react-date-picker__inputGroup__input:invalid {
     background: none;
+  } */
+
+  @media (min-width: 668px) {
+    width: 75%;
   }
 `;
 
@@ -238,6 +255,10 @@ const NotesInput = styled.div`
   background-color: var(--clr-background-green-card);
   box-shadow: 3px 8px 1px var(--clr-cascade);
   color: var(--clr-text-dark);
+
+  @media (min-width: 668px) {
+    width: 70%;
+  }
 `;
 
 const DateShower = styled.div`

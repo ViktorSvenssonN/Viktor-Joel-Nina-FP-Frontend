@@ -24,8 +24,8 @@ const BtnContainer = styled.div`
   align-items: flex-end;
   z-index: 2;
   position: absolute;
-  height: 80%;
-  left: 70%;
+  bottom: 10%;
+  right: 10%;
 `;
 
 const Btn = styled.button`

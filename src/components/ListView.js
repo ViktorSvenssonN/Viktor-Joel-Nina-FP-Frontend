@@ -32,19 +32,21 @@ const ListView = ({ birthdays }) => {
   }
 
   return (
-    <ListOuterWrapper>
-      <ListInnerWrapper>
-        {birthdays.map((birthday, i) => {
-          const odd = Boolean(i % 2);
-          return (
-            <Link to={`/view/${birthday._id}`} key={birthday._id}>
-              <ListCard birthday={birthday} odd={odd} />
-            </Link>
-          );
-        })}
-        <AddBtn />
-      </ListInnerWrapper>
-    </ListOuterWrapper>
+    <OuterWrapper>
+      <ListOuterWrapper>
+        <ListInnerWrapper>
+          {birthdays.map((birthday, i) => {
+            const odd = Boolean(i % 2);
+            return (
+              <Link to={`/view/${birthday._id}`} key={birthday._id}>
+                <ListCard birthday={birthday} odd={odd} />
+              </Link>
+            );
+          })}
+          <AddBtn />
+        </ListInnerWrapper>
+      </ListOuterWrapper>
+    </OuterWrapper>
   );
 };
 
@@ -56,17 +58,31 @@ const ListOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-background-light);
   align-items: unset;
   overflow: scroll;
+  height: 100%;
+
+  @media (min-width: 668px) {
+    position: relative;
+    height: 60%;
+    border-radius: 50px;
+    width: 100%;
+  }
 `;
 
 const ListInnerWrapper = styled(InnerWrapper)`
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-row-gap: 10px;
-  height: 100%; */
   display: flex;
   flex-direction: column;
   a {
     text-decoration: none;
+  }
+
+  @media (min-width: 668px) {
+    overflow: scroll;
+    width: 100%;
+    align-items: center;
+
+    a {
+      display: flex;
+      justify-content: center;
+    }
   }
 `;

@@ -7,17 +7,21 @@ export const GlobalOuterWrapper = styled.section`
 
 export const OuterWrapper = styled.section`
   height: 90%;
-  width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 668px) {
+    position: initial;
+    width: 80%;
+    margin: auto;
+  }
 `;
 
 export const InnerWrapper = styled.div`
   width: 80%;
-  
 `;
-
 
 ////////////// Globalstyles Login/Register //////////////
 
@@ -42,7 +46,7 @@ export const LogoImg = styled.img`
   height: 100%;
 `;
 
-// Button Sign up/ Login // 
+// Button Sign up/ Login //
 
 export const ContainerButtonLoginSignUp = styled.div`
   height: 11vw;
@@ -113,7 +117,7 @@ export const FormHeader = styled.h1`
   letter-spacing: 0.2px;
 `;
 
- export const LabelSubHeader = styled.label`
+export const LabelSubHeader = styled.label`
   font-size: 0.9rem;
   letter-spacing: 0.1px;
   padding-left: 4%;
@@ -128,7 +132,7 @@ export const InputContainer = styled.input`
   padding-left: 4%;
 `;
 
-/// Login/Register Link div 
+/// Login/Register Link div
 
 export const LoginInLinkContainer = styled.div`
   display: flex;
@@ -136,7 +140,6 @@ export const LoginInLinkContainer = styled.div`
   margin-bottom: 6%;
   padding-right: 2%;
 `;
-
 
 /// Ballong img in background ///
 

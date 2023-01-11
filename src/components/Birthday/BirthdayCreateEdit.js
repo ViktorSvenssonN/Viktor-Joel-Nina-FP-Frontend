@@ -128,6 +128,10 @@ export default WithHeader(BirthdayCreateEdit);
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   align-items: flex-end;
+
+  @media (min-width: 668px) {
+    align-items: center;
+  }
 `;
 
 const FormWrapper = styled.form`
@@ -135,6 +139,10 @@ const FormWrapper = styled.form`
   height: 95%;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 668px) {
+    height: 75%;
+  }
 `;
 
 const BirthdayHeader = styled.header`

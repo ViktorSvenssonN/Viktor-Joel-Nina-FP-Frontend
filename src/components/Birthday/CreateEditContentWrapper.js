@@ -108,6 +108,11 @@ const ContentWrapper = styled.section`
     filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
       brightness(94%) contrast(92%);
   }
+
+  @media (min-width: 668px) {
+    border-radius: 0 0 50px 50px;
+    align-items: center;
+  }
 `;
 
 const TextInput = styled.input`
@@ -159,6 +164,10 @@ const BirthDateContainer = styled.section`
     background-color: var(--clr-background-green-card);
     color: #000;
   }
+
+  @media (min-width: 668px) {
+    width: 75%;
+  }
 `;
 
 const NotesInput = styled.textarea`
@@ -173,4 +182,8 @@ const NotesInput = styled.textarea`
   background-color: #f7d5bf;
   box-shadow: 3px 8px 1px var(--clr-header-create-birthday);
   color: var(--clr-text-dark);
+
+  @media (min-width: 668px) {
+    width: 70%;
+  }
 `;
