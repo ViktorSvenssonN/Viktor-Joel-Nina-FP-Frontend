@@ -45,9 +45,9 @@ export const ListCard = ({ birthday, odd }) => {
       </DaysToBday>
       <InfoBday>
         <BdayName>{name}'s birthday</BdayName>
-        <BdayAge>Turns {age} years old</BdayAge>
-        <BdayDate>{formatDate(new Date(birthday.birthDate))}</BdayDate>
-        <BdayReminders>
+        <BdayAge> Turns {age} years old</BdayAge>
+        <BdayDate>🗓 {formatDate(new Date(birthday.birthDate))}</BdayDate>
+        <BdayReminders>⏰
           {birthday.birthdayReminderSettings
             .sort((a, b) => Number(a) - Number(b))
             .map((setting) => {
@@ -75,12 +75,12 @@ export const ListCard = ({ birthday, odd }) => {
 const GridWrapper = styled.div`
   display: grid;
   width: 100%;
-  min-width: 300px;
-  grid-template-columns: 2fr 5fr;
+  min-width: 330px;
+  grid-template-columns: 2fr 7fr;
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 10px;
 
-  margin-top: 1rem;
+  margin: 1rem 0;
   border-radius: 15px;
   /* height: 100px; */
   outline: none;
@@ -171,7 +171,7 @@ const BdayDate = styled.p`
 `;
 
 const BdayReminders = styled.div`
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   display: flex;
   gap: 8px;
   /* grid-area: 4 / 2 / 5 / 3;  */
