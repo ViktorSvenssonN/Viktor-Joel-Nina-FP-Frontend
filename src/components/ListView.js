@@ -63,7 +63,7 @@ export const ListOuterWrapper = styled(OuterWrapper)`
 
   @media (min-width: 668px) {
     position: relative;
-    height: 60%;
+    height: 80%;
     border-radius: 50px;
   }
 `;
