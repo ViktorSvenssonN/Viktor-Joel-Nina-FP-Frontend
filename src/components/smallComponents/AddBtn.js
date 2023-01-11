@@ -29,6 +29,9 @@ const BtnContainer = styled.div`
 `;
 
 const Btn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -47,8 +50,8 @@ const Btn = styled.button`
     cursor: pointer;
     /* filter: invert(45%) sepia(10%) saturate(686%) hue-rotate(194deg) brightness(91%) contrast(87%);
     background-color: #303346; */
-    transform: scale(1.1);
-    transition: all 0.4s ease-out;
+    transform: scale(1.05);
+    transition: all 0.2s ease-out;
   }
 
   @media (min-width: 667px) {
