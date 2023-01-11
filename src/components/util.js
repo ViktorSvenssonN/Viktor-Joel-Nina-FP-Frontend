@@ -25,19 +25,25 @@ export const fetchOptions = (method, accessToken, body) => {
   };
 };
 
-// export const Age = () => {
-//   const bDay = `${formatDate(new Date(birthday.birthDate))}`;
+
+
+// export const age = () => {
+
 //   const today = new Date();
-//   const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
 
-//   const distance = bDay.getTime() - today.getTime();
-//   const daysOld = Math.floor(distance / (1000 * 60 * 60 * 24));
-//   const yearsOld = Number((daysOld / 365).toFixed());
+//   var dd = String(today.getDate()).padStart(2, 0);
+//   var mm = String(today.getMonth() + 1).padStart(2, 0); //January is 0!
+//   var yyyy = today.getFullYear();
+  
+//   const getDate = `${yyyy}${mm}${dd}`;
 
-//   console.log("testing birth date in ListCard:", bDay);
-//   console.log("testing todays date in ListCard:", today);
-//   console.log("testing todays date yyyy-mm-dd in ListCard:", date);
-//   console.log("testing todays date yyyy-mm-dd in ListCard:", yearsOld);
+//   const formattedBirthday = formatDate(new Date(birthday.birthDate))
+//   .split("-")
+//   .join("");
+
+//   return (
+//     (getDate - formattedBirthday + "").slice(0, 2)
+//     )
 // };
 
 export const convertDate = (birthDate) => {
