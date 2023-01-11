@@ -50,21 +50,13 @@ const Register = () => {
           if (data.success) {
             setTimeout(() => {
               navigate("/login");
-            }, 1000);
+            }, 2000);
             setRegisterSuccess(true);
           }
         })
         .catch((error) => console.error(error));
     }
   };
-
-  if (registerSuccess) {
-    return (
-      <div>
-        <p>Registration succesful! Re-directing to login</p>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -77,55 +69,61 @@ const Register = () => {
       </LogoButtonContainer>
       <ClonedOuterWrapper>
         <ClonedInnerWrapper>
-          <FormOuterContainer>
-            <BallonBackgroundImg src={ballons} />
-            <FormHeaderContainer>
-              <FormHeader>REGISTER</FormHeader>
-            </FormHeaderContainer>
-            <FormInnerContainer>
-              <Form onSubmit={onFormSubmit}>
-                <LabelSubHeader htmlFor="email">Email: </LabelSubHeader>
-                <InputContainer
-                  type="email"
-                  id="email"
-                  placeholder="example@example.com"
-                  value={username}
-                  required
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
-                <InputContainer
-                  type="password"
-                  id="password"
-                  value={password}
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <LabelSubHeader htmlFor="confirmPassword">
-                  Confirm password:{" "}
-                </LabelSubHeader>
-                <ConfirmPasswordContainer
-                  isSame={confirmPassword === password}
-                  type="password"
-                  id="confirmPassword"
-                  value={confirmPassword}
-                  required
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                <LoginInLinkContainer>
-                  <p>
-                    Already registered?
-                    <span>
-                      <Link to="/login"> Login here</Link>
-                    </span>{" "}
-                  </p>
-                </LoginInLinkContainer>
-                <ContainerButtonLoginSignUp>
-                  <ButtonLoginSignUp type="submit">SIGN UP</ButtonLoginSignUp>
-                </ContainerButtonLoginSignUp>
-              </Form>
-            </FormInnerContainer>
-          </FormOuterContainer>
+          {registerSuccess ? (
+            <RegisterSuccessContainer>
+              <p>Registration succesful! Re-directing to login</p>
+            </RegisterSuccessContainer>
+          ) : (
+            <FormOuterContainer>
+              <BallonBackgroundImg src={ballons} />
+              <FormHeaderContainer>
+                <FormHeader>REGISTER</FormHeader>
+              </FormHeaderContainer>
+              <FormInnerContainer>
+                <Form onSubmit={onFormSubmit}>
+                  <LabelSubHeader htmlFor="email">Email: </LabelSubHeader>
+                  <InputContainer
+                    type="email"
+                    id="email"
+                    placeholder="example@example.com"
+                    value={username}
+                    required
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                  <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
+                  <InputContainer
+                    type="password"
+                    id="password"
+                    value={password}
+                    required
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <LabelSubHeader htmlFor="confirmPassword">
+                    Confirm password:{" "}
+                  </LabelSubHeader>
+                  <ConfirmPasswordContainer
+                    isSame={confirmPassword === password}
+                    type="password"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    required
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <LoginInLinkContainer>
+                    <p>
+                      Already registered?
+                      <span>
+                        <Link to="/login"> Login here</Link>
+                      </span>{" "}
+                    </p>
+                  </LoginInLinkContainer>
+                  <ContainerButtonLoginSignUp>
+                    <ButtonLoginSignUp type="submit">SIGN UP</ButtonLoginSignUp>
+                  </ContainerButtonLoginSignUp>
+                </Form>
+              </FormInnerContainer>
+            </FormOuterContainer>
+          )}
         </ClonedInnerWrapper>
       </ClonedOuterWrapper>
     </>
@@ -157,3 +155,8 @@ const ConfirmPasswordContainer = styled(InputContainer)`
 `;
 
 export default Register;
+
+const RegisterSuccessContainer = styled.div`
+  height: 90%;
+  color: #e8e8e8;
+`;
