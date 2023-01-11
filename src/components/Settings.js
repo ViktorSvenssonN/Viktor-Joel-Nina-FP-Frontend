@@ -19,12 +19,14 @@ import {
 import trash from "../images/icons/trash.svg";
 import { fetchOptions } from "./util";
 import { API_URL } from "./util";
-import { useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
+import user from "reducers/user";
 
 const Settings = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const accessToken = useSelector((store) => store.user.accessToken);
   const userId = useSelector((store) => store.user.id);
 
@@ -54,6 +56,37 @@ const Settings = () => {
         });
     } else {
       window.alert("Please ensure that your password confirmation matches");
+    }
+  };
+
+  const handleDeleteUser = (event) => {
+    event.preventDefault();
+    const confirm = window.confirm(
+      "Are you sure you want to delete your user? This action is irreversible"
+    );
+    if (confirm) {
+      // batch(() => {
+      //   dispatch(user.actions.setUsername(null));
+      //   dispatch(user.actions.setId(null));
+      //   dispatch(user.actions.setAccessToken(null));
+      // });
+      fetch(
+        API_URL("user"),
+        fetchOptions("DELETE", accessToken, JSON.stringify({ id: userId }))
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            window.alert(`User ${data.response.username} deleted!`);
+            batch(() => {
+              dispatch(user.actions.setUsername(null));
+              dispatch(user.actions.setId(null));
+              dispatch(user.actions.setAccessToken(null));
+            });
+            navigate("/");
+          }
+        })
+        .catch((error) => console.error(error));
     }
   };
 
@@ -100,21 +133,12 @@ const Settings = () => {
           <FormInnerContainer>
             <Form>
               <DeleteAccountContainer>
-                <ClonedInputContainer
-                  type="checkbox"
-                  id="deleteuser"
-                  placeholder="Delete account"
-                  required
-                  /*           value={password}
-                required
-                onChange={(e) => setPassword(e.target.value)} */
-                />
-                <ClonedLabelSubHeader htmlFor="password">
+                <ClonedLabelSubHeader htmlFor="deleteuser">
                   Delete Account
                 </ClonedLabelSubHeader>
               </DeleteAccountContainer>
               <ContainerButtonLoginSignUp>
-                <ButtonLoginSignUp type="submit">
+                <ButtonLoginSignUp type="button" onClick={handleDeleteUser}>
                   <StyledIcon src={trash} />
                 </ButtonLoginSignUp>
               </ContainerButtonLoginSignUp>
