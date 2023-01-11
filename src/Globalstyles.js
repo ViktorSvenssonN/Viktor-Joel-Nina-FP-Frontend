@@ -54,6 +54,11 @@ export const ContainerButtonLoginSignUp = styled.div`
   align-content: center;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 668px) {
+    margin-top: 5%;
+    height: 5vw;
+  }
 `;
 
 export const ButtonLoginSignUp = styled.button`
@@ -76,6 +81,10 @@ export const ButtonLoginSignUp = styled.button`
     color: #fff;
     transform: translateY(-2px);
   }
+
+  @media (min-width: 668px) {
+    width: 55%;
+  }
 `;
 
 /// Form styling for Login/Register ///
@@ -93,6 +102,10 @@ export const FormInnerContainer = styled.div`
   justify-content: center;
   position: relative;
   z-index: 3;
+
+  @media (min-width: 668px) {
+    width: 65%;
+  }
 `;
 
 export const Form = styled.form`
@@ -150,4 +163,11 @@ export const BallonBackgroundImg = styled.img`
   width: 65%;
   left: 51%;
   top: 35%;
+
+  @media (min-width: 668px) {
+    height: 100%;
+    width: 45%;
+    left: 48%;
+    top: 9%;
+  }
 `;

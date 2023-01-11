@@ -55,6 +55,12 @@ const ParentButton = styled.div`
   height: 11vw;
   width: 65%;
   margin-bottom: 10%;
+
+  @media (min-width: 668px) {
+    height: 8vw;
+    width: 50%;
+    margin-bottom: 8%;
+  }
 `;
 
 const Button = styled.button`
