@@ -52,14 +52,9 @@ const Register = () => {
               navigate("/login");
             }, 2000);
             setRegisterSuccess(true);
-          } else {
-            batch(() => {
-              dispatch(user.actions.setUsername(null));
-              dispatch(user.actions.setId(null));
-              dispatch(user.actions.setAccessToken(null));
-            });
           }
-        });
+        })
+        .catch((error) => console.error(error));
     }
   };
 
