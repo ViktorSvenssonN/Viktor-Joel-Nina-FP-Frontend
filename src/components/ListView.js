@@ -13,16 +13,13 @@ const ListView = ({ birthdays }) => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const navigate = useNavigate();
 
-  console.log("testing birthdays in ListView:", birthdays);
+  // console.log("testing birthdays in ListView:", birthdays);
 
   // useEffect(() => {
   //   if (!accessToken) {
   //     navigate("/login");
   //   }
   // }, []);
-
-  // Behövs UseEffect här med selectStart?
-  // Mapp alla ListCard's som kommer från Created birthdays
 
   const bdDeleted = localStorage.getItem("deletedBirthday");
 

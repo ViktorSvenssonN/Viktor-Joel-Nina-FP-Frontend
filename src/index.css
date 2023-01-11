@@ -57,7 +57,7 @@
   --clr-bg-register: #a5b9b7;
 
   /* Backgrund Login in + About us kort */
-  --clr-bg-login: #a1afba;
+  --clr-bg-login: rgb(161, 175, 186);
 
   /* Backgrund Ballong i backgrunden för Register + Login in */
   --clr-bg-ballon: #e4bfac;
@@ -79,10 +79,12 @@
   
 
   /* **** FONTS ROOT UNDER HÄR ***** */
+  --font-brush: 'Dancing Script', cursive;
+  --font-text: 'Quicksand', sans-serif; 
   --font-main: "Roboto", sans-serif;
   --font-second: "Montserrat";
-  /* font-family: 'Dancing Script', cursive;
-  font-family: 'Quicksand', sans-serif; */
+  
+  
 }
 
 *,
