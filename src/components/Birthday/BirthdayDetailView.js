@@ -85,7 +85,7 @@ const BirthdayDetailView = () => {
           <HeaderButton type="button" onClick={onBackClick}>
             <img src={backarrow} alt="back" />
           </HeaderButton>
-          <HeaderText>birthday</HeaderText>
+          <HeaderText>View birthday reminder</HeaderText>
           <BirthdayRightsideicons>
             <HeaderButton type="button" onClick={onDeleteClick}>
               <img src={trash} alt="OK" />

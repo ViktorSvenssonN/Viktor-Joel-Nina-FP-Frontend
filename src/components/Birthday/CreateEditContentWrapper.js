@@ -170,7 +170,7 @@ const NotesInput = styled.textarea`
   height: 20%;
   border: none;
   outline: none;
-  background-color: var(--clr-background-green-card);
-  box-shadow: 3px 8px 1px var(--clr-cascade);
+  background-color: #f7d5bf;
+  box-shadow: 3px 8px 1px var(--clr-header-create-birthday);
   color: var(--clr-text-dark);
 `;

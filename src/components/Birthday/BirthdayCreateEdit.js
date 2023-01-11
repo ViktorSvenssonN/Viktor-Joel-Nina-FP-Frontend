@@ -144,7 +144,7 @@ const BirthdayHeader = styled.header`
   align-items: center;
   height: 10%;
   border-radius: 50px 50px 0 0;
-  background: var(--clr-background-register);
+  background: var(--clr-header-create-birthday);
   color: var(--clr-text-dark);
 
   img {
