@@ -18,6 +18,9 @@
     -> Text färg till Header och listvy med MÖRK bakgrund */
   --clr-background-light: #e8e8e8;
 
+  /* Header light for tablet and desktop */
+  --clr-header-light: #b5c4cf;
+
   /* Background register vy */
   --clr-background-register: #a5b9b7;
 
@@ -27,7 +30,7 @@
   /* Backgrund Ballong i backgrunden för Register + Login in */
   --clr-background-ballon: #e4bfac;
 
-  /* Header color for Create birthday */
+  /* Create birthday header color */
   --clr-header-create-birthday: #e3c0ab;
 
   /* Backgrund för korten */
