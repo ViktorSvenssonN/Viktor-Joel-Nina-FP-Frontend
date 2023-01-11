@@ -54,7 +54,7 @@ const Login = () => {
         } else {
           batch(() => {
             dispatch(user.actions.setUsername(null));
-            dispatch(user.actions.setUserId(null));
+            dispatch(user.actions.setId(null));
             dispatch(user.actions.setAccessToken(null));
           });
         }
@@ -94,11 +94,11 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <ForgottPasswordContainer>
+                {/* <ForgottPasswordContainer>
                   <Link to="/forgot">
                     <p>Forgot password?</p>
                   </Link>
-                </ForgottPasswordContainer>
+                </ForgottPasswordContainer> */}
                 <LoginInLinkContainer>
                   <p>
                     Not a member?{" "}
