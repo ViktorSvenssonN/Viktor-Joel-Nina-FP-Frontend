@@ -134,7 +134,7 @@ const Register = () => {
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
-  background: var(--clr-background);
+  background: var(--clr-bg);
   justify-content: flex-end;
   overflow: hidden;
 `;

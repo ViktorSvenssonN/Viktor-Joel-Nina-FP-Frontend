@@ -111,7 +111,11 @@ Joel
 
 ### 11/1 Onsdag
 
+Joel
+
 - bytt favicon.ico till ballongerna
 - buggfix register
 - refactor util
 - delete user (+ ändring i backend)
+- tablet styling
+- bytt favicon.ico till presenten
