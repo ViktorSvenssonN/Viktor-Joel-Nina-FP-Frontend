@@ -126,6 +126,12 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-background);
   justify-content: flex-end;
   overflow: hidden;
+
+  @media (min-width: 668px) {
+    width: 70%;
+    height: 60%;
+    border-radius: 45px;
+  }
 `;
 
 const ClonedInnerWrapper = styled(InnerWrapper)`
@@ -146,6 +152,12 @@ const ClonedFormOuterContainer = styled(FormOuterContainer)`
 
 const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
   margin-bottom: 5%;
+
+  @media (min-width: 668px) {
+    margin-bottom: 1%;
+    margin-top: 30%;
+    margin-right: 35%;
+  }
 `;
 
 const ForgottPasswordContainer = styled.div`
