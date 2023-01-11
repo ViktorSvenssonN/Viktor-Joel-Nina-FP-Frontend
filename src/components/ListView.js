@@ -52,20 +52,17 @@ export default WithHeader(ListView);
 
 // ------------- Styled Components -------------------
 
-const ListOuterWrapper = styled(OuterWrapper)`
+export const ListOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-background-light);
   align-items: unset;
   overflow: scroll;
 `;
 
-const ListInnerWrapper = styled(InnerWrapper)`
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-row-gap: 10px;
-  height: 100%; */
+export const ListInnerWrapper = styled(InnerWrapper)`
   display: flex;
   flex-direction: column;
+  align-items: center;
+
   a {
     text-decoration: none;
   }

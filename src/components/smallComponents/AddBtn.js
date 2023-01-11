@@ -26,13 +26,13 @@ const BtnContainer = styled.div`
   position: absolute;
   height: 80%;
   left: 70%;
+  /* border: 2px solid hotpink; */
 `;
 
 const Btn = styled.button`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 1rem;
   background-color: #6a6d80;
 
   svg {

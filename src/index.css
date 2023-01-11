@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap');
 :root {
   /*** Colors ***/
 
@@ -49,6 +49,8 @@
   /* **** FONTS ROOT UNDER HÄR ***** */
   --font-main: "Roboto", sans-serif;
   --font-second: "Montserrat";
+  /* font-family: 'Dancing Script', cursive;
+  font-family: 'Quicksand', sans-serif; */
 }
 
 *,
