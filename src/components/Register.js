@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { API_URL } from "utils/utils";
+import { API_URL } from "./util";
 import {
   OuterWrapper,
   InnerWrapper,
@@ -30,7 +30,6 @@ import { fetchOptions } from "./util";
 const Register = () => {
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
@@ -89,14 +88,6 @@ const Register = () => {
             </FormHeaderContainer>
             <FormInnerContainer>
               <Form onSubmit={onFormSubmit}>
-                {/*                 <LabelSubHeader htmlFor="username">Name: </LabelSubHeader>
-                <InputContainer
-                  type="text"
-                  id="username"
-                  placeholder="John Doe"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                /> */}
                 <LabelSubHeader htmlFor="email">Email: </LabelSubHeader>
                 <InputContainer
                   type="email"
@@ -114,7 +105,7 @@ const Register = () => {
                   required
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <LabelSubHeader htmlFor="password">
+                <LabelSubHeader htmlFor="confirmPassword">
                   Confirm password:{" "}
                 </LabelSubHeader>
                 <ConfirmPasswordContainer

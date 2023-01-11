@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { API_URL } from "utils/utils";
+import { API_URL } from "./util";
 import { useNavigate } from "react-router-dom";
 import ListView from "./ListView";
 import StartState from "./StartState";

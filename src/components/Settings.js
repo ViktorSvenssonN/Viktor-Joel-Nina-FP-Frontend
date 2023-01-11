@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import WithHeader from "./WithHeader";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components/macro";
@@ -17,8 +17,43 @@ import {
   InputContainer,
 } from "Globalstyles";
 import trash from "../images/icons/trash.svg";
+import { fetchOptions } from "./util";
+import { API_URL } from "./util";
 
 const Settings = () => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    fetch(
+      API_URL("register"),
+      fetchOptions(
+        "POST",
+        "",
+        JSON.stringify({ username: username, password: password })
+      )
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000);
+          setRegisterSuccess(true);
+        } else {
+          batch(() => {
+            dispatch(user.actions.setUsername(null));
+            dispatch(user.actions.setId(null));
+            dispatch(user.actions.setAccessToken(null));
+          });
+        }
+      });
+  };
+
+  console.log(confirmPassword);
+  console.log(password);
+
   return (
     <ClonedOuterWrapper>
       <ClonedInnerWrapper>
@@ -28,23 +63,24 @@ const Settings = () => {
           </FormHeaderContainer>
           <FormInnerContainer>
             <Form>
-              <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
+              <LabelSubHeader htmlFor="password">New password: </LabelSubHeader>
               <InputContainer
                 type="password"
                 id="password"
-                /*           value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)} */
+                value={password}
+                required
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <LabelSubHeader htmlFor="password">
-                Confirm password:{" "}
+              <LabelSubHeader htmlFor="confirmPassword">
+                Confirm new password:{" "}
               </LabelSubHeader>
               <InputContainer
+                isSame={confirmPassword === password}
                 type="password"
                 id="confirmPassword"
-                /*               value={confirmPassword}
-              required
-              onChange={(e) => setConfirmPassword(e.target.value)} */
+                value={confirmPassword}
+                required
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <ContainerButtonLoginSignUp>
                 <ButtonLoginSignUp type="submit">CONFIRM</ButtonLoginSignUp>

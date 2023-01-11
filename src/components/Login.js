@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { API_URL } from "utils/utils";
+import { API_URL } from "./util";
 import {
   OuterWrapper,
   InnerWrapper,

@@ -8,7 +8,7 @@ import backarrow from "images/icons/arrow-thin-left.svg";
 import trash from "images/icons/trash.svg";
 import editPencil from "images/icons/edit-pencil.svg";
 import { fetchOptions, formatDate, randomInt } from "../util";
-import { API_URL } from "utils/utils";
+import { API_URL } from "../util";
 import ReminderSettingsContainer from "./ReminderSettingsContainer";
 
 const BirthdayDetailView = () => {

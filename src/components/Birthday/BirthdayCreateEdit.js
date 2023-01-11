@@ -10,7 +10,7 @@ import closeIcon from "images/icons/close.svg";
 import checkmarkIcon from "images/icons/checkmark.svg";
 import { fetchOptions, randomInt } from "../util";
 import CreateEditContentWrapper from "./CreateEditContentWrapper";
-import { API_URL } from "utils/utils";
+import { API_URL } from "../util";
 
 const BirthdayCreateEdit = () => {
   const navigate = useNavigate();
