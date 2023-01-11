@@ -33,6 +33,7 @@ const Btn = styled.button`
   height: 50px;
   border-radius: 50%;
   background-color: #6a6d80;
+  box-shadow: 4px 4px 5px 0px #80808082;
 
   svg {
     width: 25px;
