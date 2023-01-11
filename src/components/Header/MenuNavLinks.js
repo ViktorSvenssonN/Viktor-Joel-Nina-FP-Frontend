@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ui from "reducers/ui";
 import user from "reducers/user";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import settingsIcon from "images/icons/cog.svg";
 import logoutIcon from "images/icons/logout.svg";
 import listIcon from "images/icons/list.svg";
@@ -56,13 +56,18 @@ const StyledMenuNavLinks = styled.section`
   height: 90%;
   background: var(--clr-background);
   a {
+    height: 100%;
+    line-height: 2;
+    width: 100%;
     font-size: 20px;
     color: var(--clr-background-light);
     text-decoration: none;
-    width: 100%;
   }
 
   button {
+    line-height: 2;
+    cursor: pointer;
+    width: 100%;
     color: var(--clr-background-light);
     text-decoration: none;
     font-size: 20px;
