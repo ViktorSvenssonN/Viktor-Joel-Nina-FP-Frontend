@@ -125,7 +125,7 @@ const Settings = () => {
           </FormInnerContainer>
         </ClonedFormOuterContainer>
       </ClonedInnerWrapper>
-      <ClonedInnerWrapper>
+      <ClonedInnerWrapperDelete>
         <ClonedFormDeleteOuterContainer>
           <FormHeaderContainer>
             <FormHeader>DANGEROUS AREA</FormHeader>
@@ -145,7 +145,7 @@ const Settings = () => {
             </Form>
           </FormInnerContainer>
         </ClonedFormDeleteOuterContainer>
-      </ClonedInnerWrapper>
+      </ClonedInnerWrapperDelete>
     </ClonedOuterWrapper>
   );
 };
@@ -164,10 +164,23 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 45%;
+  height: 55%;
+  margin-top: 25%;
   justify-content: flex-end;
   position: relative;
   z-index: 1;
+`;
+
+const ClonedInnerWrapperDelete = styled(InnerWrapper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 43%;
+  justify-content: flex-end;
+  position: absolute;
+  z-index: 2;
+  top: 57%;
 `;
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
@@ -175,8 +188,9 @@ const ClonedFormOuterContainer = styled(FormOuterContainer)`
 `;
 
 const ClonedFormDeleteOuterContainer = styled(FormOuterContainer)`
-  border-radius: 45px;
+  border-radius: 45px 45px 0px 0px;
   background: #e3c0ab;
+  box-shadow: 0px -1px 9px 1px var(--clr-text-dark);
 `;
 
 const ClonedLabelSubHeader = styled(LabelSubHeader)`
