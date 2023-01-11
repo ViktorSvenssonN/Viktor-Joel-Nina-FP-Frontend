@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import styled from "styled-components/macro";
-import logowelcome from "../logo/logo_welcome.svg"
+import logowelcome from "../logo/logo_welcome.svg";
 
 const Login = () => {
   return (
@@ -10,7 +10,7 @@ const Login = () => {
       <InnerWrapper>
         <ImgParent>
           {/* logo */}
-          <ImgContainer src={logowelcome}/>
+          <ImgContainer src={logowelcome} />
         </ImgParent>
         <ButtonWrapper>
           <ParentButton>
@@ -36,8 +36,7 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   margin: 0 auto;
 `;
 
-const ImgParent = styled.div`
-`;
+const ImgParent = styled.div``;
 
 const ImgContainer = styled.img`
   width: 100%;
@@ -69,7 +68,7 @@ const Button = styled.button`
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 2.5px;
-  background-color: var(--clr-background-light);
+  background-color: var(--clr-bg-light);
   border: none;
   border-radius: 15px;
   box-shadow: 5px 6px 10px var(--clr-text-dark);
@@ -90,7 +89,7 @@ const ButtonCleaner = styled.button`
   height: 100%;
   font-size: 16px;
   letter-spacing: 2.5px;
-  background-color: var(--clr-background-light);
+  background-color: var(--clr-bg-light);
   border: none;
   border-radius: 45px;
   box-shadow: 5px 6px 4px 2px rgba(62, 66, 66, 0.33);
@@ -99,7 +98,7 @@ const ButtonCleaner = styled.button`
   outline: none;
 
   &:hover {
-    background-color: var(--clr-background-light);
+    background-color: var(--clr-bg-light);
     box-shadow: 0px 10px 15px var(--clr-pancho);
     color: #fff;
     transform: translateY(-2px);
