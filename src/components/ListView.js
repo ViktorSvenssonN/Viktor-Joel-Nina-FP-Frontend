@@ -34,11 +34,11 @@ const ListView = ({ birthdays }) => {
   return (
     <ListOuterWrapper>
       <ListInnerWrapper>
-        {birthdays.map((birthday) => {
+        {birthdays.map((birthday, i) => {
+          const odd = Boolean(i % 2);
           return (
             <Link to={`/view/${birthday._id}`} key={birthday._id}>
-              {" "}
-              <ListCard birthday={birthday} />
+              <ListCard birthday={birthday} odd={odd} />
             </Link>
           );
         })}
