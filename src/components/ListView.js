@@ -57,29 +57,29 @@ export default WithHeader(ListView);
 export const ListOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-bg-light);
   align-items: unset;
-  overflow: scroll;
+  overflow: hidden;
+  width: 100%;
   height: 100%;
 
   @media (min-width: 668px) {
     position: relative;
     height: 60%;
     border-radius: 50px;
-    width: 100%;
   }
 `;
 
 export const ListInnerWrapper = styled(InnerWrapper)`
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items: center;
+  overflow-x: hidden;
 
   a {
     text-decoration: none;
   }
 
   @media (min-width: 668px) {
-    overflow: scroll;
-    width: 100%;
     align-items: center;
 
     a {
