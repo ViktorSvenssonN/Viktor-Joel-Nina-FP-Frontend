@@ -31,23 +31,23 @@ export const ListCard = ({ birthday, odd }) => {
 
   const age = (getDate - formattedBirthday + "").slice(0, 2);
 
-
   return (
     <GridWrapper odd={odd}>
-      <IconImg> 
+      <IconImg>
         <Icon>
           <img src={icon} />
         </Icon>
       </IconImg>
-      <DaysToBday> 
+      <DaysToBday>
         <DayText>Days left</DayText>
-        <Day> {difference}</Day> 
+        <Day> {difference > 0 ? difference : "-"}</Day>
       </DaysToBday>
       <InfoBday>
-        <BdayName>{name}'s birthday</BdayName>
+        <BdayName>{name}</BdayName>
         <BdayAge> Turns {age} years old</BdayAge>
-        <BdayDate>🗓 {formatDate(new Date(birthday.birthDate))}</BdayDate>
-        <BdayReminders>⏰
+        <BdayDate>📆 {formatDate(new Date(birthday.birthDate))}</BdayDate>
+        <BdayReminders>
+          ⏰
           {birthday.birthdayReminderSettings
             .sort((a, b) => Number(a) - Number(b))
             .map((setting) => {
@@ -85,9 +85,7 @@ const GridWrapper = styled.div`
   /* height: 100px; */
   outline: none;
   background-color: ${(props) =>
-    props.odd
-      ? "var(--clr-bg-orange-card)"
-      : "var(--clr-bg-green-card)"};
+    props.odd ? "var(--clr-bg-orange-card)" : "var(--clr-bg-green-card)"};
   box-shadow: ${(props) =>
     props.odd ? "3px 7px 5px #b19f95" : "3px 7px 5px var(--clr-cascade)"};
   color: var(--clr-text-dark);
@@ -96,7 +94,7 @@ const GridWrapper = styled.div`
 // GÖRS OM TILL IMG SEN
 const IconImg = styled.div`
   grid-area: 1 / 1 / 3 / 2;
-  background:rgba(161, 175, 186, 0.5);
+  background: rgba(161, 175, 186, 0.5);
   border-radius: 13px 0 0 0;
 `;
 
@@ -107,15 +105,13 @@ const Icon = styled.div`
 
   img {
     cursor: pointer;
-    
-    height: 45px;
+
+    height: 50px;
     width: auto;
     transition: 0.2s;
-    Filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
+    filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
       brightness(94%) contrast(92%);
-    
   }
-
 `;
 
 const DaysToBday = styled.div`
@@ -124,15 +120,15 @@ const DaysToBday = styled.div`
   align-items: center;
   justify-content: center;
   grid-area: 3 / 1 / 5 / 2;
-  background-color: rgba(161, 175, 186, 1);
+  background-color: var(--clr-bg);
   border-radius: 0 0 0 13px;
+  color: #e8e8e8;
 `;
 
 const DayText = styled.h5`
   font-family: var(--font-text);
   font-weight: bold;
   padding-bottom: 0.2rem;
-
 `;
 
 const Day = styled.p`
@@ -142,11 +138,15 @@ const Day = styled.p`
 `;
 
 const InfoBday = styled.div`
-  /* display: grid; */
   align-items: center;
   padding: 0.5rem 0.7rem 0.5rem 0;
   width: 100%;
   grid-area: 1 / 2 / 5 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 1px;
 `;
 
 const BdayName = styled.h4`
@@ -162,6 +162,7 @@ const BdayAge = styled.h5`
 `;
 
 const BdayDate = styled.p`
+  font-size: 14px;
   font-family: var(--font-text);
   font-weight: 600;
   letter-spacing: 0.1rem;
