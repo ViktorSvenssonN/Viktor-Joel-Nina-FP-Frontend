@@ -108,3 +108,8 @@ Joel
 - Styling för DetailView och CreateEditView likadan
 - funktionalitet för delete birthday
 - flyttat options till en egen funktion i util, refaktorerat alla ställen där fetch används
+
+### 11/1 Onsdag
+
+- bytt favicon.ico till ballongerna
+- buggfix register

@@ -24,6 +24,7 @@ import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
 import logolight from "../logo/logo_light.svg";
+import { fetchOptions } from "./util";
 
 // Component check, not worked on.
 const Register = () => {
