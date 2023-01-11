@@ -113,3 +113,5 @@ Joel
 
 - bytt favicon.ico till ballongerna
 - buggfix register
+- refactor util
+- delete user (+ ändring i backend)
