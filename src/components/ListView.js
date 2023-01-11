@@ -82,6 +82,7 @@ export const ListInnerWrapper = styled(InnerWrapper)`
     a {
       display: flex;
       justify-content: center;
+      width: 55%;
     }
   }
 `;
