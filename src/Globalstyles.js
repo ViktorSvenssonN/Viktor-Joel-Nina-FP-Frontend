@@ -162,12 +162,12 @@ export const FormHeaderContainer = styled.div`
 
  /* @media (min-width: 1124px) {
     margin-right: 44%;
-   /*  margin-top: 15%; */
+     margin-top: 15%; 
   }
 
    @media (min-width: 1350px) {
     margin-top: 22%;
-  } */
+  }  */
 
 `;
 
