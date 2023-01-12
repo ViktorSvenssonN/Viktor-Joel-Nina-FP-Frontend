@@ -116,8 +116,8 @@ const WelcomeMsg = styled.div`
       font-size: 2rem;
     }
   }
-  @media (min-width: 1024px) {
-    margin-top: 30%;
+  @media (min-width: 830px) {
+    margin-top: 18%;
   } 
 
   @media (min-width: 1200px) {
@@ -129,7 +129,7 @@ const AddBdayContainer = styled.div`
   width: 83%;
   position: relative;
   padding: 17px;
-  border: 2px solid green;
+  /* border: 2px solid green; */
   margin-bottom: 10%; 
 
   @media (min-width: 667px) {
@@ -146,7 +146,7 @@ const PContainer = styled.div`
   position: relative;
   right: -20%;
   width: 100%;
-  border: 2px solid yellowgreen;
+  /* border: 2px solid yellowgreen; */
 
   p {
   font-family: var(--font-brush);
@@ -164,7 +164,7 @@ const PContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    right: -55%;
+    right: -40%;
   } 
 
   @media (min-width: 1200px) {
