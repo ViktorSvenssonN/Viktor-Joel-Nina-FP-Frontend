@@ -55,6 +55,13 @@ const Btn = styled.button`
   }
 
   @media (min-width: 667px) {
+    width: 60px;
+    height: 60px;
+
+    svg {
+      width: 35px;
+      height: 35px;
+    }
   }
   @media (min-width: 1024px) {
   }
