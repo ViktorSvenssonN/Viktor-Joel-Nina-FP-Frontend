@@ -46,7 +46,18 @@ export const LogoImg = styled.img`
   height: 100%;
 `;
 
-// Button Sign up/ Login //
+// Validation error for Login & Register //
+
+export const ValidationError = styled.p`
+  z-index: 3;
+  position: inherit;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: red;
+`;
+
+// Button Login & Register //
 
 export const ContainerButtonLoginSignUp = styled.div`
   height: 11vw;

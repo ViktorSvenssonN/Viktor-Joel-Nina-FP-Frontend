@@ -135,13 +135,17 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
 `;
 
 const FormWrapper = styled.form`
+  max-width: 700px;
   width: 100%;
   height: 95%;
   display: flex;
   flex-direction: column;
 
   @media (min-width: 668px) {
-    height: 75%;
+    height: 80%;
+  }
+  @media (min-width: 1024px) {
+    max-width: 800px;
   }
 `;
 

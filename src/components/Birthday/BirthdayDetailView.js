@@ -10,6 +10,7 @@ import editPencil from "images/icons/edit-pencil.svg";
 import { fetchOptions, formatDate, randomInt } from "../util";
 import { API_URL } from "../util";
 import ReminderSettingsContainer from "./ReminderSettingsContainer";
+import Loading from "components/Loading";
 
 const BirthdayDetailView = () => {
   const icons = useSelector((store) => store.ui.icons);
@@ -75,7 +76,7 @@ const BirthdayDetailView = () => {
   };
 
   if (loading) {
-    return <div>Currently working on that for you dear sir/madam</div>;
+    return <Loading />;
   }
 
   return (
@@ -128,13 +129,17 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
 `;
 
 const Wrapper = styled.section`
+  max-width: 700px;
   width: 100%;
   height: 95%;
   display: flex;
   flex-direction: column;
 
   @media (min-width: 668px) {
-    height: 75%;
+    height: 80%;
+  }
+  @media (min-width: 1024px) {
+    max-width: 800px;
   }
 `;
 

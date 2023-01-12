@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import ListView from "./ListView";
 import StartState from "./StartState";
 import { fetchOptions } from "./util";
+import Loading from "./Loading";
 
 const Start = () => {
   const accessToken = useSelector((store) => store.user.accessToken);
   const id = useSelector((store) => store.user.id);
   const [birthdays, setBirthdays] = useState([]);
   const navigate = useNavigate();
-  // const items = useSelector((store) => store.todo.items)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!accessToken) {
@@ -20,17 +21,20 @@ const Start = () => {
   }, []);
 
   const fetchBirthday = () => {
-    /*    setLoading(true); */
     fetch(API_URL(`all-birthdays/${id}`), fetchOptions("GET", accessToken))
       .then((res) => res.json())
       .then((data) => setBirthdays(data))
-      .catch((error) => console.error(error));
-    /*       .finally(() => setLoading(false)); */
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
   };
 
   useEffect(() => {
     fetchBirthday();
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
