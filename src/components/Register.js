@@ -43,6 +43,8 @@ const Register = () => {
     }
   }, [password, confirmPassword]);
 
+  useEffect(() => {});
+
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (password === confirmPassword) {
@@ -74,7 +76,12 @@ const Register = () => {
     }
   };
 
-  const handlePasswordSet = () => {
+  const handleEmailChange = (e) => {
+    setUsernameTaken(false);
+    setUsername(e.target.value);
+  };
+
+  const handleShowPasswordWarning = () => {
     if (password.length < 8) {
       setShowPasswordWarning(true);
     }
@@ -122,11 +129,11 @@ const Register = () => {
                     placeholder="example@example.com"
                     value={username}
                     required
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={handleEmailChange}
                   />
                   <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
                   <InputContainer
-                    onBlur={handlePasswordSet}
+                    onBlur={handleShowPasswordWarning}
                     type="password"
                     id="password"
                     value={password}
