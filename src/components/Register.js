@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, batch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "./util";
 import {
@@ -20,7 +20,6 @@ import {
   InputContainer,
   BallonBackgroundImg,
 } from "Globalstyles";
-import user from "reducers/user";
 import styled, { css } from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
 import logolight from "../logo/logo_light.svg";
@@ -35,12 +34,9 @@ const Register = () => {
   const [conditionsMet, setConditionsMet] = useState(false);
   const [usernameTaken, setUsernameTaken] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
-      console.log("conditions met");
-
       setConditionsMet(true);
     } else {
       setConditionsMet(false);
