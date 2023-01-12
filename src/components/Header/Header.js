@@ -172,8 +172,4 @@ const LogoContainer = styled.button`
   img {
     height: 100%;
   }
-
-  @media (min-width: 668px) {
-    padding: 20px;
-  }
 `;

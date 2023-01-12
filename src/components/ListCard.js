@@ -16,7 +16,7 @@ export const ListCard = ({ birthday, odd }) => {
   const name = `${birthday.firstName} ${birthday.lastName}`;
   const age = getAge(birthday.birthDate);
   const difference = getDifference(birthday.birthDate);
-  const birthdayText = getBirthdayText(age, difference);
+  const birthdayText = getBirthdayText(age, difference, birthday.birthDate);
 
   useEffect(() => {
     setIcon(icons[randomInt(icons.length)]);
