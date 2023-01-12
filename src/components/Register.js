@@ -19,6 +19,7 @@ import {
   LabelSubHeader,
   InputContainer,
   BallonBackgroundImg,
+  ValidationError,
 } from "Globalstyles";
 import styled, { css } from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
@@ -201,14 +202,6 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 const RegisterSuccessContainer = styled.div`
   height: 90%;
   color: #e8e8e8;
-`;
-const ValidationError = styled.p`
-  z-index: 3;
-  position: inherit;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: red;
 `;
 
 const ConfirmPasswordContainer = styled(InputContainer)`
