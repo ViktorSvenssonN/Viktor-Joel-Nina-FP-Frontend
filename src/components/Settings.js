@@ -99,8 +99,8 @@ const Settings = () => {
   return (
     <ClonedOuterWrapper>
       <ClonedInnerWrapperLogout>
-      <ClonedFormLogOutOuterContainer>
-     <FormHeaderContainer>
+        <ClonedFormLogOutOuterContainer>
+          <FormHeaderContainer>
             <FormHeader>LOG OUT</FormHeader>
           </FormHeaderContainer>
           <FormInnerContainer>
@@ -117,42 +117,44 @@ const Settings = () => {
               </ContainerButtonLoginSignUp>
             </Form>
           </FormInnerContainer>
-          </ClonedFormLogOutOuterContainer>
-          </ClonedInnerWrapperLogout>
+        </ClonedFormLogOutOuterContainer>
+      </ClonedInnerWrapperLogout>
       <ClonedInnerWrapperDelete>
-      <ClonedInnerWrapper>
-        <ClonedFormOuterContainer>
-          <FormHeaderContainer>
-            <FormHeader>CHANGE PASSWORD</FormHeader>
-          </FormHeaderContainer>
-          <FormInnerContainer>
-            <Form onSubmit={onFormSubmit}>
-              <LabelSubHeader htmlFor="password">New password: </LabelSubHeader>
-              <InputContainer
-                type="password"
-                id="password"
-                value={password}
-                required
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <LabelSubHeader htmlFor="confirmPassword">
-                Confirm new password:{" "}
-              </LabelSubHeader>
-              <ConfirmPasswordContainer
-                isSame={confirmPassword === password}
-                type="password"
-                id="confirmPassword"
-                value={confirmPassword}
-                required
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-              <ContainerButtonLoginSignUp>
-                <ButtonLoginSignUp type="submit">CONFIRM</ButtonLoginSignUp>
-              </ContainerButtonLoginSignUp>
-            </Form>
-          </FormInnerContainer>
-        </ClonedFormOuterContainer>
-      </ClonedInnerWrapper>
+        <ClonedInnerWrapper>
+          <ClonedFormOuterContainer>
+            <FormHeaderContainer>
+              <FormHeader>CHANGE PASSWORD</FormHeader>
+            </FormHeaderContainer>
+            <FormInnerContainer>
+              <Form onSubmit={onFormSubmit}>
+                <LabelSubHeader htmlFor="password">
+                  New password:{" "}
+                </LabelSubHeader>
+                <InputContainer
+                  type="password"
+                  id="password"
+                  value={password}
+                  required
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <LabelSubHeader htmlFor="confirmPassword">
+                  Confirm new password:{" "}
+                </LabelSubHeader>
+                <ConfirmPasswordContainer
+                  isSame={confirmPassword === password}
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  required
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <ContainerButtonLoginSignUp>
+                  <ButtonLoginSignUp type="submit">CONFIRM</ButtonLoginSignUp>
+                </ContainerButtonLoginSignUp>
+              </Form>
+            </FormInnerContainer>
+          </ClonedFormOuterContainer>
+        </ClonedInnerWrapper>
         <ClonedFormDeleteOuterContainer>
           <FormHeaderContainer>
             <FormHeader>DANGEROUS AREA</FormHeader>
@@ -202,7 +204,6 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   z-index: 1;
 
   @media (min-width: 668px) {
-    
   }
 `;
 
@@ -224,13 +225,14 @@ const ClonedInnerWrapperLogout = styled(InnerWrapper)`
   @media (min-width: 1024px) {
     width: 70%;
   }
-  
+
   @media (min-width: 2000px) {
     margin-top: 10%;
   }
-`
+`;
 
 const ClonedInnerWrapperDelete = styled(InnerWrapper)`
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -238,7 +240,7 @@ const ClonedInnerWrapperDelete = styled(InnerWrapper)`
   height: 95%;
   justify-content: flex-end;
   position: absolute;
-  z-index: 2;
+  /* z-index: 2; */
   top: 11%;
 
   @media (min-width: 668px) {
@@ -252,6 +254,7 @@ const ClonedInnerWrapperDelete = styled(InnerWrapper)`
 `;
 
 const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
+  max-width: 700px;
   border-radius: 45px 45px 0px 0px;
   background: var(--clr-bg-login);
   @media (min-width: 668px) {
