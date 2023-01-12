@@ -68,6 +68,9 @@ const Register = () => {
           } else {
             if (data?.response.keyPattern.username) {
               setUsernameTaken(true);
+              setUsername("");
+              setPassword("");
+              setConfirmPassword("");
             }
           }
         })
