@@ -196,6 +196,8 @@ const RegisterSuccessContainer = styled.div`
   color: #e8e8e8;
 `;
 const ValidationError = styled.p`
+  z-index: 3;
+  position: inherit;
   text-align: center;
   font-weight: 700;
   margin-bottom: 20px;
