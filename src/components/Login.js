@@ -19,6 +19,7 @@ import {
   BallonBackgroundImg,
   ContainerButtonLoginSignUp,
   ButtonLoginSignUp,
+  ValidationError,
 } from "Globalstyles";
 import user from "reducers/user";
 import styled from "styled-components/macro";
@@ -29,6 +30,8 @@ import { fetchOptions } from "./util";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [wrongCredentials, setWrongCredentials] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -52,13 +55,16 @@ const Login = () => {
           });
           navigate("/home");
         } else {
-          batch(() => {
-            dispatch(user.actions.setUsername(null));
-            dispatch(user.actions.setId(null));
-            dispatch(user.actions.setAccessToken(null));
-          });
+          setWrongCredentials(true);
+          setUsername("");
+          setPassword("");
         }
       });
+  };
+
+  const handleEmailChange = (e) => {
+    setWrongCredentials(false);
+    setUsername(e.target.value);
   };
 
   return (
@@ -77,6 +83,9 @@ const Login = () => {
             <ClonedFormHeaderContainer>
               <FormHeader>LOG IN</FormHeader>
             </ClonedFormHeaderContainer>
+            {wrongCredentials && (
+              <ValidationError>Wrong username or password</ValidationError>
+            )}
             <FormInnerContainer>
               <Form onSubmit={onFormSubmit}>
                 <LabelSubHeader htmlFor="username">Email: </LabelSubHeader>
@@ -85,7 +94,7 @@ const Login = () => {
                   id="username"
                   placeholder="example@example.com"
                   value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={handleEmailChange}
                 />
                 <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
                 <InputContainer
@@ -94,7 +103,8 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                {/* <ForgottPasswordContainer>
+                {/* TODO, forgot password
+                <ForgottPasswordContainer>
                   <Link to="/forgot">
                     <p>Forgot password?</p>
                   </Link>
@@ -160,11 +170,13 @@ const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
   }
 `;
 
+/* TODO, forgot password
 const ForgottPasswordContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 2%;
   padding-right: 2%;
 `;
+*/
 
 export default Login;
