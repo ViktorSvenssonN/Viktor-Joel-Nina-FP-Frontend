@@ -17,6 +17,7 @@ import {
   InputContainer,
 } from "Globalstyles";
 import trash from "../images/icons/trash.svg";
+import logOut from "../images/icons/logout.svg";
 import { fetchOptions } from "./util";
 import { API_URL } from "./util";
 import { batch, useDispatch, useSelector } from "react-redux";
@@ -59,6 +60,11 @@ const Settings = () => {
     }
   };
 
+  const onLogoutClick = () => {
+    dispatch(user.actions.setAccessToken(null));
+    navigate("/");
+  };
+
   const handleDeleteUser = (event) => {
     event.preventDefault();
     const confirm = window.confirm(
@@ -92,6 +98,28 @@ const Settings = () => {
 
   return (
     <ClonedOuterWrapper>
+      <ClonedInnerWrapperLogout>
+      <ClonedFormLogOutOuterContainer>
+     <FormHeaderContainer>
+            <FormHeader>LOG OUT</FormHeader>
+          </FormHeaderContainer>
+          <FormInnerContainer>
+            <Form>
+              <DeleteAccountContainer>
+                <ClonedLabelSubHeader htmlFor="log out">
+                  Log out from account
+                </ClonedLabelSubHeader>
+              </DeleteAccountContainer>
+              <ContainerButtonLoginSignUp>
+                <ButtonLoginSignUp type="button" onClick={onLogoutClick}>
+                  <StyledIcon src={logOut} />
+                </ButtonLoginSignUp>
+              </ContainerButtonLoginSignUp>
+            </Form>
+          </FormInnerContainer>
+          </ClonedFormLogOutOuterContainer>
+          </ClonedInnerWrapperLogout>
+      <ClonedInnerWrapperDelete>
       <ClonedInnerWrapper>
         <ClonedFormOuterContainer>
           <FormHeaderContainer>
@@ -125,7 +153,6 @@ const Settings = () => {
           </FormInnerContainer>
         </ClonedFormOuterContainer>
       </ClonedInnerWrapper>
-      <ClonedInnerWrapperDelete>
         <ClonedFormDeleteOuterContainer>
           <FormHeaderContainer>
             <FormHeader>DANGEROUS AREA</FormHeader>
@@ -157,6 +184,10 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-bg);
   overflow: hidden;
   justify-content: unset;
+
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
 `;
 
 const ClonedInnerWrapper = styled(InnerWrapper)`
@@ -164,33 +195,98 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 55%;
+  height: 100%;
   margin-top: 25%;
   justify-content: flex-end;
   position: relative;
   z-index: 1;
+
+  @media (min-width: 668px) {
+    
+  }
 `;
+
+const ClonedInnerWrapperLogout = styled(InnerWrapper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  margin-top: 15%;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+
+  @media (min-width: 668px) {
+    width: 85%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 70%;
+  }
+  
+  @media (min-width: 2000px) {
+    margin-top: 10%;
+  }
+`
 
 const ClonedInnerWrapperDelete = styled(InnerWrapper)`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 43%;
+  height: 95%;
   justify-content: flex-end;
   position: absolute;
   z-index: 2;
-  top: 57%;
+  top: 11%;
+
+  @media (min-width: 668px) {
+    width: 68%;
+    top: 20%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 42%;
+  }
+`;
+
+const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
+  border-radius: 45px 45px 0px 0px;
+  background: var(--clr-bg-login);
+  @media (min-width: 668px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px;
+  box-shadow: 0px -1px 9px 1px var(--clr-text-dark);
+  @media (min-width: 668px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ClonedFormDeleteOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px 45px 0px 0px;
   background: #e3c0ab;
   box-shadow: 0px -1px 9px 1px var(--clr-text-dark);
+
+  height: 85%;
+  position: absolute;
+  z-index: 4;
+  top: 65%;
+
+  @media (min-width: 668px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 55%;
+  }
 `;
 
 const ClonedLabelSubHeader = styled(LabelSubHeader)`

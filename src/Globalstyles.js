@@ -59,6 +59,14 @@ export const ContainerButtonLoginSignUp = styled.div`
     margin-top: 5%;
     height: 5vw;
   }
+
+  @media (min-width: 1024px) {
+    height: 3vw;
+  }
+
+  @media (min-width: 1500px) {
+    height: 2vw;
+  }
 `;
 
 export const ButtonLoginSignUp = styled.button`
@@ -85,6 +93,7 @@ export const ButtonLoginSignUp = styled.button`
   @media (min-width: 668px) {
     width: 55%;
   }
+
 `;
 
 /// Form styling for Login/Register ///
