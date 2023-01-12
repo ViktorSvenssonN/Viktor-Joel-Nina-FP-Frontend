@@ -1,3 +1,6 @@
+import calculateAge from "calculate-age";
+import { differenceInDays } from "date-fns";
+
 const BASE_URL = "https://email-sender-pw346p3yuq-lz.a.run.app";
 
 export const API_URL = (slug) => `${BASE_URL}/${slug}`;
@@ -25,27 +28,6 @@ export const fetchOptions = (method, accessToken, body) => {
   };
 };
 
-
-
-// export const age = () => {
-
-//   const today = new Date();
-
-//   var dd = String(today.getDate()).padStart(2, 0);
-//   var mm = String(today.getMonth() + 1).padStart(2, 0); //January is 0!
-//   var yyyy = today.getFullYear();
-  
-//   const getDate = `${yyyy}${mm}${dd}`;
-
-//   const formattedBirthday = formatDate(new Date(birthday.birthDate))
-//   .split("-")
-//   .join("");
-
-//   return (
-//     (getDate - formattedBirthday + "").slice(0, 2)
-//     )
-// };
-
 export const convertDate = (birthDate) => {
   const day = String(birthDate.getDate()).padStart(2, 0);
   const month = String(birthDate.getMonth() + 1).padStart(2, 0); // getMonth() starts at 0
@@ -58,4 +40,41 @@ export const convertDate = (birthDate) => {
       : new Date().getFullYear();
 
   return new Date(`${convertedYear}-${month}-${day}`);
+};
+
+export const getAge = (birthday) =>
+  new calculateAge(birthday, new Date()).getObject().years;
+
+export const getDifference = (birthday) => {
+  const convertedBirthday = convertDate(new Date(birthday));
+  return differenceInDays(convertedBirthday, new Date());
+};
+
+export const getBirthdayText = (age, difference) => {
+  if (age > 0) {
+    return `${
+      difference >= 0
+        ? `Turns ${difference > 0 ? +age + 1 : age}`
+        : `Turned ${age}`
+    } years old ${difference === 0 ? "today 🥳" : ""}`;
+  } else if (difference < 0) {
+    return "Not born yet 👶";
+  } else {
+    return `Turns ${age + 1} year old`;
+  }
+};
+
+export const getSettingText = (setting) => {
+  if (setting === 0) {
+    return "Same day";
+  }
+  if (setting === 2) {
+    return "2 days";
+  }
+  if (setting === 7) {
+    return "1 week";
+  }
+  if (setting === 30) {
+    return "1 month";
+  }
 };

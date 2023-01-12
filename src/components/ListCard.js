@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components/macro";
-import { formatDate, convertDate, randomInt } from "./util";
-import { differenceInDays, format } from "date-fns";
+import {
+  formatDate,
+  randomInt,
+  getAge,
+  getDifference,
+  getBirthdayText,
+  getSettingText,
+} from "./util";
 
 export const ListCard = ({ birthday, odd }) => {
   const icons = useSelector((store) => store.ui.icons);
   const [icon, setIcon] = useState(null);
+  const name = `${birthday.firstName} ${birthday.lastName}`;
+  const age = getAge(birthday.birthDate);
+  const difference = getDifference(birthday.birthDate);
+  const birthdayText = getBirthdayText(age, difference);
 
   useEffect(() => {
     setIcon(icons[randomInt(icons.length)]);
   }, []);
-
-  const name = `${birthday.firstName} ${birthday.lastName}`;
-
-  const today = new Date();
-
-  const convertedBirthday = convertDate(new Date(birthday.birthDate));
-  const difference = differenceInDays(convertedBirthday, today);
-
-  var dd = String(today.getDate()).padStart(2, 0);
-  var mm = String(today.getMonth() + 1).padStart(2, 0); //January is 0!
-  var yyyy = today.getFullYear();
-
-  const getDate = `${yyyy}${mm}${dd}`;
-  // const birthDay = "19870903";
-  const formattedBirthday = formatDate(new Date(birthday.birthDate))
-    .split("-")
-    .join("");
-
-  const age = (getDate - formattedBirthday + "").slice(0, 2);
 
   return (
     <GridWrapper odd={odd}>
@@ -44,25 +35,14 @@ export const ListCard = ({ birthday, odd }) => {
       </DaysToBday>
       <InfoBday>
         <BdayName>{name}</BdayName>
-        <BdayAge> Turns {age} years old</BdayAge>
+        <BdayAge>{birthdayText}</BdayAge>
         <BdayDate>📆 {formatDate(new Date(birthday.birthDate))}</BdayDate>
         <BdayReminders>
           ⏰
           {birthday.birthdayReminderSettings
             .sort((a, b) => Number(a) - Number(b))
             .map((setting) => {
-              if (setting === 0) {
-                return <span>Same day</span>;
-              }
-              if (setting === 2) {
-                return <span>2 days</span>;
-              }
-              if (setting === 7) {
-                return <span>1 week</span>;
-              }
-              if (setting === 30) {
-                return <span>1 month</span>;
-              }
+              return <span>{getSettingText(setting)}</span>;
             })}
         </BdayReminders>
       </InfoBday>
