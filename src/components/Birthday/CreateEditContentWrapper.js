@@ -171,6 +171,7 @@ const BirthDateContainer = styled.section`
 `;
 
 const NotesInput = styled.textarea`
+  resize: none;
   font-size: 16px;
   font-style: italic;
   margin-top: 30px;
