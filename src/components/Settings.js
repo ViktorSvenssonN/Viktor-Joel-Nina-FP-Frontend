@@ -100,9 +100,9 @@ const Settings = () => {
     <ClonedOuterWrapper>
       <ClonedInnerWrapperLogout>
       <ClonedFormLogOutOuterContainer>
-     <FormHeaderContainer>
+     <ClonedFormHeaderContainer>
             <FormHeader>LOG OUT</FormHeader>
-          </FormHeaderContainer>
+          </ClonedFormHeaderContainer>
           <FormInnerContainer>
             <Form>
               <DeleteAccountContainer>
@@ -122,9 +122,9 @@ const Settings = () => {
       <ClonedInnerWrapperDelete>
       <ClonedInnerWrapper>
         <ClonedFormOuterContainer>
-          <FormHeaderContainer>
+          <ClonedFormHeaderContainer>
             <FormHeader>CHANGE PASSWORD</FormHeader>
-          </FormHeaderContainer>
+          </ClonedFormHeaderContainer>
           <FormInnerContainer>
             <Form onSubmit={onFormSubmit}>
               <LabelSubHeader htmlFor="password">New password: </LabelSubHeader>
@@ -154,9 +154,9 @@ const Settings = () => {
         </ClonedFormOuterContainer>
       </ClonedInnerWrapper>
         <ClonedFormDeleteOuterContainer>
-          <FormHeaderContainer>
+          <ClonedFormHeaderContainer>
             <FormHeader>DANGEROUS AREA</FormHeader>
-          </FormHeaderContainer>
+          </ClonedFormHeaderContainer>
           <FormInnerContainer>
             <Form>
               <DeleteAccountContainer>
@@ -250,6 +250,16 @@ const ClonedInnerWrapperDelete = styled(InnerWrapper)`
     width: 42%;
   }
 `;
+
+const ClonedFormHeaderContainer = styled(FormHeaderContainer) `
+
+  @media (min-width: 668px) {
+    margin-bottom: 1%;
+    margin-right: unset;
+    margin-top: 3%;
+  }
+`;
+
 
 const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px 45px 0px 0px;

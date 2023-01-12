@@ -36,12 +36,29 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   margin: 0 auto;
 `;
 
-const ImgParent = styled.div``;
+const ImgParent = styled.div`
+
+  @media(min-width: 1024px) {
+    display: flex;
+    justify-content: center;
+  }
+`;
 
 const ImgContainer = styled.img`
   width: 100%;
   height: 50%;
   margin-bottom: 10%;
+
+  @media(min-width: 1024px) {
+    width: 90%
+  }
+
+  @media (min-width: 2000px) {
+    width: 70%;
+    height: 27vw;
+    margin-bottom: 6%;
+  }
+
 `;
 
 const ButtonWrapper = styled.div`
@@ -60,6 +77,18 @@ const ParentButton = styled.div`
     width: 50%;
     margin-bottom: 8%;
   }
+
+  @media (min-width: 1024px) {
+  height: 6vw;
+  width: 40%;
+  }
+
+  @media (min-width: 1024px) {
+    height: 4vw;
+    width: 30%;
+    margin-bottom: 4%;
+    }
+
 `;
 
 const Button = styled.button`
