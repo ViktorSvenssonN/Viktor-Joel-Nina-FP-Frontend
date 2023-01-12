@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, batch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "./util";
@@ -21,7 +21,7 @@ import {
   BallonBackgroundImg,
 } from "Globalstyles";
 import user from "reducers/user";
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
 import logolight from "../logo/logo_light.svg";
 import { fetchOptions } from "./util";
@@ -31,8 +31,21 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPasswordWarning, setShowPasswordWarning] = useState(false);
+  const [conditionsMet, setConditionsMet] = useState(false);
+  const [usernameTaken, setUsernameTaken] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (password.length >= 8 && password === confirmPassword) {
+      console.log("conditions met");
+
+      setConditionsMet(true);
+    } else {
+      setConditionsMet(false);
+    }
+  }, [password, confirmPassword]);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -52,10 +65,27 @@ const Register = () => {
               navigate("/login");
             }, 2000);
             setRegisterSuccess(true);
+          } else {
+            if (data?.response.keyPattern.username) {
+              setUsernameTaken(true);
+            }
           }
         })
         .catch((error) => console.error(error));
     }
+  };
+
+  const handlePasswordSet = () => {
+    if (password.length < 8) {
+      setShowPasswordWarning(true);
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    if (e.target.value.length >= 8) {
+      setShowPasswordWarning(false);
+    }
+    setPassword(e.target.value);
   };
 
   return (
@@ -79,6 +109,11 @@ const Register = () => {
               <FormHeaderContainer>
                 <FormHeader>REGISTER</FormHeader>
               </FormHeaderContainer>
+              {usernameTaken && (
+                <ValidationError>
+                  Username already registered. Try logging in instead
+                </ValidationError>
+              )}
               <FormInnerContainer>
                 <Form onSubmit={onFormSubmit}>
                   <LabelSubHeader htmlFor="email">Email: </LabelSubHeader>
@@ -92,12 +127,18 @@ const Register = () => {
                   />
                   <LabelSubHeader htmlFor="password">Password: </LabelSubHeader>
                   <InputContainer
+                    onBlur={handlePasswordSet}
                     type="password"
                     id="password"
                     value={password}
                     required
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlePasswordChange}
                   />
+                  {showPasswordWarning && (
+                    <ValidationError>
+                      Password must be at least 8 characters!
+                    </ValidationError>
+                  )}
                   <LabelSubHeader htmlFor="confirmPassword">
                     Confirm password:{" "}
                   </LabelSubHeader>
@@ -118,7 +159,9 @@ const Register = () => {
                     </p>
                   </LoginInLinkContainer>
                   <ContainerButtonLoginSignUp>
-                    <ButtonLoginSignUp type="submit">SIGN UP</ButtonLoginSignUp>
+                    <RegisterButton disabled={!conditionsMet} type="submit">
+                      SIGN UP
+                    </RegisterButton>
                   </ContainerButtonLoginSignUp>
                 </Form>
               </FormInnerContainer>
@@ -129,8 +172,7 @@ const Register = () => {
     </>
   );
 };
-
-// Styled components
+export default Register;
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
@@ -150,13 +192,34 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   z-index: 1;
 `;
 
+const RegisterSuccessContainer = styled.div`
+  height: 90%;
+  color: #e8e8e8;
+`;
+const ValidationError = styled.p`
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: red;
+`;
+
 const ConfirmPasswordContainer = styled(InputContainer)`
   border: ${(props) => (props?.isSame ? "none" : "1px red solid")};
 `;
 
-export default Register;
-
-const RegisterSuccessContainer = styled.div`
-  height: 90%;
-  color: #e8e8e8;
+const RegisterButton = styled(ButtonLoginSignUp)`
+  :disabled {
+    color: grey;
+  }
+  ${(props) =>
+    props.disabled &&
+    css`
+      &:hover {
+        cursor: default;
+        background-color: var(--clr-bg-light);
+        box-shadow: 5px 6px 10px var(--clr-text-dark);
+        color: grey;
+        transform: none;
+      }
+    `}
 `;
