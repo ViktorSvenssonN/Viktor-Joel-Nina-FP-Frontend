@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import { ReactComponent as AddIcon } from "../../images/icons/close.svg";
 
-export const AddBtn = () => {
+export const AddBtn = ({ invert }) => {
   const navigate = useNavigate();
 
   const onAddClick = () => navigate("/create");
 
   return (
     <BtnContainer>
-      <Btn onClick={onAddClick}>
+      <Btn onClick={onAddClick} invert={invert}>
         <AddIcon />
       </Btn>
     </BtnContainer>
@@ -29,6 +29,8 @@ const BtnContainer = styled.div`
 `;
 
 const Btn = styled.button`
+  background-color: ${props => props.invert ? "#e8e8e8" : "#6a6d80" };
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,21 +38,20 @@ const Btn = styled.button`
   height: 50px;
   border-radius: 50%;
   
-  background-color: #6a6d80;
+  /* background-color: #6a6d80; */
   box-shadow: 4px 4px 5px 0px #80808082;
 
   svg {
     width: 25px;
     height: 25px;
     transform: rotate(45deg);
-    filter: invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg)
-      brightness(112%) contrast(82%);
+    filter: ${props => props.invert ? "invert(16%) sepia(4%) saturate(4152%) hue-rotate(195deg) brightness(96%) contrast(86%)" : "invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg) brightness(112%) contrast(82%)" };
+    /* filter: invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg)
+      brightness(112%) contrast(82%); */
   }
 
   &:hover {
     cursor: pointer;
-    /* filter: invert(45%) sepia(10%) saturate(686%) hue-rotate(194deg) brightness(91%) contrast(87%);
-    background-color: #303346; */
     transform: scale(1.05);
     transition: all 0.2s ease-out;
   }
@@ -60,7 +61,6 @@ const Btn = styled.button`
     height: 60px;
 
     &:hover {
-      transform: scale(1.4);
       transition: all 0.3s ease-out;
     }
     svg {
