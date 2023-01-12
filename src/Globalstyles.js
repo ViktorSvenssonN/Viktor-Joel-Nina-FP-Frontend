@@ -143,6 +143,12 @@ export const FormHeaderContainer = styled.div`
   margin-top: 3%;
   position: relative;
   z-index: 3;
+
+  @media (min-width: 668px) {
+    margin-bottom: 1%;
+    margin-top: 30%;
+    margin-right: 35%;
+  }
 `;
 
 export const FormHeader = styled.h1`
