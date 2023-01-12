@@ -45,12 +45,15 @@ export const convertDate = (birthDate) => {
 export const getAge = (birthday) =>
   new calculateAge(birthday, new Date()).getObject().years;
 
+const getMonth = (birthday) =>
+  new calculateAge(birthday, new Date()).getObject().months;
+
 export const getDifference = (birthday) => {
   const convertedBirthday = convertDate(new Date(birthday));
   return differenceInDays(convertedBirthday, new Date());
 };
 
-export const getBirthdayText = (age, difference) => {
+export const getBirthdayText = (age, difference, birthday) => {
   if (age > 0) {
     return `${
       difference >= 0
@@ -58,7 +61,8 @@ export const getBirthdayText = (age, difference) => {
         : `Turned ${age}`
     } years old ${difference === 0 ? "today 🥳" : ""}`;
   } else if (difference < 0) {
-    return "Not born yet 👶";
+    const months = getMonth(birthday);
+    return months === 0 ? "Just hatched 👶" : `${months} months old 👶`;
   } else {
     return `Turns ${age + 1} year old`;
   }

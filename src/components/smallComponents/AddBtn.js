@@ -24,7 +24,7 @@ const BtnContainer = styled.div`
   align-items: flex-end;
   z-index: 2;
   position: absolute;
-  bottom: 10%;
+  bottom: 12%;
   right: 10%;
 `;
 
@@ -35,6 +35,7 @@ const Btn = styled.button`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  
   background-color: #6a6d80;
   box-shadow: 4px 4px 5px 0px #80808082;
 
@@ -58,11 +59,18 @@ const Btn = styled.button`
     width: 60px;
     height: 60px;
 
+    &:hover {
+      transform: scale(1.4);
+      transition: all 0.3s ease-out;
+    }
     svg {
       width: 35px;
       height: 35px;
     }
   }
   @media (min-width: 1024px) {
+    transform: scale(1.2);
+    transition: all 0.3s ease-out;
   }
 `;
+
