@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import WithHeader from "./WithHeader";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components/macro";
 import {
   OuterWrapper,
   InnerWrapper,
   ButtonLoginSignUp,
   ContainerButtonLoginSignUp,
-  LoginInLinkContainer,
   Form,
   FormOuterContainer,
   FormInnerContainer,
@@ -71,11 +70,6 @@ const Settings = () => {
       "Are you sure you want to delete your user? This action is irreversible"
     );
     if (confirm) {
-      // batch(() => {
-      //   dispatch(user.actions.setUsername(null));
-      //   dispatch(user.actions.setId(null));
-      //   dispatch(user.actions.setAccessToken(null));
-      // });
       fetch(
         API_URL("user"),
         fetchOptions("DELETE", accessToken, JSON.stringify({ id: userId }))
@@ -127,27 +121,27 @@ const Settings = () => {
             </ClonedFormHeaderContainer>
             <FormInnerContainer>
               <Form onSubmit={onFormSubmit}>
-                <LabelSubHeader htmlFor="password">
+                <ClonedLabelSubHeader htmlFor="password">
                   New password:{" "}
-                </LabelSubHeader>
-                <InputContainer
-                  type="password"
-                  id="password"
-                  value={password}
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <LabelSubHeader htmlFor="confirmPassword">
+                  <InputContainer
+                    type="password"
+                    id="password"
+                    value={password}
+                    required
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </ClonedLabelSubHeader>
+                <ClonedLabelSubHeader htmlFor="confirmPassword">
                   Confirm new password:{" "}
-                </LabelSubHeader>
-                <ConfirmPasswordContainer
-                  isSame={confirmPassword === password}
-                  type="password"
-                  id="confirmPassword"
-                  value={confirmPassword}
-                  required
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                  <ConfirmPasswordContainer
+                    isSame={confirmPassword === password}
+                    type="password"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    required
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                </ClonedLabelSubHeader>
                 <ContainerButtonLoginSignUp>
                   <ButtonLoginSignUp type="submit">CONFIRM</ButtonLoginSignUp>
                 </ContainerButtonLoginSignUp>
@@ -198,8 +192,8 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
   align-items: center;
   width: 100%;
   height: 100%;
-  margin-top: 25%;
-  justify-content: flex-end;
+  top: 20%;
+  justify-content: flex-start;
   position: relative;
   z-index: 1;
 
@@ -213,12 +207,14 @@ const ClonedInnerWrapperLogout = styled(InnerWrapper)`
   align-items: center;
   width: 100%;
   height: 30%;
-  margin-top: 15%;
+  margin-top: 5%;
   justify-content: flex-end;
   position: relative;
   z-index: 1;
 
   @media (min-width: 668px) {
+    height: 40%;
+
     width: 85%;
   }
 
@@ -232,7 +228,7 @@ const ClonedInnerWrapperLogout = styled(InnerWrapper)`
 `;
 
 const ClonedInnerWrapperDelete = styled(InnerWrapper)`
-  max-width: 700px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -240,8 +236,7 @@ const ClonedInnerWrapperDelete = styled(InnerWrapper)`
   height: 95%;
   justify-content: flex-end;
   position: absolute;
-  /* z-index: 2; */
-  top: 11%;
+  top: 5%;
 
   @media (min-width: 668px) {
     width: 68%;
@@ -262,7 +257,7 @@ const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
 `;
 
 const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
-  max-width: 700px;
+  max-width: 500px;
   border-radius: 45px 45px 0px 0px;
   background: var(--clr-bg-login);
   @media (min-width: 668px) {
@@ -301,15 +296,9 @@ const ClonedFormDeleteOuterContainer = styled(FormOuterContainer)`
 `;
 
 const ClonedLabelSubHeader = styled(LabelSubHeader)`
+  display: flex;
+  flex-direction: column;
   font-size: 1.2rem;
-`;
-
-const ClonedInputContainer = styled(InputContainer)`
-  margin-bottom: 0;
-  border-radius: 15px;
-  border: none;
-  height: 3rem;
-  padding-left: 0;
 `;
 
 const DeleteAccountContainer = styled.div`
