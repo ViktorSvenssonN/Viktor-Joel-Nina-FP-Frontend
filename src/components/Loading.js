@@ -1,21 +1,21 @@
-import React from 'react';
-import Lottie from 'react-lottie';
-import styled from 'styled-components/macro';
-import Ballons from '../lotties/Ballons.json';
+import React from "react";
+import Lottie from "react-lottie";
+import styled from "styled-components/macro";
+import balloons from "./Lotties/balloons.json";
 
 const Loading = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: Ballons,
+    animationData: balloons,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
+      preserveAspectRatio: "xMidYMid slice",
+    },
   };
 
   return (
     <LottieWrapper>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Lottie options={defaultOptions} />
     </LottieWrapper>
   );
 };
@@ -23,7 +23,7 @@ const Loading = () => {
 export default Loading;
 
 const LottieWrapper = styled.div`
-  height: 100vh;
+  height: 90%;
   display: flex;
   align-items: center;
-`;  
+`;

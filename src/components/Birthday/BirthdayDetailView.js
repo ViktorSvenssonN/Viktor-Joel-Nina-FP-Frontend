@@ -10,6 +10,7 @@ import editPencil from "images/icons/edit-pencil.svg";
 import { fetchOptions, formatDate, randomInt } from "../util";
 import { API_URL } from "../util";
 import ReminderSettingsContainer from "./ReminderSettingsContainer";
+import Loading from "components/Loading";
 
 const BirthdayDetailView = () => {
   const icons = useSelector((store) => store.ui.icons);
@@ -75,7 +76,7 @@ const BirthdayDetailView = () => {
   };
 
   if (loading) {
-    return <div>Currently working on that for you dear sir/madam</div>;
+    return <Loading />;
   }
 
   return (

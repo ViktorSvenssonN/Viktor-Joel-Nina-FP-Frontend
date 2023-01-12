@@ -119,3 +119,10 @@ Joel
 - delete user (+ ändring i backend)
 - tablet styling
 - bytt favicon.ico till presenten
+
+### 12/1 Onsdag
+
+Joel
+
+- flytta ut logik från ListCard till util
+- lägg in loader
