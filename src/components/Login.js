@@ -24,6 +24,7 @@ import {
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
+/* import ballonsBig from "../images/ballons_250x500.png"; */
 import logolight from "../logo/logo_light.svg";
 import { fetchOptions } from "./util";
 
@@ -136,11 +137,16 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-bg);
   justify-content: flex-end;
   overflow: hidden;
+  max-width: 1000px;
 
   @media (min-width: 668px) {
     width: 70%;
     height: 60%;
     border-radius: 45px;
+  }
+
+  @media (min-width: 1350px) {
+    height: 65%;
   }
 `;
 
@@ -168,6 +174,15 @@ const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
     margin-top: 30%;
     margin-right: 35%;
   }
+
+  @media (min-width: 1024px) {
+    margin-right: 44%;
+  }
+
+  @media (min-width: 1350px) {
+    margin-top: 22%;
+  }
+
 `;
 
 /* TODO, forgot password

@@ -186,11 +186,16 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
   background: var(--clr-bg);
   justify-content: flex-end;
   overflow: hidden;
-
+  max-width: 1000px;
+  
   @media (min-width: 668px) {
     width: 70%;
     height: 60%;
     border-radius: 45px;
+  }
+
+  @media (min-width: 1350px) {
+    height: 65%;
   }
 `;
 

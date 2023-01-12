@@ -46,6 +46,7 @@ export const LogoImg = styled.img`
   height: 100%;
 `;
 
+
 // Validation error for Login & Register //
 
 export const ValidationError = styled.p`
@@ -126,6 +127,10 @@ export const FormInnerContainer = styled.div`
   @media (min-width: 668px) {
     width: 65%;
   }
+
+  @media (min-width: 1024px) {
+    width: 55%;
+  }
 `;
 
 export const Form = styled.form`
@@ -149,6 +154,25 @@ export const FormHeaderContainer = styled.div`
     margin-top: 30%;
     margin-right: 35%;
   }
+
+  @media (min-width: 1024px) {
+    margin-right: 44%;
+    margin-top: 25%;
+  }
+
+  @media (min-width: 1350px) {
+    margin-top: 22%;
+  }
+
+  @media (max-height: 724px) {
+    margin-top: 2%;
+  }
+
+  
+  @media (max-height: 1024px) {
+    margin-top: 15%;
+  }
+
 `;
 
 export const FormHeader = styled.h1`
