@@ -151,27 +151,23 @@ export const FormHeaderContainer = styled.div`
 
   @media (min-width: 668px) {
     margin-bottom: 1%;
-    margin-top: 30%;
+    margin-top: 5%;
     margin-right: 35%;
   }
 
   @media (min-width: 1024px) {
     margin-right: 44%;
-    margin-top: 25%;
+    margin-top: 3%;
   }
 
-  @media (min-width: 1350px) {
+ /* @media (min-width: 1124px) {
+    margin-right: 44%;
+   /*  margin-top: 15%; */
+  }
+
+   @media (min-width: 1350px) {
     margin-top: 22%;
-  }
-
-  @media (max-height: 724px) {
-    margin-top: 2%;
-  }
-
-  
-  @media (max-height: 1024px) {
-    margin-top: 15%;
-  }
+  } */
 
 `;
 
@@ -210,13 +206,12 @@ export const BallonBackgroundImg = styled.img`
   position: absolute;
   z-index: 2;
   height: 65%;
-  width: 65%;
+  width: auto;
   left: 51%;
   top: 35%;
 
   @media (min-width: 668px) {
     height: 100%;
-    width: 45%;
     left: 48%;
     top: 9%;
   }

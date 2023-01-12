@@ -141,7 +141,7 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
 
   @media (min-width: 668px) {
     width: 70%;
-    height: 60%;
+    height: 70%;
     border-radius: 45px;
   }
 
@@ -171,16 +171,17 @@ const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
 
   @media (min-width: 668px) {
     margin-bottom: 1%;
-    margin-top: 30%;
+    margin-top: 5%;
     margin-right: 35%;
   }
 
   @media (min-width: 1024px) {
     margin-right: 44%;
+    margin-top: 3%;
   }
 
   @media (min-width: 1350px) {
-    margin-top: 22%;
+    /* margin-top: 22%; */
   }
 
 `;

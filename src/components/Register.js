@@ -187,10 +187,10 @@ const ClonedOuterWrapper = styled(OuterWrapper)`
   justify-content: flex-end;
   overflow: hidden;
   max-width: 1000px;
-  
+
   @media (min-width: 668px) {
     width: 70%;
-    height: 60%;
+    height: 70%;
     border-radius: 45px;
   }
 
