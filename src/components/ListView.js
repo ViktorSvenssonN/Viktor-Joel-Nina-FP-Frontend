@@ -63,6 +63,9 @@ export const ListOuterWrapper = styled(OuterWrapper)`
     height: 80%;
     border-radius: 50px;
   }
+  @media (min-width: 1024px) {
+    max-width: 800px;
+  }
 `;
 
 export const ListInnerWrapper = styled(InnerWrapper)`

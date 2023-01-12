@@ -144,6 +144,9 @@ const FormWrapper = styled.form`
   @media (min-width: 668px) {
     height: 80%;
   }
+  @media (min-width: 1024px) {
+    max-width: 800px;
+  }
 `;
 
 const BirthdayHeader = styled.header`
