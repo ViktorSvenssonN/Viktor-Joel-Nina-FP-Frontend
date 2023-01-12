@@ -38,8 +38,7 @@ export const ListCard = ({ birthday, odd }) => {
         <BdayAge>{birthdayText}</BdayAge>
         <BdayDate>📆 {formatDate(new Date(birthday.birthDate))}</BdayDate>
         <BdayReminders>
-          ⏰
-          {birthday.birthdayReminderSettings
+          ⏰ {birthday.birthdayReminderSettings
             .sort((a, b) => Number(a) - Number(b))
             .map((setting) => {
               return <span>{getSettingText(setting)}</span>;
@@ -59,10 +58,8 @@ const GridWrapper = styled.div`
   grid-template-columns: 2fr 7fr;
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 10px;
-
   margin: 1rem 0;
   border-radius: 15px;
-  /* height: 100px; */
   outline: none;
   background-color: ${(props) =>
     props.odd ? "var(--clr-bg-orange-card)" : "var(--clr-bg-green-card)"};
@@ -71,7 +68,6 @@ const GridWrapper = styled.div`
   color: var(--clr-text-dark);
 `;
 
-// GÖRS OM TILL IMG SEN
 const IconImg = styled.div`
   grid-area: 1 / 1 / 3 / 2;
   background: rgba(161, 175, 186, 0.5);
@@ -85,7 +81,6 @@ const Icon = styled.div`
 
   img {
     cursor: pointer;
-
     height: 50px;
     width: auto;
     transition: 0.2s;
@@ -132,13 +127,11 @@ const InfoBday = styled.div`
 const BdayName = styled.h4`
   font-weight: bold;
   margin-bottom: 5px;
-  /* grid-area: 1 / 2 / 2 / 3;  */
 `;
 
 const BdayAge = styled.h5`
   margin-bottom: 5px;
   font-weight: 400;
-  /* grid-area: 2 / 2 / 3 / 3;  */
 `;
 
 const BdayDate = styled.p`
@@ -147,13 +140,10 @@ const BdayDate = styled.p`
   font-weight: 600;
   letter-spacing: 0.1rem;
   margin-bottom: 5px;
-
-  /* grid-area: 3 / 2 / 4 / 3;  */
 `;
 
 const BdayReminders = styled.div`
   font-size: 0.8rem;
   display: flex;
   gap: 8px;
-  /* grid-area: 4 / 2 / 5 / 3;  */
 `;
