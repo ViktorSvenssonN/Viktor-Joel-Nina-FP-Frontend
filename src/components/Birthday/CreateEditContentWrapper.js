@@ -60,9 +60,7 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
           monthPlaceholder="month"
           dayPlaceholder="day"
           format="y-MM-dd"
-          maxDate={
-            new Date(new Date().setFullYear(new Date().getFullYear() + 5))
-          }
+          maxDate={new Date()}
           onChange={(date) =>
             setBirthdayInfo((prev) => ({
               ...prev,
