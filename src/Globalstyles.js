@@ -46,7 +46,6 @@ export const LogoImg = styled.img`
   height: 100%;
 `;
 
-
 // Validation error for Login & Register //
 
 export const ValidationError = styled.p`
@@ -105,7 +104,6 @@ export const ButtonLoginSignUp = styled.button`
   @media (min-width: 668px) {
     width: 55%;
   }
-
 `;
 
 /// Form styling for Login/Register ///
@@ -160,15 +158,9 @@ export const FormHeaderContainer = styled.div`
     margin-top: 3%;
   }
 
- /* @media (min-width: 1124px) {
-    margin-right: 44%;
-   /*  margin-top: 15%; */
-  }
-
-   @media (min-width: 1350px) {
+  @media (min-width: 1350px) {
     margin-top: 22%;
-  } */
-
+  }
 `;
 
 export const FormHeader = styled.h1`
