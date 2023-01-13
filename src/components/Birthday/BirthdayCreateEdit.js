@@ -1,9 +1,7 @@
-// Should be used for both creating new birthday, and edit, with props to change some labels
 import { OuterWrapper } from "Globalstyles";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-// import user from "reducers/user";
 import styled from "styled-components/macro";
 import WithHeader from "../WithHeader";
 import closeIcon from "images/icons/close.svg";
@@ -14,7 +12,6 @@ import { API_URL } from "../util";
 
 const BirthdayCreateEdit = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const location = useLocation();
   const params = useParams();
 
@@ -44,12 +41,10 @@ const BirthdayCreateEdit = () => {
   }, []);
 
   const fetchBirthday = () => {
-    /*    setLoading(true); */
     fetch(API_URL(`birthday/${id}`), fetchOptions("GET", accessToken))
       .then((res) => res.json())
       .then((data) => setBirthdayInfo(data))
       .catch((error) => console.error(error));
-    /*       .finally(() => setLoading(false)); */
   };
 
   useEffect(() => {
