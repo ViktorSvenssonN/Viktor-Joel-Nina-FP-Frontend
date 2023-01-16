@@ -105,9 +105,9 @@ const Settings = () => {
                 </ClonedLabelSubHeader>
               </DeleteAccountContainer>
               <ContainerButtonLoginSignUp>
-                <ButtonLoginSignUp type="button" onClick={onLogoutClick}>
+                <SettingButtons type="button" onClick={onLogoutClick}>
                   <StyledIcon src={logOut} />
-                </ButtonLoginSignUp>
+                </SettingButtons>
               </ContainerButtonLoginSignUp>
             </Form>
           </FormInnerContainer>
@@ -161,9 +161,9 @@ const Settings = () => {
                 </ClonedLabelSubHeader>
               </DeleteAccountContainer>
               <ContainerButtonLoginSignUp>
-                <ButtonLoginSignUp type="button" onClick={handleDeleteUser}>
+                <SettingButtons type="button" onClick={handleDeleteUser}>
                   <StyledIcon src={trash} />
-                </ButtonLoginSignUp>
+                </SettingButtons>
               </ContainerButtonLoginSignUp>
             </Form>
           </FormInnerContainer>
@@ -309,6 +309,15 @@ const DeleteAccountContainer = styled.div`
   padding-top: 4%;
 `;
 
+const SettingButtons = styled(ButtonLoginSignUp)`
+  &:hover {
+    img {
+      filter: invert(98%) sepia(74%) saturate(131%) hue-rotate(190deg)
+        brightness(118%) contrast(82%);
+    }
+  }
+`;
+
 const StyledIcon = styled.img`
   cursor: pointer;
   height: 28px;
@@ -316,10 +325,6 @@ const StyledIcon = styled.img`
   transition: 0.2s;
   filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
     brightness(94%) contrast(92%);
-  &:hover {
-    transform: scale(1.1) translateX(2px);
-    transition: 0.2s;
-  }
 `;
 
 const ConfirmPasswordContainer = styled(InputContainer)`
