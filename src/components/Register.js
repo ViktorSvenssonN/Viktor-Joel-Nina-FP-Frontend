@@ -181,9 +181,11 @@ const Register = () => {
 };
 export default Register;
 
+// ------------- Styled Components -------------------
+
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
-  background: var(--clr-bg);
+  background: var(--clr-bg-gray);
   justify-content: flex-end;
   overflow: hidden;
   max-width: 1000px;
@@ -212,7 +214,7 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 
 const RegisterSuccessContainer = styled.div`
   height: 90%;
-  color: #e8e8e8;
+  color: var(--clr-offwhite);
 `;
 
 const ConfirmPasswordContainer = styled(InputContainer)`
@@ -228,8 +230,8 @@ const RegisterButton = styled(ButtonLoginSignUp)`
     css`
       &:hover {
         cursor: default;
-        background-color: var(--clr-bg-light);
-        box-shadow: 5px 6px 10px var(--clr-text-dark);
+        background-color: var(--clr-offwhite);
+        box-shadow: 5px 6px 10px var( --clr-dark);
         color: grey;
         transform: none;
       }

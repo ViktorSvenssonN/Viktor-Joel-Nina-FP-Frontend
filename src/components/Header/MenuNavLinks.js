@@ -50,17 +50,19 @@ const MenuNavLinks = () => {
 
 export default MenuNavLinks;
 
+// ------------- Styled Components -------------------
+
 const StyledMenuNavLinks = styled.section`
   display: flex;
   flex-direction: column;
   height: 90%;
-  background: var(--clr-bg);
+  background: var(--clr-bg-gray);
   a {
     height: 100%;
     line-height: 2;
     width: 100%;
     font-size: 20px;
-    color: var(--clr-bg-light);
+    color: var(--clr-offwhite);
     text-decoration: none;
   }
 
@@ -68,7 +70,7 @@ const StyledMenuNavLinks = styled.section`
     line-height: 2;
     cursor: pointer;
     width: 100%;
-    color: var(--clr-bg-light);
+    color: var(--clr-offwhite);
     text-decoration: none;
     font-size: 20px;
     background: none;

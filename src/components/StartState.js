@@ -50,12 +50,12 @@ const WelcomeMsg = styled.div`
   grid-template-rows: 1fr 2fr 1fr;
   grid-row-gap: 10px;
   width: 85%;
-  background: var(--clr-bg-ballon);
+  background: var(--clr-ballon);
   border-radius: 15px;
   border: none;
   padding: 4%;
   margin-top: 30%;
-  box-shadow: 3px 7px 5px #b19f95;
+  box-shadow: 3px 7px 5px var(--clr-pancho-shadow);
 
   h1 {
     font-family: var(--font-brush);
@@ -128,7 +128,7 @@ const PContainer = styled.div`
     font-family: var(--font-brush);
     font-weight: bold;
     font-size: 1.8rem;
-    color: #e8e8e8;
+    color: var(--clr-offwhite);
   }
 
   @media (min-width: 667px) {

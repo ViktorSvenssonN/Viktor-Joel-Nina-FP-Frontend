@@ -120,6 +120,8 @@ const BirthdayDetailView = () => {
 
 export default WithHeader(BirthdayDetailView);
 
+// ------------- Styled Components -------------------
+
 const ClonedOuterWrapper = styled(OuterWrapper)`
   align-items: flex-end;
 
@@ -150,8 +152,8 @@ const BirthdayHeader = styled.header`
   align-items: center;
   height: 10%;
   border-radius: 50px 50px 0 0;
-  background: var(--clr-bg-register);
-  color: var(--clr-text-dark);
+  background: var(--clr-jungle);
+  color: var( --clr-dark);
 
   img {
     cursor: pointer;
@@ -187,7 +189,7 @@ const ContentWrapper = styled.section`
   flex-direction: column;
   height: 90%;
   padding: 30px;
-  background: var(--clr-bg-light);
+  background: var(--clr-offwhite);
 
   img {
     height: 100px;
@@ -207,16 +209,17 @@ const TextParagraph = styled.p`
   margin-top: 25px;
   width: 75%;
   font-family: inherit;
-  color: var(--clr-text-dark);
+  color: var( --clr-dark);
   padding: 0px 0px 4px;
   border: none;
   outline: none;
   font-size: 18px;
+  /* ändra till liknande användande av shadow ex: box-shadow: 3px 8px 3px var(--clr-pancho); */
   box-shadow: rgb(48 51 70 / 30%) 0px 1px;
   background-color: transparent;
 
   &:focus {
-    box-shadow: #303346 0px 2px;
+    box-shadow: var(--clr-dark) 0px 2px;
   }
 
   &::placeholder {
@@ -257,9 +260,9 @@ const NotesInput = styled.div`
   height: 20%;
   border: none;
   outline: none;
-  background-color: var(--clr-bg-green-card);
-  box-shadow: 3px 8px 1px var(--clr-cascade);
-  color: var(--clr-text-dark);
+  background-color: var(--clr-mint);
+  box-shadow: 3px 8px 3px var(--clr-jungle);
+  color: var( --clr-dark);
 
   @media (min-width: 668px) {
     width: 70%;

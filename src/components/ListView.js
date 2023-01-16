@@ -1,25 +1,16 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { InnerWrapper, OuterWrapper } from "Globalstyles";
 import styled from "styled-components/macro";
-// import user from "reducers/user";
 import WithHeader from "./WithHeader";
 import { ListCard } from "./ListCard";
 import { AddBtn } from "./smallComponents/AddBtn";
 
 const ListView = ({ birthdays }) => {
-  const dispatch = useDispatch();
-  const accessToken = useSelector((store) => store.user.accessToken);
-  const navigate = useNavigate();
-
-  // console.log("testing birthdays in ListView:", birthdays);
-
-  // useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate("/login");
-  //   }
-  // }, []);
+  // const dispatch = useDispatch();
+  // const accessToken = useSelector((store) => store.user.accessToken);
+  // const navigate = useNavigate();
 
   const bdDeleted = localStorage.getItem("deletedBirthday");
 
@@ -52,7 +43,7 @@ export default WithHeader(ListView);
 // ------------- Styled Components -------------------
 
 export const ListOuterWrapper = styled(OuterWrapper)`
-  background: var(--clr-bg-light);
+  background: var(--clr-offwhite);
   align-items: unset;
   overflow: hidden;
   width: 100%;

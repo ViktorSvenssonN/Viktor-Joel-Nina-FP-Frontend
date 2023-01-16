@@ -79,13 +79,15 @@ const Header = () => {
 
 export default Header;
 
+// ------------- Styled Components -------------------
+
 const StyledHeader = styled.header`
   width: 100%;
   height: 10%;
   display: flex;
 
   @media (min-width: 668px) {
-    background: var(--clr-header-light);
+    background: var(--clr-powderblue);
   }
 `;
 

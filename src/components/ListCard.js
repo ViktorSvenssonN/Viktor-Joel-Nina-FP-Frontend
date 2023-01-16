@@ -62,10 +62,10 @@ const GridWrapper = styled.div`
   border-radius: 15px;
   outline: none;
   background-color: ${(props) =>
-    props.odd ? "var(--clr-bg-orange-card)" : "var(--clr-bg-green-card)"};
+    props.odd ? "var(--clr-ballon)" : "var(--clr-mint)"};
   box-shadow: ${(props) =>
-    props.odd ? "3px 7px 5px #b19f95" : "3px 7px 5px var(--clr-cascade)"};
-  color: var(--clr-text-dark);
+    props.odd ? "3px 7px 5px var(--clr-pancho-shadow)" : "3px 7px 5px var(--clr-jungle)"};
+  color: var( --clr-dark);
 `;
 
 const IconImg = styled.div`
@@ -95,9 +95,9 @@ const DaysToBday = styled.div`
   align-items: center;
   justify-content: center;
   grid-area: 3 / 1 / 5 / 2;
-  background-color: var(--clr-bg);
+  background-color: var(--clr-bg-gray);
   border-radius: 0 0 0 13px;
-  color: #e8e8e8;
+  color: var(--clr-offwhite);
 `;
 
 const DayText = styled.h5`

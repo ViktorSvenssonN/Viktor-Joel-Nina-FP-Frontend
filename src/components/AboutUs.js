@@ -83,7 +83,7 @@ export default WithHeader(AboutUs);
 
 const AboutInnerWrapper = styled(ListInnerWrapper)`
   justify-content: space-evenly;
-  color: var(--clr-text-dark);
+  color: var(--clr-dark);
   backdrop-filter: blur(3px);
   z-index: 6;
 `;
@@ -105,7 +105,7 @@ const AboutCardWrapper = styled.section`
 
 const ImageContainer = styled.div`
   overflow: hidden;
-  background-color: var(--clr-bg);
+  background-color: var(--clr-bg-gray);
   display: flex;
   width: 40%;
   justify-content: center;
@@ -124,7 +124,7 @@ const AboutInfo = styled.div`
   width: 60%;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--clr-header-light);
+  background-color: var(--clr-powderblue);
   border-radius: 0 25px 25px 0;
 `;
 

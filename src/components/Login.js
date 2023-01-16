@@ -130,11 +130,13 @@ const Login = () => {
   );
 };
 
-// Styled components // (får kolla om vi ska flytta några till global)
+export default Login;
+
+// ------------- Styled Components -------------------
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
-  background: var(--clr-bg);
+  background: var(--clr-bg-gray);
   justify-content: flex-end;
   overflow: hidden;
   max-width: 1000px;
@@ -162,7 +164,7 @@ const ClonedInnerWrapper = styled(InnerWrapper)`
 `;
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
-  background: var(--clr-bg-login);
+  background: var(--clr-storm);
   height: 80%;
 `;
 
@@ -194,5 +196,3 @@ const ForgottPasswordContainer = styled.div`
   padding-right: 2%;
 `;
 */
-
-export default Login;

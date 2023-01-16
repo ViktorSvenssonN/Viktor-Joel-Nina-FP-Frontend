@@ -175,9 +175,11 @@ const Settings = () => {
 
 export default WithHeader(Settings);
 
+// ------------- Styled Components -------------------
+
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
-  background: var(--clr-bg);
+  background: var(--clr-bg-gray);
   overflow: hidden;
   justify-content: unset;
 
@@ -259,7 +261,8 @@ const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
 const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
   max-width: 500px;
   border-radius: 45px 45px 0px 0px;
-  background: var(--clr-bg-login);
+  background: var(--clr-storm);
+
   @media (min-width: 668px) {
     display: flex;
     flex-direction: column;
@@ -269,7 +272,8 @@ const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px;
-  box-shadow: 0px -1px 9px 1px var(--clr-text-dark);
+  box-shadow: 0px -1px 9px 1px var( --clr-dark);
+
   @media (min-width: 668px) {
     display: flex;
     flex-direction: column;
@@ -279,9 +283,8 @@ const ClonedFormOuterContainer = styled(FormOuterContainer)`
 
 const ClonedFormDeleteOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px 45px 0px 0px;
-  background: #e3c0ab;
-  box-shadow: 0px -1px 9px 1px var(--clr-text-dark);
-
+  background: var(--clr-pancho);
+  box-shadow: 0px -1px 9px 1px var( --clr-dark);
   height: 85%;
   position: absolute;
   z-index: 4;

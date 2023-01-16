@@ -29,7 +29,7 @@ const BtnContainer = styled.div`
 `;
 
 const Btn = styled.button`
-  background-color: ${props => props.invert ? "#e8e8e8" : "#6a6d80" };
+  background-color: ${props => props.invert ? "var(--clr-offwhite)" : "var(--clr-bg-gray)" };
 
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ const Btn = styled.button`
   height: 50px;
   border-radius: 50%;
   
-  /* background-color: #6a6d80; */
+  /* background-color: var(--clr-bg-gray); */
   box-shadow: 4px 4px 5px 0px #80808082;
 
   svg {
@@ -46,8 +46,7 @@ const Btn = styled.button`
     height: 25px;
     transform: rotate(45deg);
     filter: ${props => props.invert ? "invert(16%) sepia(4%) saturate(4152%) hue-rotate(195deg) brightness(96%) contrast(86%)" : "invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg) brightness(112%) contrast(82%)" };
-    /* filter: invert(100%) sepia(27%) saturate(87%) hue-rotate(200deg)
-      brightness(112%) contrast(82%); */
+   
   }
 
   &:hover {

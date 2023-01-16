@@ -86,18 +86,18 @@ export const ButtonLoginSignUp = styled.button`
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 2.5px;
-  background-color: var(--clr-bg-light);
+  background-color: var(--clr-offwhite);
   border: none;
   border-radius: 15px;
-  box-shadow: 5px 6px 10px var(--clr-text-dark);
+  box-shadow: 5px 6px 10px var( --clr-dark);
   transition: all 0.2s ease 0s;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    background-color: var(--clr-text-dark);
-    box-shadow: 2px 3px 10px var(--clr-text-dark);
-    color: #fff;
+    background-color: var(--clr-dark);
+    box-shadow: 2px 3px 10px var(--clr-dark);
+    color: var(--clr-offwhite);
     transform: translateY(-2px);
   }
 
@@ -111,7 +111,7 @@ export const ButtonLoginSignUp = styled.button`
 export const FormOuterContainer = styled.div`
   width: 100%;
   height: 90%;
-  background: var(--clr-bg-register);
+  background: var(--clr-jungle);
   border-radius: 45px 45px 0 0;
   position: relative;
 `;

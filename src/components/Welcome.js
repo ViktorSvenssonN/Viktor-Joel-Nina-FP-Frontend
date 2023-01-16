@@ -29,7 +29,9 @@ const Login = () => {
   );
 };
 
-// Styled components // (får kolla om vi ska flytta några till global)
+export default Login;
+
+// ------------- Styled Components -------------------
 
 const ClonedInnerWrapper = styled(InnerWrapper)`
   width: 70%;
@@ -58,7 +60,6 @@ const ImgContainer = styled.img`
     height: 27vw;
     margin-bottom: 6%;
   }
-
 `;
 
 const ButtonWrapper = styled.div`
@@ -97,42 +98,40 @@ const Button = styled.button`
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 2.5px;
-  background-color: var(--clr-bg-light);
+  background-color: var(--clr-offwhite);
   border: none;
   border-radius: 15px;
-  box-shadow: 5px 6px 10px var(--clr-text-dark);
+  box-shadow: 5px 6px 10px var( --clr-dark);
   transition: all 0.2s ease 0s;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    background-color: var(--clr-text-dark);
-    box-shadow: 2px 3px 10px var(--clr-text-dark);
-    color: #fff;
+    background-color: var(--clr-dark);
+    box-shadow: 2px 3px 10px var(--clr-dark);
+    color: var(--clr-offwhite);
     transform: translateY(-2px);
   }
 `;
 
-const ButtonCleaner = styled.button`
-  width: 100%;
-  height: 100%;
-  font-size: 16px;
-  letter-spacing: 2.5px;
-  background-color: var(--clr-bg-light);
-  border: none;
-  border-radius: 45px;
-  box-shadow: 5px 6px 4px 2px rgba(62, 66, 66, 0.33);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
+// const ButtonCleaner = styled.button`
+//   width: 100%;
+//   height: 100%;
+//   font-size: 16px;
+//   letter-spacing: 2.5px;
+//   background-color: var(--clr-offwhite);
+//   border: none;
+//   border-radius: 45px;
+//   box-shadow: 5px 6px 4px 2px rgba(62, 66, 66, 0.33);
+//   transition: all 0.3s ease 0s;
+//   cursor: pointer;
+//   outline: none;
 
-  &:hover {
-    background-color: var(--clr-bg-light);
-    box-shadow: 0px 10px 15px var(--clr-pancho);
-    color: #fff;
-    transform: translateY(-2px);
-    color: var(--clr-text-dark);
-  }
-`;
-
-export default Login;
+//   &:hover {
+//     background-color: var(--clr-offwhite);
+//     box-shadow: 0px 10px 15px var(--clr-pancho);
+//     color: #fff;
+//     transform: translateY(-2px);
+//     color: var( --clr-dark);
+//   }
+// `;
