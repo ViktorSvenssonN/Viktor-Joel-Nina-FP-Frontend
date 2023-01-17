@@ -51,4 +51,6 @@ body {
   overflow: hidden;
   background-color: var(--clr-bg-gray);
   color: var(--clr-dark);
+  -webkit-text-fill-color: rgba(25, 26, 36, 1); 
+  /* -webkit-opacity: 1;  */
 }

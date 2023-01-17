@@ -33,10 +33,11 @@ export default Login;
 
 // ------------- Styled Components -------------------
 
-const ClonedInnerWrapper = styled(InnerWrapper)`
-  width: 70%;
-  margin: 0 auto;
-`;
+// används denna?
+// const ClonedInnerWrapper = styled(InnerWrapper)`
+//   width: 70%;
+//   margin: 0 auto;
+// `;
 
 const ImgParent = styled.div`
 
@@ -101,7 +102,7 @@ const Button = styled.button`
   background-color: var(--clr-offwhite);
   border: none;
   border-radius: 15px;
-  box-shadow: 5px 6px 10px var( --clr-dark);
+  box-shadow: 5px 6px 10px var(--clr-dark);
   transition: all 0.2s ease 0s;
   cursor: pointer;
   outline: none;
