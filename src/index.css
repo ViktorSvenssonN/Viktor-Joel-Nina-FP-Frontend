@@ -45,12 +45,14 @@ html {
     "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-fill-color: rgba(25, 26, 36, 1); 
+ 
 }
 
 body {
   overflow: hidden;
   background-color: var(--clr-bg-gray);
   color: var(--clr-dark);
-  -webkit-text-fill-color: rgba(25, 26, 36, 1); 
-  /* -webkit-opacity: 1;  */
+  opacity: 1;
+  
 }
