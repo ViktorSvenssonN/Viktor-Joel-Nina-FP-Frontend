@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { API_URL } from "./util";
 import {
@@ -180,6 +179,8 @@ const Register = () => {
   );
 };
 export default Register;
+
+// styled components
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;

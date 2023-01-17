@@ -24,7 +24,6 @@ import {
 import user from "reducers/user";
 import styled from "styled-components/macro";
 import ballons from "../images/ballons_120x250.png";
-/* import ballonsBig from "../images/ballons_250x500.png"; */
 import logolight from "../logo/logo_light.svg";
 import { fetchOptions } from "./util";
 
@@ -130,7 +129,7 @@ const Login = () => {
   );
 };
 
-// Styled components // (får kolla om vi ska flytta några till global)
+// Styled components 
 
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
@@ -185,14 +184,5 @@ const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
   }
 
 `;
-
-/* TODO, forgot password
-const ForgottPasswordContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 2%;
-  padding-right: 2%;
-`;
-*/
 
 export default Login;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import WithHeader from "../WithHeader";
 import { OuterWrapper } from "Globalstyles";
 import { useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components/macro";
 import backarrow from "images/icons/arrow-thin-left.svg";
 import trash from "images/icons/trash.svg";
