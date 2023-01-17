@@ -4,7 +4,7 @@ import { OuterWrapper, InnerWrapper } from "Globalstyles";
 import styled from "styled-components/macro";
 import logowelcome from "../logo/logo_welcome.svg";
 
-const Login = () => {
+const Welcome = () => {
   return (
     <OuterWrapper>
       <InnerWrapper>
@@ -28,7 +28,9 @@ const Login = () => {
   );
 };
 
-// Styled components 
+export default Welcome;
+
+// ------------- Styled Components -------------------
 
 const ImgParent = styled.div`
 
@@ -52,7 +54,6 @@ const ImgContainer = styled.img`
     height: 27vw;
     margin-bottom: 6%;
   }
-
 `;
 
 const ButtonWrapper = styled.div`
@@ -91,20 +92,22 @@ const Button = styled.button`
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 2.5px;
-  background-color: var(--clr-bg-light);
+  background-color: var(--clr-offwhite);
   border: none;
   border-radius: 15px;
-  box-shadow: 5px 6px 10px var(--clr-text-dark);
+  box-shadow: 5px 6px 10px var(--clr-dark);
   transition: all 0.2s ease 0s;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    background-color: var(--clr-text-dark);
-    box-shadow: 2px 3px 10px var(--clr-text-dark);
-    color: #fff;
+    background-color: var(--clr-dark);
+    box-shadow: 2px 3px 10px var(--clr-dark);
+    color: var(--clr-offwhite);
     transform: translateY(-2px);
   }
-`;
 
-export default Login;
+  &:visited {
+    color: var(--clr-dark);
+  }
+`;

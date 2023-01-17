@@ -3,76 +3,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Quicksand&display=swap");
 
 :root {
-  /*** Colors ***/
-  /* #696D7E dark gray
   
-  storm #A0AFBB
-  pancho #F7D5BF
-  dark #E3C0AB
-  djunglemist #BEE0D9
-  cascade #A5BAB7
-  #88ABA9 */
+  /*** Color schema ***/
+ 
+  --clr-offwhite: #e8e8e8;
+  --clr-dark: #303346;
 
-  /* kollade färger */
+  --clr-bg-gray: #6a6d80;
+
+  --clr-mint: #c0e1da;
+  --clr-jungle: #a5b9b7;
+ 
+  --clr-ballon: #F7D5BF;
+  --clr-pancho: #e3c0ab;
+  --clr-pancho-shadow: #b19f95;
+
+  --clr-powderblue: #b5c4cf;
+  --clr-storm: #a1afba;
+
+ 
+
+  /* Error message color: red
+    shadow color: gray */
 
   /* Text colors */
-  --clr-text-dark: #303346;
+  /* --clr-offwhite: #e8e8e8;
+  --clr-dark: #303346; */
 
-  /* --------------- */
 
-  --clr-jungle-mist: #b2d7ce;
-  --clr-cascade: #96aba9;
-  --clr-lightgray: #6a6d80;
-  /* andvänds denna? */
-  --clr-scarpa-flow: #545767;
-
-  --clr-darkgray: #303346;
-
-  --clr-pearl-brush: #dfd6d2;
-  --clr-pancho: #f0c8b0;
-  --clr-powderblue-light: #b5c4cf;
-
-  --clr-off-white: #e8e8e8;
-  /*** Backgrounds + MULTI use ***/
-
-  /* Används som main backgrounds färg 
-     -> backgrund till icon list vy
-     -> backgrund icon about us */
-  --clr-bg: #6a6d80;
-  --clr-bg-dark: #303346;
-
-  /* Används som main LJUS backgrunds färg.  
-    -> backgrund till input fält
-    -> backgrund till knappar 
-    -> Text färg till Header och listvy med MÖRK bakgrund */
-  --clr-bg-light: #e8e8e8;
-
-  /* Header light for tablet and desktop */
-  --clr-header-light: #b5c4cf;
-
-  /* Background register vy */
-  --clr-bg-register: #a5b9b7;
-
-  /* Backgrund Login in + About us kort */
-  --clr-bg-login: rgb(161, 175, 186);
-
-  /* Backgrund Ballong i backgrunden för Register + Login in */
-  --clr-bg-ballon: #e4bfac;
-
-  /* Create birthday header color */
-  --clr-header-create-birthday: #e3c0ab;
-
-  /* Backgrund för korten */
-  /* Grön ljus */
-  --clr-bg-green-card: #c0e1da;
-  /* Orange Ljus */
-  --clr-bg-orange-card: #f9d4c1;
-
-  /*   Använda denna färgen på alla? lägga som main färg i body = deafult färg? */
-
-  /* vet inte om vi behöver dessa ViSv 2023-01-05  */
-
-  /* **** FONTS ROOT UNDER HÄR ***** */
+  /* **** FONTS  ***** */
+  
   --font-brush: "Dancing Script", cursive;
   --font-text: "Quicksand", sans-serif;
   --font-main: "Roboto", sans-serif;
@@ -87,10 +47,14 @@ html {
     "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ 
+ 
 }
 
 body {
   overflow: hidden;
-  background-color: var(--clr-bg);
-  color: var(--clr-text-dark);
+  background-color: var(--clr-bg-gray);
+  color: var(--clr-dark);
+  opacity: 1;
+  
 }

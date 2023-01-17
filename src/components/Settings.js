@@ -105,9 +105,9 @@ const Settings = () => {
                 </ClonedLabelSubHeader>
               </DeleteAccountContainer>
               <ContainerButtonLoginSignUp>
-                <ButtonLoginSignUp type="button" onClick={onLogoutClick}>
+                <SettingButtons type="button" onClick={onLogoutClick}>
                   <StyledIcon src={logOut} />
-                </ButtonLoginSignUp>
+                </SettingButtons>
               </ContainerButtonLoginSignUp>
             </Form>
           </FormInnerContainer>
@@ -161,9 +161,9 @@ const Settings = () => {
                 </ClonedLabelSubHeader>
               </DeleteAccountContainer>
               <ContainerButtonLoginSignUp>
-                <ButtonLoginSignUp type="button" onClick={handleDeleteUser}>
+                <SettingButtons type="button" onClick={handleDeleteUser}>
                   <StyledIcon src={trash} />
-                </ButtonLoginSignUp>
+                </SettingButtons>
               </ContainerButtonLoginSignUp>
             </Form>
           </FormInnerContainer>
@@ -175,9 +175,11 @@ const Settings = () => {
 
 export default WithHeader(Settings);
 
+// ------------- Styled Components -------------------
+
 const ClonedOuterWrapper = styled(OuterWrapper)`
   flex-direction: column;
-  background: var(--clr-bg);
+  background: var(--clr-bg-gray);
   overflow: hidden;
   justify-content: unset;
 
@@ -259,7 +261,8 @@ const ClonedFormHeaderContainer = styled(FormHeaderContainer)`
 const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
   max-width: 500px;
   border-radius: 45px 45px 0px 0px;
-  background: var(--clr-bg-login);
+  background: var(--clr-storm);
+
   @media (min-width: 668px) {
     display: flex;
     flex-direction: column;
@@ -269,7 +272,8 @@ const ClonedFormLogOutOuterContainer = styled(FormOuterContainer)`
 
 const ClonedFormOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px;
-  box-shadow: 0px -1px 9px 1px var(--clr-text-dark);
+  box-shadow: 0px -1px 9px 1px var( --clr-dark);
+
   @media (min-width: 668px) {
     display: flex;
     flex-direction: column;
@@ -279,9 +283,8 @@ const ClonedFormOuterContainer = styled(FormOuterContainer)`
 
 const ClonedFormDeleteOuterContainer = styled(FormOuterContainer)`
   border-radius: 45px 45px 0px 0px;
-  background: #e3c0ab;
-  box-shadow: 0px -1px 9px 1px var(--clr-text-dark);
-
+  background: var(--clr-pancho);
+  box-shadow: 0px -1px 9px 1px var( --clr-dark);
   height: 85%;
   position: absolute;
   z-index: 4;
@@ -309,6 +312,15 @@ const DeleteAccountContainer = styled.div`
   padding-top: 4%;
 `;
 
+const SettingButtons = styled(ButtonLoginSignUp)`
+  &:hover {
+    img {
+      filter: invert(98%) sepia(74%) saturate(131%) hue-rotate(190deg)
+        brightness(118%) contrast(82%);
+    }
+  }
+`;
+
 const StyledIcon = styled.img`
   cursor: pointer;
   height: 28px;
@@ -316,10 +328,6 @@ const StyledIcon = styled.img`
   transition: 0.2s;
   filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
     brightness(94%) contrast(92%);
-  &:hover {
-    transform: scale(1.1) translateX(2px);
-    transition: 0.2s;
-  }
 `;
 
 const ConfirmPasswordContainer = styled(InputContainer)`

@@ -93,12 +93,14 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
 
 export default CreateEditContentWrapper;
 
+// ------------- Styled Components -------------------
+
 const ContentWrapper = styled.section`
   display: flex;
   flex-direction: column;
   height: 90%;
   padding: 30px;
-  background: var(--clr-bg-light);
+  background: var(--clr-offwhite);
 
   img {
     height: 100px;
@@ -117,16 +119,16 @@ const TextInput = styled.input`
   margin-top: 25px;
   width: 75%;
   font-family: inherit;
-  color: var(--clr-text-dark);
+  color: var( --clr-dark);
   padding: 0px 0px 4px;
   border: none;
   outline: none;
   font-size: 18px;
-  box-shadow: rgb(48 51 70 / 30%) 0px 1px;
+  box-shadow: 0px 1px rgb(48, 51. 70, 30%);
   background-color: transparent;
 
   &:focus {
-    box-shadow: #303346 0px 2px;
+    box-shadow: var(--clr-dark) 0px 2px;
   }
 
   &::placeholder {
@@ -154,12 +156,12 @@ const BirthDateContainer = styled.section`
   }
 
   .react-calendar__tile--now {
-    background-color: var(--clr-bg-green-card);
-    background-color: #e8e8e8;
+    background-color: var(--clr-mint);
+    background-color: var(--clr-offwhite);
   }
 
   .react-calendar__tile--active {
-    background-color: var(--clr-bg-green-card);
+    background-color: var(--clr-mint);
     color: #000;
   }
 
@@ -178,9 +180,9 @@ const NotesInput = styled.textarea`
   height: 20%;
   border: none;
   outline: none;
-  background-color: #f7d5bf;
-  box-shadow: 3px 8px 1px var(--clr-header-create-birthday);
-  color: var(--clr-text-dark);
+  background-color: var(--clr-ballon);
+  box-shadow: 3px 8px 3px var(--clr-pancho);
+  color: var( --clr-dark);
 
   @media (min-width: 668px) {
     width: 70%;

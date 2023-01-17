@@ -18,13 +18,15 @@ const Menu = ({ onMenuClick }) => {
 
 export default Menu;
 
+// ------------- Styled Components -------------------
+
 const StyledMenu = styled.section`
   box-shadow: 2px 2px 13px 0px #0000008c;
   width: 70%;
 `;
 
 const MenuTopSection = styled.section`
-  background: var(--clr-bg);
+  background: var(--clr-bg-gray);
   height: 10%;
   height: 10%;
 `;
