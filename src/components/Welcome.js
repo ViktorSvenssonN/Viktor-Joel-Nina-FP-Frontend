@@ -113,6 +113,10 @@ const Button = styled.button`
     color: var(--clr-offwhite);
     transform: translateY(-2px);
   }
+
+  &:visited {
+    color: var(--clr-dark);
+  }
 `;
 
 // const ButtonCleaner = styled.button`
