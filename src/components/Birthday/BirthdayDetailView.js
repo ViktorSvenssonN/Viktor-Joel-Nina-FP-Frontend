@@ -214,8 +214,7 @@ const TextParagraph = styled.p`
   border: none;
   outline: none;
   font-size: 18px;
-  /* ändra till liknande användande av shadow ex: box-shadow: 3px 8px 3px var(--clr-pancho); */
-  box-shadow: rgb(48 51 70 / 30%) 0px 1px;
+  box-shadow:  0px 1px rgb(48, 51, 70, 30%);
   background-color: transparent;
 
   &:focus {
@@ -232,19 +231,6 @@ const BirthDateContainer = styled.section`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
-
-  /* .react-date-picker {
-    margin-top: 10px;
-    width: 75%;
-  }
-
-  .react-date-picker__inputGroup {
-    padding-left: 5px;
-  }
-
-  .react-date-picker__inputGroup__input:invalid {
-    background: none;
-  } */
 
   @media (min-width: 668px) {
     width: 75%;

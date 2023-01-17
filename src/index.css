@@ -21,6 +21,8 @@
   --clr-powderblue: #b5c4cf;
   --clr-storm: #a1afba;
 
+ 
+
   /* Error message color: red
     shadow color: gray */
 
@@ -45,7 +47,7 @@ html {
     "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-fill-color: rgba(25, 26, 36, 1); 
+ 
  
 }
 

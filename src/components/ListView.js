@@ -1,6 +1,5 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { InnerWrapper, OuterWrapper } from "Globalstyles";
 import styled from "styled-components/macro";
 import WithHeader from "./WithHeader";
@@ -8,9 +7,6 @@ import { ListCard } from "./ListCard";
 import { AddBtn } from "./smallComponents/AddBtn";
 
 const ListView = ({ birthdays }) => {
-  // const dispatch = useDispatch();
-  // const accessToken = useSelector((store) => store.user.accessToken);
-  // const navigate = useNavigate();
 
   const bdDeleted = localStorage.getItem("deletedBirthday");
 
