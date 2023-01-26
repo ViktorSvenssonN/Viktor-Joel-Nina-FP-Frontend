@@ -5,7 +5,6 @@ import LightLogo from "logo/logo_light.svg";
 import DarkLogo from "logo/logo_dark.svg";
 import homeIcon from "../../images/iconsR/icons-05.svg";
 import settingsIcon from "../../images/icons/cog.svg";
-import logoutIcon from "../../images/icons/logout.svg";
 import Menu from "./Menu";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,8 +27,6 @@ const Header = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
-
-  // console.log(innerWidth);
 
   useEffect(() => {
     if (menuOpen) setRender(true);
