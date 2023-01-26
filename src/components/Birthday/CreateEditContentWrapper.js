@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components/macro";
+import React from "react";
 import ReminderSettingsContainer from "./ReminderSettingsContainer";
 import { formatDate } from "../util";
 import DatePicker from "react-date-picker";
+import {
+  BirthDateContainer,
+  ContentWrapper,
+  NotesInput,
+  TextInput,
+} from "./Styles";
 
 const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
-  const handleSettingsChange = (e) => {
+  const handleSettingsChange = e => {
     const setting = Number(e.target.name);
     if (e.target.checked) {
-      setBirthdayInfo((prev) => ({
+      setBirthdayInfo(prev => ({
         ...prev,
         birthdayReminderSettings: [
           ...prev.birthdayReminderSettings,
@@ -16,10 +21,10 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
         ],
       }));
     } else {
-      setBirthdayInfo((prev) => ({
+      setBirthdayInfo(prev => ({
         ...prev,
         birthdayReminderSettings: prev.birthdayReminderSettings.filter(
-          (x) => x !== setting
+          x => x !== setting
         ),
       }));
     }
@@ -30,8 +35,8 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
       <img src={icon} />
       <TextInput
         required
-        onChange={(event) =>
-          setBirthdayInfo((prev) => ({
+        onChange={event =>
+          setBirthdayInfo(prev => ({
             ...prev,
             firstName: event.target.value,
           }))
@@ -42,8 +47,8 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
       />
       <TextInput
         required
-        onChange={(event) =>
-          setBirthdayInfo((prev) => ({
+        onChange={event =>
+          setBirthdayInfo(prev => ({
             ...prev,
             lastName: event.target.value,
           }))
@@ -61,8 +66,8 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
           dayPlaceholder="day"
           format="y-MM-dd"
           maxDate={new Date()}
-          onChange={(date) =>
-            setBirthdayInfo((prev) => ({
+          onChange={date =>
+            setBirthdayInfo(prev => ({
               ...prev,
               birthDate: formatDate(date),
             }))
@@ -73,8 +78,8 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
         />
       </BirthDateContainer>
       <NotesInput
-        onChange={(event) =>
-          setBirthdayInfo((prev) => ({
+        onChange={event =>
+          setBirthdayInfo(prev => ({
             ...prev,
             otherInfo: event.target.value,
           }))
@@ -92,99 +97,3 @@ const CreateEditContentWrapper = ({ icon, birthdayInfo, setBirthdayInfo }) => {
 };
 
 export default CreateEditContentWrapper;
-
-// ------------- Styled Components -------------------
-
-const ContentWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  height: 90%;
-  padding: 30px;
-  background: var(--clr-offwhite);
-
-  img {
-    height: 100px;
-    width: 100px;
-    filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
-      brightness(94%) contrast(92%);
-  }
-
-  @media (min-width: 668px) {
-    border-radius: 0 0 50px 50px;
-    align-items: center;
-  }
-`;
-
-const TextInput = styled.input`
-  margin-top: 25px;
-  width: 75%;
-  font-family: inherit;
-  color: var( --clr-dark);
-  padding: 0px 0px 4px;
-  border: none;
-  outline: none;
-  font-size: 18px;
-  box-shadow: 0px 1px rgb(48, 51. 70, 30%);
-  background-color: transparent;
-
-  &:focus {
-    box-shadow: var(--clr-dark) 0px 2px;
-  }
-
-  &::placeholder {
-    opacity: 0.3;
-    font-family: var(--font-second);
-  }
-`;
-
-const BirthDateContainer = styled.section`
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-
-  .react-date-picker {
-    margin-top: 10px;
-    width: 75%;
-  }
-
-  .react-date-picker__inputGroup {
-    padding-left: 5px;
-  }
-
-  .react-date-picker__inputGroup__input:invalid {
-    background: none;
-  }
-
-  .react-calendar__tile--now {
-    background-color: var(--clr-mint);
-    background-color: var(--clr-offwhite);
-  }
-
-  .react-calendar__tile--active {
-    background-color: var(--clr-mint);
-    color: #000;
-  }
-
-  @media (min-width: 668px) {
-    width: 75%;
-  }
-`;
-
-const NotesInput = styled.textarea`
-  resize: none;
-  font-size: 16px;
-  font-style: italic;
-  margin-top: 30px;
-  padding: 15px;
-  border-radius: 15px;
-  height: 20%;
-  border: none;
-  outline: none;
-  background-color: var(--clr-ballon);
-  box-shadow: 3px 8px 3px var(--clr-pancho);
-  color: var( --clr-dark);
-
-  @media (min-width: 668px) {
-    width: 70%;
-  }
-`;

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import WithHeader from "../WithHeader";
-import { OuterWrapper } from "Globalstyles";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components/macro";
 import backarrow from "images/icons/arrow-thin-left.svg";
 import trash from "images/icons/trash.svg";
 import editPencil from "images/icons/edit-pencil.svg";
@@ -11,15 +9,28 @@ import { fetchOptions, formatDate, randomInt } from "../util";
 import { API_URL } from "../util";
 import ReminderSettingsContainer from "./ReminderSettingsContainer";
 import Loading from "components/Loading";
+import {
+  BirthdayHeader,
+  BirthdayRightsideicons,
+  ClonedOuterWrapper,
+  FormWrapper,
+  HeaderButton,
+  HeaderText,
+  ContentWrapper,
+  TextParagraph,
+  BirthDateContainer,
+  DateShower,
+  NotesContainer,
+} from "./Styles";
 
 const BirthdayDetailView = () => {
-  const icons = useSelector((store) => store.ui.icons);
+  const icons = useSelector(store => store.ui.icons);
   const [icon, setIcon] = useState(null);
   const [birthday, setBirthday] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const params = useParams();
-  const accessToken = useSelector((store) => store.user.accessToken);
+  const accessToken = useSelector(store => store.user.accessToken);
   const navigate = useNavigate();
 
   const { firstName, lastName, otherInfo } = birthday;
@@ -38,9 +49,9 @@ const BirthdayDetailView = () => {
 
   const fetchBirthday = () => {
     fetch(API_URL(`birthday/${id}`), fetchOptions("GET", accessToken))
-      .then((res) => res.json())
-      .then((data) => setBirthday(data))
-      .catch((error) => console.error(error))
+      .then(res => res.json())
+      .then(data => setBirthday(data))
+      .catch(error => console.error(error))
       .finally(() => setLoading(false));
   };
 
@@ -49,10 +60,10 @@ const BirthdayDetailView = () => {
       API_URL(`birthday`),
       fetchOptions("DELETE", accessToken, JSON.stringify({ id }))
     )
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(() => localStorage.setItem("deletedBirthday", "true"))
       .then(() => navigate("/home"))
-      .catch((error) => console.error(error));
+      .catch(error => console.error(error));
   };
 
   useEffect(() => {
@@ -80,8 +91,8 @@ const BirthdayDetailView = () => {
 
   return (
     <ClonedOuterWrapper>
-      <Wrapper>
-        <BirthdayHeader>
+      <FormWrapper>
+        <BirthdayHeader view={true}>
           <HeaderButton type="button" onClick={onBackClick}>
             <img src={backarrow} alt="back" />
           </HeaderButton>
@@ -103,163 +114,18 @@ const BirthdayDetailView = () => {
             <p>Birthdate</p>
             <DateShower>{formatDate(new Date(birthday.birthDate))}</DateShower>
           </BirthDateContainer>
-          <NotesInput>
+          <NotesContainer>
             Gift ideas:
             <br />- {otherInfo}
-          </NotesInput>
+          </NotesContainer>
           <ReminderSettingsContainer
             birthdayReminderSettings={birthday.birthdayReminderSettings}
             handleSettingsChange={() => null}
           />
         </ContentWrapper>
-      </Wrapper>
+      </FormWrapper>
     </ClonedOuterWrapper>
   );
 };
 
 export default WithHeader(BirthdayDetailView);
-
-// ------------- Styled Components -------------------
-
-const ClonedOuterWrapper = styled(OuterWrapper)`
-  align-items: flex-end;
-
-  @media (min-width: 668px) {
-    align-items: center;
-  }
-`;
-
-const Wrapper = styled.section`
-  max-width: 700px;
-  width: 100%;
-  height: 95%;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 668px) {
-    height: 80%;
-  }
-  @media (min-width: 1024px) {
-    max-width: 800px;
-  }
-`;
-
-const BirthdayHeader = styled.header`
-  font-family: var(--font-second);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 10%;
-  border-radius: 50px 50px 0 0;
-  background: var(--clr-jungle);
-  color: var( --clr-dark);
-
-  img {
-    cursor: pointer;
-    height: 28px;
-    width: 32px;
-    transition: 0.2s;
-    filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
-      brightness(94%) contrast(92%);
-    &:hover {
-      transform: scale(1.1) translateX(2px);
-      transition: 0.2s;
-    }
-  }
-`;
-
-const BirthdayRightsideicons = styled.div`
-  width: 19%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const HeaderText = styled.p`
-  font-family: var(--font-second);
-`;
-
-const HeaderButton = styled.button`
-  background: none;
-  border: none;
-`;
-
-const ContentWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  height: 90%;
-  padding: 30px;
-  background: var(--clr-offwhite);
-
-  img {
-    height: 100px;
-    width: 100px;
-    filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
-      brightness(94%) contrast(92%);
-  }
-
-  @media (min-width: 668px) {
-    border-radius: 0 0 50px 50px;
-    align-items: center;
-  }
-`;
-
-const TextParagraph = styled.p`
-  line-height: normal;
-  margin-top: 25px;
-  width: 75%;
-  font-family: inherit;
-  color: var( --clr-dark);
-  padding: 0px 0px 4px;
-  border: none;
-  outline: none;
-  font-size: 18px;
-  box-shadow:  0px 1px rgb(48, 51, 70, 30%);
-  background-color: transparent;
-
-  &:focus {
-    box-shadow: var(--clr-dark) 0px 2px;
-  }
-
-  &::placeholder {
-    opacity: 0.3;
-    font-family: var(--font-second);
-  }
-`;
-
-const BirthDateContainer = styled.section`
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 668px) {
-    width: 75%;
-  }
-`;
-
-const NotesInput = styled.div`
-  font-size: 16px;
-  font-style: italic;
-  margin-top: 30px;
-  padding: 15px;
-  border-radius: 15px;
-  height: 20%;
-  border: none;
-  outline: none;
-  background-color: var(--clr-mint);
-  box-shadow: 3px 8px 3px var(--clr-jungle);
-  color: var( --clr-dark);
-
-  @media (min-width: 668px) {
-    width: 70%;
-  }
-`;
-
-const DateShower = styled.div`
-  width: 75%;
-  display: flex;
-  padding-left: 5px;
-  height: 29px;
-  margin-top: 10px;
-  align-items: center;
-  border: thin solid grey;
-`;

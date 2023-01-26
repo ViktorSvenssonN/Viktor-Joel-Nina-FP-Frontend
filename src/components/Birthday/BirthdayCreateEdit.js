@@ -1,23 +1,28 @@
-import { OuterWrapper } from "Globalstyles";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components/macro";
 import WithHeader from "../WithHeader";
 import closeIcon from "images/icons/close.svg";
 import checkmarkIcon from "images/icons/checkmark.svg";
 import { fetchOptions, randomInt } from "../util";
 import CreateEditContentWrapper from "./CreateEditContentWrapper";
 import { API_URL } from "../util";
+import {
+  ClonedOuterWrapper,
+  FormWrapper,
+  BirthdayHeader,
+  HeaderButton,
+  HeaderText,
+} from "./Styles";
 
 const BirthdayCreateEdit = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const params = useParams();
 
-  const accessToken = useSelector((store) => store.user.accessToken);
-  const userId = useSelector((store) => store.user.id);
-  const icons = useSelector((store) => store.ui.icons);
+  const accessToken = useSelector(store => store.user.accessToken);
+  const userId = useSelector(store => store.user.id);
+  const icons = useSelector(store => store.ui.icons);
   const editMode = location.pathname.includes("edit");
 
   const [icon, setIcon] = useState(null);
@@ -42,9 +47,9 @@ const BirthdayCreateEdit = () => {
 
   const fetchBirthday = () => {
     fetch(API_URL(`birthday/${id}`), fetchOptions("GET", accessToken))
-      .then((res) => res.json())
-      .then((data) => setBirthdayInfo(data))
-      .catch((error) => console.error(error));
+      .then(res => res.json())
+      .then(data => setBirthdayInfo(data))
+      .catch(error => console.error(error));
   };
 
   useEffect(() => {
@@ -82,17 +87,17 @@ const BirthdayCreateEdit = () => {
         })
       )
     )
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(() =>
         alert(
           `Successfully ${editMode ? "updated" : "created"} birthday reminder!`
         )
       )
       .then(() => navigate(`${editMode ? `/view/${id}` : "/home"}`))
-      .catch((error) => console.error(error));
+      .catch(error => console.error(error));
   };
 
-  const onFormSubmit = (e) => {
+  const onFormSubmit = e => {
     e.preventDefault();
     postBirthday();
   };
@@ -120,61 +125,3 @@ const BirthdayCreateEdit = () => {
 };
 
 export default WithHeader(BirthdayCreateEdit);
-
-// ------------- Styled Components -------------------
-
-const ClonedOuterWrapper = styled(OuterWrapper)`
-  align-items: flex-end;
-
-  @media (min-width: 668px) {
-    align-items: center;
-  }
-`;
-
-const FormWrapper = styled.form`
-  max-width: 700px;
-  width: 100%;
-  height: 95%;
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 668px) {
-    height: 80%;
-  }
-  @media (min-width: 1024px) {
-    max-width: 800px;
-  }
-`;
-
-const BirthdayHeader = styled.header`
-  font-family: var(--font-second);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 10%;
-  border-radius: 50px 50px 0 0;
-  background: var(--clr-pancho);
-  color: var( --clr-dark);
-
-  img {
-    cursor: pointer;
-    height: 32px;
-    width: 32px;
-    transition: 0.2s;
-    filter: invert(19%) sepia(8%) saturate(1926%) hue-rotate(195deg)
-      brightness(94%) contrast(92%);
-    &:hover {
-      transform: scale(1.1) translateX(2px);
-      transition: 0.2s;
-    }
-  }
-`;
-
-const HeaderText = styled.p`
-  font-family: var(--font-second);
-`;
-
-const HeaderButton = styled.button`
-  background: none;
-  border: none;
-`;
